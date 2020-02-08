@@ -1,12 +1,10 @@
-@import "../../assets/scss/main.scss";
+@import "../../assets/scss/utils/vars.scss";
 
-.menu {
+.menu-icon {
 	position: absolute;
+	z-index: 20;
 	top: 40px;
 	right: 40px;
-}
-.menu-icon {
-	position: relative;
 	height: 40px;
 	width: 40px;
 	display: flex;
@@ -14,55 +12,19 @@
 	align-items: center;
 	overflow: hidden;
 	cursor: pointer;
-
 	
 	&__line {
-		width: 30px;
-		border-top: 1px solid #fff;
-		border-bottom: 1px solid #fff;
+		width: 40px;
+		border-top: 1px solid $default-color;
+		border-bottom: 1px solid $default-color;
 		transition: all .4s ease;
+		transform: translateX(25%);
 	}
-
-	&__cross-top{
-		position: absolute;
-		height: 2px;
-		width: 55px;
-		top: 0;
-		left: 100%;
-		transform: rotate(-45deg);
-		transform-origin: 0;
-		transition: all .4s ease;
-		display: flex;
-		justify-content: space-between;
-
-		&-left {
-			width: 10px;
-			border: 1px solid red;
-		}
-		&-right {
-			width: 25px;
-			border: 1px solid red;
-		}
-	}
-
-	&__cross-bottom {
-		position: absolute;
-		// height: 2px;
-		width: 55px;
-		bottom: 0;
-		left: 100%;
-		transform: rotate(45deg);
-		transform-origin: 0;
-		transition: all .4s ease;
-		border: 1px solid red;
-	}
-
-
 
 	&:before {
 		content: '';
 		height: 2px; 
-		background-color: #fff;
+		background-color: $default-color;
 		width: 40px;
 		position: absolute;
 		top: 7px;
@@ -72,26 +34,97 @@
 	&:after {
 		content: '';
 		height: 2px; 
-		background-color: #fff;
-		width: 20px;
+		background-color: $default-color;
+		width: 40px;
 		position: absolute;
 		bottom: 7px;
 		transition: all .4s ease;
+		transform: translateX(50%);
 	}
 	&:hover {
 		.menu-icon__line {
-			width: 40px;
+			transform: translateX(0);
+			transition: all .4s ease;
 		}
 		&:after {
-			width: 40px;
+			transform: translateX(0);
+			transition: all .4s ease;
 		}
-		.menu-icon__cross-top {
-			transform: rotate(-45deg) translateX(-100%);
-			
+		
+	}
+}
+.menu-icon__cross-container {
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: 40px;
+	height: 40px;
+	transform: rotate(45deg);
+	overflow: hidden;
+}
+
+.menu-icon__cross-top{
+	position: absolute;
+	width: 2px;
+	height: 90px;
+	bottom: 105%;
+	left: 48%;
+	transition: all .4s ease;
+
+	&-left {
+		width: 2px;
+		height: 40px;
+		margin-bottom: 10px;
+		background-color: $default-color;
+	}
+	&-right {
+		width: 2px;
+		height: 40px;
+		background-color: $default-color;
+	}
+}
+
+.menu-icon__cross-bottom {
+	position: absolute;
+	height: 2px;
+	width: 40px;
+	bottom: 48%;
+	left: 105%;
+	transform-origin: 0;
+	transition: all .4s ease;
+	background-color: $default-color;
+}
+
+.menu-icon--cross {
+	.menu-icon__line {
+		transform: translateX(-200%);
+		transition: all .4s ease .1s;
+	}
+	&:before {
+		transform: translateX(-200%);
+		transition: all .4s ease;
+	}
+	&:after {
+		transform: translateX(-200%);
+		transition: all .4s ease .2s;
+	}
+	.menu-icon__cross-top {
+		transition: all .4s ease .4s;
+		bottom: -73%;
+	}
+	.menu-icon__cross-bottom {
+		left: 0%;
+		transition: all .4s ease .6s;
+	}
+	&:hover {
+		.menu-icon__line {
+			transform: translateX(-200%);
+			transition: all .4s ease .1s;
 		}
-		.menu-icon__cross-bottom {
-			transform: rotate(45deg) translateX(-100%);
-			
+		
+		&:after {
+			transform: translateX(-200%);
+			transition: all .4s ease .2s;
 		}
 	}
 }
