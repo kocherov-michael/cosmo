@@ -57,10 +57,11 @@
 
 }
 .center-text__title {
-	font-size: 160px;
+	font-size: 210px;
 	text-transform: uppercase;
 	font-family: $secondaryFont;
-	// font-weight: bold;
+	letter-spacing: 25px;
+	font-weight: bold;
 	// background-color: red;
 	text-align: center;
 }
@@ -74,10 +75,11 @@
 }
 .center-text__subtitle-item {
 	font-family: $mainFont;
-	font-size: 24px;
+	font-size: 30px;
 	font-weight: bold;
 	text-transform: uppercase;
-	letter-spacing: 7px;
+	letter-spacing: 10px;
+	line-height: 0.87;
 
 	&:not(:last-child) {
 		margin-right: 40px;
@@ -97,13 +99,13 @@
 }
 .menu {
 	position: absolute;
-	top: 30px;
-	right: 30px;
+	top: 40px;
+	right: 40px;
 }
 .menu-icon {
 	position: relative;
-	height: 20px;
-	width: 30px;
+	height: 40px;
+	width: 40px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -112,36 +114,81 @@
 
 	
 	&__line {
-		width: 20px;
+		width: 30px;
 		border-top: 1px solid #fff;
-		// border-bottom: 1px solid #fff;
+		border-bottom: 1px solid #fff;
 		transition: all .4s ease;
 	}
+
+	&__cross-top{
+		position: absolute;
+		height: 2px;
+		width: 55px;
+		top: 0;
+		left: 100%;
+		transform: rotate(-45deg);
+		transform-origin: 0;
+		transition: all .4s ease;
+		display: flex;
+		justify-content: space-between;
+
+		&-left {
+			width: 10px;
+			border: 1px solid red;
+		}
+		&-right {
+			width: 25px;
+			border: 1px solid red;
+		}
+	}
+
+	&__cross-bottom {
+		position: absolute;
+		// height: 2px;
+		width: 55px;
+		bottom: 0;
+		left: 100%;
+		transform: rotate(45deg);
+		transform-origin: 0;
+		transition: all .4s ease;
+		border: 1px solid red;
+	}
+
+
+
 	&:before {
 		content: '';
-		height: 1px; 
+		height: 2px; 
 		background-color: #fff;
-		width: 30px;
+		width: 40px;
 		position: absolute;
-		top: 1px;
+		top: 7px;
 		transition: all .4s ease;
 	}
 	
 	&:after {
 		content: '';
-		height: 1px; 
+		height: 2px; 
 		background-color: #fff;
-		width: 12px;
+		width: 20px;
 		position: absolute;
-		bottom: 0;
+		bottom: 7px;
 		transition: all .4s ease;
 	}
 	&:hover {
 		.menu-icon__line {
-			width: 30px;
+			width: 40px;
 		}
 		&:after {
-			width: 30px;
+			width: 40px;
+		}
+		.menu-icon__cross-top {
+			transform: rotate(-45deg) translateX(-100%);
+			
+		}
+		.menu-icon__cross-bottom {
+			transform: rotate(45deg) translateX(-100%);
+			
 		}
 	}
 }
