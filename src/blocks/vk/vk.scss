@@ -1,0 +1,18 @@
+@import "../../assets/scss/main.scss";
+
+.vk {
+	position: fixed;
+	bottom: 40px;
+	left: 40px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	
+	&__path {
+		transition: all .4s ease;
+	}
+
+	&:hover &__path {
+		fill: $primary-color;
+	}
+}

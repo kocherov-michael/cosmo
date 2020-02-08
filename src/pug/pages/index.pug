@@ -5,23 +5,12 @@ block variables
 
 block content
 	.canvas
-	 
-	
 	include ../includes/_vertical-lines.pug
 	include ../includes/_number-column.pug
 	.container 
-		.center-text
-			.center-text__title Михаил Кочеров
-			.center-text__subtitle
-				.center-text__subtitle-item.center-text__subtitle-item_orange html
-				.center-text__subtitle-item.center-text__subtitle-item_blue css
-				.center-text__subtitle-item.center-text__subtitle-item_yellow javascript
-		.vk
-			//- img.vk__icon(src=require('../../assets/img/vk.png') alt="logo")
-		.menu
-			.menu-icon(data-menu-icon)
-				.menu-icon__line
-				.menu-icon__cross-top
-					.menu-icon__cross-top-left
-					.menu-icon__cross-top-right
-				.menu-icon__cross-bottom
+		include ../../blocks/centerText/centerText.pug
+		include ../../blocks/logo/logo.pug
+		include ../../blocks/vk/vk.pug
+		include ../../blocks/git/git.pug
+		include ../../blocks/menuIcon/menuIcon.pug
+		
