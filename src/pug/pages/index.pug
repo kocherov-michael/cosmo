@@ -1,0 +1,23 @@
+extends ../layout/page.pug
+
+block variables
+	- var title = 'Главная страница';
+
+block content
+	.canvas
+	 
+	
+	include ../includes/_vertical-lines.pug
+	include ../includes/_number-column.pug
+	.container 
+		.center-text
+			.center-text__title Михаил Кочеров
+			.center-text__subtitle
+				.center-text__subtitle-item.center-text__subtitle-item_orange html
+				.center-text__subtitle-item.center-text__subtitle-item_blue css
+				.center-text__subtitle-item.center-text__subtitle-item_yellow javascript
+		.vk
+			//- img.vk__icon(src=require('../../assets/img/vk.png') alt="logo")
+		.menu
+			.menu-icon(data-menu-icon)
+				.menu-icon__line
