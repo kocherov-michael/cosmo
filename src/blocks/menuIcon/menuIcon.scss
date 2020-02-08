@@ -66,18 +66,18 @@
 .menu-icon__cross-top{
 	position: absolute;
 	width: 2px;
-	height: 90px;
+	height: 140px;
 	bottom: 105%;
 	left: 48%;
 	transition: all .4s ease;
 
-	&-left {
+	&-first {
 		width: 2px;
 		height: 40px;
 		margin-bottom: 10px;
 		background-color: $default-color;
 	}
-	&-right {
+	&-last {
 		width: 2px;
 		height: 40px;
 		background-color: $default-color;
@@ -86,13 +86,24 @@
 
 .menu-icon__cross-bottom {
 	position: absolute;
-	height: 2px;
-	width: 40px;
+	width: 100px;
 	bottom: 48%;
 	left: 105%;
 	transform-origin: 0;
 	transition: all .4s ease;
-	background-color: $default-color;
+	display: flex;
+
+	&-first {
+		width: 45px;
+		height: 2px;
+		margin-right: 10px;
+		background-color: transparent;
+	}
+	&-last {
+		width: 45px;
+		height: 2px;
+		background-color: $default-color;
+	}
 }
 
 .menu-icon--cross {
@@ -113,8 +124,11 @@
 		bottom: -73%;
 	}
 	.menu-icon__cross-bottom {
-		left: 0%;
-		transition: all .4s ease .6s;
+		left: -144%;
+		transition: all 1s ease .4s;
+	}
+	.menu-icon__cross-bottom-first {
+		background-color: $default-color;
 	}
 	&:hover {
 		.menu-icon__line {
@@ -126,5 +140,26 @@
 			transform: translateX(-200%);
 			transition: all .4s ease .2s;
 		}
+	}
+}
+
+@keyframes slide {
+  0% {transform:translateY(0);}
+	100%{transform:translateY(35%);}
+}
+
+@keyframes cross-slide {
+  0% {transform:translateX(0);}
+	100%{transform:translateX(54%);}
+}
+
+.menu-icon--animation:hover {
+	.menu-icon__cross-top {
+		animation: slide .4s 1 ease-in;
+		animation-direction: reverse;
+	}
+	
+	.menu-icon__cross-bottom {
+		animation: cross-slide .6s 1 ease-out;
 	}
 }
