@@ -12,20 +12,14 @@
 	}
 
 	.about {
-		// position: absolute;
-		// top: 0;
-		// left: 0;
-		// bottom: 0;
-		// right: 0;
 		display: flex;
 		height: 100vh;
-		// background-color: blue;
+		border: 1px solid yellow;
 	}
 	
 	
 	
 	.about__face {
-		// background-color: yellow;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -34,43 +28,52 @@
 		height: 100%;
 		flex-basis: 50%;
 		flex-grow: 1;
-		// background-image: url();
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		opacity: 0;
+		overflow: hidden;
+
+		opacity: .2;
+		
+		&-img {
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transform: translateX(90%);
+		}
 	}
 }
 
 .about__container {
-	// background-color: purple;
 	position: relative;
 	display: flex;
-	// align-items: center;
-	// align-items: flex-end;
-	// justify-content: center;
+	flex-direction: column;
 	height: 100%;
-	// align-content: center;
-	// flex-wrap: wrap-reverse;
+	flex: 0 0 50%;
+	border: 1px solid blue;
+	justify-content: flex-end;
 }
 
 .about__info {
-	// height: 270px;
-	// background-color: grey;
-	align-self: center;
-	// background-color: transparent;
+	// align-self: center;
 	flex: 0 0 50%;
 	padding-right: 25px;
+	border: 1px solid green;
 
   line-height: 1.75;
 	color: $default-color;
+	overflow: hidden;
 	
 	p {
 		font-family: $mainFont;
 		font-size: 16px;
 		font-weight: 300;
 		padding-top: 20px;
+		transform: translateX(-70%);
+		opacity: .2;
 	}
+}
+.about__button {
+	border: 1px solid red;
+	flex: 0 0 20%;
 }
 
 .about__list {
