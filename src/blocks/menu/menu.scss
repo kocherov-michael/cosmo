@@ -81,3 +81,21 @@
 	bottom: 0;
 	opacity: 1;
 }
+.hidden{
+	visibility: hidden;
+}
+
+.menu-moving-text {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 30;
+	display: inline-block;
+	color: $default-color;
+	font-family: $secondaryFont;
+	font-size: 100px;
+	font-weight: bold;
+	line-height: 1.8;
+	letter-spacing: 8px;
+	transition: all .8s ease;
+}
