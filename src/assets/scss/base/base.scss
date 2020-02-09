@@ -1,6 +1,10 @@
 * {
 	box-sizing: border-box;
 }
+body {
+	padding: 0;
+	margin: 0;
+}
 .canvas {
 	background-color: #232323;
 	width: 100vw;
@@ -14,6 +18,8 @@
 }
 .container {
 	color:#fff;
+	width: 833px;
+	margin: 0 auto;
 }
 
 .number-column {

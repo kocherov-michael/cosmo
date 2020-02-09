@@ -10,8 +10,8 @@
 	background-color: $primary-color;
 	display: flex;
 	align-items: center;
-	padding-left: 270px;
-	padding-right: 270px;
+	// padding-left: 270px;
+	// padding-right: 270px;
 	transition: all .8s ease;
 	opacity: 0;
 	overflow: hidden;
@@ -19,7 +19,7 @@
 
 .menu__container {
 	margin: 0 auto;
-	width: 1280px;
+	width: 833px;
 	display: flex;
 	flex-direction: column;
 }
