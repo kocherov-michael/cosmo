@@ -18,7 +18,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 		mainContainerElement.classList.add('hide-icons')
 		// получаем дата-атрибут страницы, на которую переходим
 		const openPageClass = menuListElement.getAttribute(startDataSelector)
-		console.log(openPageClass)
+		// console.log(openPageClass)
 
 		const targetPageElement = document.querySelector(`[${openPageClass}]`)
 

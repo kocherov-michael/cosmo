@@ -5,14 +5,10 @@
 		display: none;
 	}
 	
-
 	.about {
 		display: flex;
 		position: static;
 	}
-	
-	
-	
 	
 }
 .about {
@@ -79,6 +75,9 @@
 		transform: translateX(-100%);
 		opacity: 0;
 	}
+}
+.about__button.about__button--overflow-visible {
+	overflow: visible;
 }
 
 .about__list {

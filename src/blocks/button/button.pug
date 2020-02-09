@@ -1,6 +1,7 @@
-mixin button(text, data, link, arrowDirection, small)
+mixin button(text, link, arrowDirection, small)
 	if small
-		a.button.button--small(href=link)
+		a.button.button--small(href=link)&attributes(attributes)
+			.button__border
 			.button__container
 				.button__text #{text}
 				if arrowDirection === 'right'
@@ -12,7 +13,8 @@ mixin button(text, data, link, arrowDirection, small)
 						svg.button__arrow-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
 							path.button__arrow-path(fill="#FFF" fill-rule="evenodd" d="M34.751 21.545H0v-3.09h34.751l-9.224-9.27L27.702 7 39.55 18.908c.3.301.45.696.45 1.092 0 .396-.15.791-.45 1.092L27.702 33l-2.175-2.185 9.224-9.27z")
 	else
-		a.button(href=link)
+		a.button(href=link)&attributes(attributes)
+			.button__border
 			.button__container
 				.button__text #{text}
 				if arrowDirection === 'right'
