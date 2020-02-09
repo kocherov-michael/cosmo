@@ -1,24 +1,27 @@
-mixin smallLink(text, data)
-	.small-link
-		span.small-link__text #{text}
-		svg.small-link__svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 13")
-			path(fill="#FFF" fill-rule="nonzero" d="M11.668 12.621L.031 7.488V5.812L11.668 0v2.813L3.652 6.527l8.016 3.293v2.801zm42-2.8l8.016-3.294-8.016-3.715V0l11.637 5.813v1.675l-11.637 5.133v-2.8z")
+mixin button(text, data, link, arrowDirection, small)
+	if small
+		a.button.button--small(href=link)
+			.button__container
+				.button__text #{text}
+				if arrowDirection === 'right'
+					.button__arrow
+						svg.button__arrow-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
+							path.button__arrow-path(fill="#FFF" fill-rule="evenodd" d="M34.751 21.545H0v-3.09h34.751l-9.224-9.27L27.702 7 39.55 18.908c.3.301.45.696.45 1.092 0 .396-.15.791-.45 1.092L27.702 33l-2.175-2.185 9.224-9.27z")
+				if arrowDirection === 'down'
+					.button__arrow.button__arrow--down
+						svg.button__arrow-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
+							path.button__arrow-path(fill="#FFF" fill-rule="evenodd" d="M34.751 21.545H0v-3.09h34.751l-9.224-9.27L27.702 7 39.55 18.908c.3.301.45.696.45 1.092 0 .396-.15.791-.45 1.092L27.702 33l-2.175-2.185 9.224-9.27z")
+	else
+		a.button(href=link)
+			.button__container
+				.button__text #{text}
+				if arrowDirection === 'right'
+					.button__arrow
+						svg.button__arrow-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
+							path.button__arrow-path(fill="#FFF" fill-rule="evenodd" d="M34.751 21.545H0v-3.09h34.751l-9.224-9.27L27.702 7 39.55 18.908c.3.301.45.696.45 1.092 0 .396-.15.791-.45 1.092L27.702 33l-2.175-2.185 9.224-9.27z")
+				if arrowDirection === 'down'
+					.button__arrow.button__arrow--down
+						svg.button__arrow-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
+							path.button__arrow-path(fill="#FFF" fill-rule="evenodd" d="M34.751 21.545H0v-3.09h34.751l-9.224-9.27L27.702 7 39.55 18.908c.3.301.45.696.45 1.092 0 .396-.15.791-.45 1.092L27.702 33l-2.175-2.185 9.224-9.27z")
+			
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//- mixin button-primary(text, link, small)
-//-   if small
-//-     a.button.button-primary.button-primary--small(href=link)&attributes(attributes) #{text}
-//-   else
-//-     a.button.button-primary(href=link)&attributes(attributes) #{text}
