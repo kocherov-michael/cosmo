@@ -14,7 +14,7 @@
 	.about {
 		display: flex;
 		height: 100vh;
-		border: 1px solid yellow;
+		// border: 1px solid yellow;
 	}
 	
 	
@@ -48,15 +48,32 @@
 	flex-direction: column;
 	height: 100%;
 	flex: 0 0 50%;
-	border: 1px solid blue;
+	// border: 1px solid blue;
 	justify-content: flex-end;
+}
+
+.about__header {
+	// border: 1px solid yellow;
+	flex: 0 0 30%;
+	display: flex;
+	align-items: center;
+
+	span {
+		display: inline-block;
+		color: $default-color;
+		font-family: $secondaryFont;
+		font-size: 100px;
+		font-weight: bold;
+		line-height: 1.8;
+		letter-spacing: 8px;
+	}
 }
 
 .about__info {
 	// align-self: center;
-	flex: 0 0 50%;
+	flex: 0 0 48%;
 	padding-right: 25px;
-	border: 1px solid green;
+	// border: 1px solid green;
 
   line-height: 1.75;
 	color: $default-color;
@@ -72,8 +89,8 @@
 	}
 }
 .about__button {
-	border: 1px solid red;
-	flex: 0 0 20%;
+	// border: 1px solid red;
+	flex: 0 0 22%;
 	width: 300px;
 }
 
