@@ -95,19 +95,26 @@
 	cursor: pointer;
 	transition: all .4s ease;
 
-	&:before {
+	&:before, &:after {
 		display: block;
 		content: "";
 		background-image: url("/assets/img/icons/small-brackets.png");
-		background-position: center;
 		background-size: cover;
 		position: absolute;
-		width: 66px;
+		width: 13px;
 		height: 13px;
 		top: 34px;
-		left: -18px;
 		transition: all .4s ease;
 		opacity: 0;
+	}
+	&:before {
+		background-position: left;
+		left: -13px;
+	}
+
+	&:after {
+		background-position: right;
+		right: -9px;
 	}
 	
 	&:hover {
@@ -115,7 +122,12 @@
 		
 		&:before {
 			opacity: 1;
-
+			left: -18px;
 		}
+		&:after {
+			right: -14px;
+			opacity: 1;
+		}
+
 	}
 }
