@@ -125,10 +125,11 @@
 	}
 	.menu-icon__cross-bottom {
 		left: -144%;
-		transition: all 1s ease .4s;
+		transition: all 1s ease;
 	}
 	.menu-icon__cross-bottom-first {
-		background-color: $default-color;
+		background-color: transparent;
+		
 	}
 	&:hover {
 		.menu-icon__line {
@@ -161,5 +162,9 @@
 	
 	.menu-icon__cross-bottom {
 		animation: cross-slide .6s 1 ease-out;
+	}
+
+	.menu-icon__cross-bottom-first {
+		background-color: $default-color;
 	}
 }
