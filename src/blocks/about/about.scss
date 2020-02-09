@@ -50,10 +50,8 @@
 }
 
 .about__info {
-	// align-self: center;
 	flex: 0 0 48%;
-	padding-right: 25px;
-	// border: 1px solid green;
+	padding-right: 60px;
 
   line-height: 1.75;
 	color: $default-color;
@@ -64,19 +62,20 @@
 		font-size: 16px;
 		font-weight: 300;
 		padding-top: 20px;
-		transition: all 1s ease, opacity 2s ease;
+		transition: all .8s ease, opacity 1.5s ease;
 		transform: translateX(-100%);
 		opacity: 0;
 	}
 }
 .about__button {
-	// border: 1px solid red;
 	flex: 0 0 22%;
-	width: 300px;
 	overflow: hidden;
-
+	
 	&-wrapper {
-		transition: all 1s ease;
+		padding-top: 20px;
+		height: 100px;
+		width: 66.66%;
+		transition: all .8s ease;
 		transform: translateX(-100%);
 		opacity: 0;
 	}
@@ -103,13 +102,13 @@
 	position: relative;
 	cursor: pointer;
 	transform: translateX(-1000%);
-	transition: opacity .4s ease, transform 1s ease .3s;
+	transition: opacity .4s ease, transform .8s ease .1s;
 	
 	&--delay-1 {
-		transition: opacity .4s ease, transform 1s ease .5s;
+		transition: opacity .4s ease, transform .8s ease .2s;
 	}
 	&--delay-2 {
-		transition: opacity .4s ease, transform 1s ease .7s;
+		transition: opacity .4s ease, transform .8s ease .3s;
 	}
 
 	&:before, &:after {
@@ -155,7 +154,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		transform: translateX(100%);
-		transition: all 1s ease;
+		transition: all .8s ease;
 	}
 }
 
