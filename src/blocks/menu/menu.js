@@ -1,23 +1,39 @@
 import './menu.scss'
 import animateMenuIcon from '../menuIcon/menuIcon'
+// import showAboutPage from '../about/about'
 
-moveElement('[data-menu-about]', '[data-about-header]')
-moveElement('[data-menu-portfolio]', '[data-about-header]')
-moveElement('[data-menu-contacts]', '[data-about-header]')
+moveElement('data-menu-about', 'data-about-header')
+moveElement('data-menu-portfolio', 'data-about-header')
+moveElement('data-menu-contacts', 'data-about-header')
 
-function moveElement (startSelector, finishSelector) {
-	const menuListElement = document.querySelector(startSelector)
-	const headerTextElement = document.querySelector(finishSelector)
-
-
+function moveElement (startDataSelector, finishDataSelector) {
+	const menuListElement = document.querySelector(`[${startDataSelector}]`)
+	const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
+	const mainContainerElement = document.querySelector('[data-main-container]')
+	const centerTextElement = document.querySelector('[data-center-text]')
+	
+	// слушаем нажатие на элемент списка меню
 	menuListElement.addEventListener('click', function(event){
+		// скываем социальные иконки 
+		mainContainerElement.classList.add('hide-icons')
+		// получаем дата-атрибут страницы, на которую переходим
+		const openPageClass = menuListElement.getAttribute(startDataSelector)
+		console.log(openPageClass)
+
+		const targetPageElement = document.querySelector(`[${openPageClass}]`)
+
+		// mainContainerElement.classList.toggle('about-me')
+
+		// скрываем центральный текст
+		centerTextElement.classList.add('center-text--animation')
+
 		headerTextElement.classList.add('hidden')
 
 		const targetCoordinates = getCoords(headerTextElement)
-		console.log('target', targetCoordinates)
+		// console.log('target', targetCoordinates)
 		
 		const leaveCoordinates = getCoords(this)
-		console.log('leave', leaveCoordinates)
+		// console.log('leave', leaveCoordinates)
 
 		const movingTextElement = this.cloneNode(true)
 		this.classList.add('hidden')
@@ -35,6 +51,11 @@ function moveElement (startSelector, finishSelector) {
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
+			// скываем уехавший центральный текст
+			mainContainerElement.classList.add('about-me')
+			// показываем текст и фотографию
+			targetPageElement.classList.add('show')
+			// showAboutPage()
 		}, 1100)
 	})
 }
@@ -86,7 +107,7 @@ function changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
 		
 		// если элемент приближается к финишу - уменьшаем шаг для более точного позиционирования
 		if (5 > (currentX - finishX)) {
-			console.log(deltaX)
+			// console.log(deltaX)
 			stepX = 2000
 		}
 
