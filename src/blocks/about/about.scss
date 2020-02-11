@@ -144,7 +144,7 @@
 	flex-basis: 50%;
 	flex-grow: 1;
 	overflow: hidden;
-
+	transition: all .8s ease;
 	opacity: 0;
 	
 	&-img {
@@ -158,7 +158,6 @@
 }
 
 .about.show {
-
 	.about__list-item {
 		transform: translateX(0);
 		opacity: .5;
@@ -176,7 +175,9 @@
 	
 		}
 	}
+}
 
+.about.show-personal {
 	.about__info {
 		p {
 			transform: translateX(0);

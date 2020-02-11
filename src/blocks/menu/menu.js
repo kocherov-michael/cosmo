@@ -1,5 +1,6 @@
 import './menu.scss'
 import animateMenuIcon from '../menuIcon/menuIcon'
+import AboutPage from '../about/about'
 // import showAboutPage from '../about/about'
 
 moveElement('data-menu-about', 'data-about-header')
@@ -54,7 +55,12 @@ function moveElement (startDataSelector, finishDataSelector) {
 			// скываем уехавший центральный текст
 			mainContainerElement.classList.add('about-me')
 			// показываем текст и фотографию
-			targetPageElement.classList.add('show')
+			if (openPageClass === 'data-about-page') {
+				console.log(openPageClass === 'data-about-page')
+				new AboutPage({page: 'personal'})
+			}
+			// targetPageElement.classList.add('show')
+
 			// showAboutPage()
 		}, 1100)
 	})
