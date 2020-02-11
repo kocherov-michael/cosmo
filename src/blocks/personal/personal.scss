@@ -1,0 +1,42 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.personal {
+	padding-top: 92px;
+	width: 50%;
+}
+
+.personal__info {
+	flex: 0 0 48%;
+	padding-right: 60px;
+
+  line-height: 1.75;
+	color: $default-color;
+	overflow: hidden;
+	
+	p {
+		font-family: $mainFont;
+		font-size: 16px;
+		font-weight: 300;
+		padding-bottom: 12px;
+		transition: all .8s ease, opacity 1.5s ease;
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}
+.personal__button {
+	flex: 0 0 22%;
+	overflow: hidden;
+	margin-top: 25px;
+	
+	&-wrapper {
+		padding-top: 20px;
+		height: 100px;
+		width: 70%;
+		transition: all .8s ease;
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}
+.personal__button.personal__button--overflow-visible {
+	overflow: visible;
+}

@@ -16,8 +16,15 @@ export default class AboutPage {
 		
 		if (args.page === 'personal') {
 			this.aboutPageElement = document.querySelector('[data-about-page]')
-			this.showAboutElements()
-			this.showPersonalElements()
+			if (args.leavePage === 'menu') {
+				console.log('menu')
+				this.addPersonalElements()
+				setTimeout(() => {
+					this.showAboutElements()
+					this.showPersonalElements()
+	
+				}, 1100)
+			}
 
 			if (!this.navigationListenerIsOn) {
 				this.aboutNavigationHandler()
@@ -26,9 +33,15 @@ export default class AboutPage {
 		}
 	}
 
+	addPersonalElements() {
+		const personalPageElement = this.aboutPageElement.querySelector('[data-personal-page]')
+
+		personalPageElement.classList.remove('hide')
+	}
+
 	// прослушка кнопок навигации внутри страницы
 	aboutNavigationHandler() {
-		console.log('navigation listener')
+		// console.log('navigation listener')
 		const personLinkElement = document.querySelector('[data-about-link-person]')
 		const educationLinkElement = document.querySelector('[data-about-link-education]')
 		const technologiesLinkElement = document.querySelector('[data-about-link-technologies]')
@@ -53,15 +66,23 @@ export default class AboutPage {
 		const mainContainerElement = document.querySelector('[data-main-container]')
 		// скрываем центральный текст, показываем надпить "обо мне"
 		mainContainerElement.classList.add('about-me')
+		
+		
 
 		aboutPageElement.classList.add('show')
+
 	}
 
 	// показать элементы персонального блока
 	showPersonalElements() {
-		// const aboutPageElement = document.querySelector('[data-about-page]')
+		// const aboutInfoElement = this.aboutPageElement.querySelector('[data-about-info]')
+		// const aboutButtonElement = this.aboutPageElement.querySelector('[data-about-button]')
+
+		// aboutInfoElement.classList.remove('hide')
+		// aboutButtonElement.classList.remove('hide')
 		this.aboutPageElement.classList.add('show--personal')
 		// console.log(this.aboutPageElement)
+
 	}
 
 	// скрыть элементы персонального блока

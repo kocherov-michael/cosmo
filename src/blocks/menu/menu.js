@@ -32,12 +32,12 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		const targetCoordinates = getCoords(headerTextElement)
 		// console.log('target', targetCoordinates)
-		console.log(this)
+		// console.log(this)
 		const leaveCoordinates = getCoords(this)
-		console.log('leave', leaveCoordinates)
+		// console.log('leave', leaveCoordinates)
 
 		const movingTextElement = this.cloneNode(true)
-		console.log(movingTextElement)
+		// console.log(movingTextElement)
 		this.classList.add('hidden')
 
 		movingTextElement.classList.add('menu-moving-text')
@@ -50,21 +50,27 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
 		animateMenuIcon()
-		console.log('перед')
+
+		// const aboutInfoElement = document.querySelector('[data-about-info]')
+		// const aboutButtonElement = document.querySelector('[data-about-button]')
+
+		// aboutInfoElement.classList.remove('hide')
+		// aboutButtonElement.classList.remove('hide')
+		// показываем текст и фотографию
+		if (openPageClass === 'data-about-page') {
+			// console.log(openPageClass === 'data-about-page')
+			new AboutPage({page: 'personal', leavePage: 'menu'})
+		}
+
 		// задержка чтобы успел уехать текст с главной
 		setTimeout(() => {
-			console.log('после')
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
 			// скываем уехавший центральный текст
 			mainContainerElement.classList.add('about-me')
 
-			// показываем текст и фотографию
-			if (openPageClass === 'data-about-page') {
-				console.log(openPageClass === 'data-about-page')
-				new AboutPage({page: 'personal'})
-			}
+			
 			// targetPageElement.classList.add('show')
 
 			// showAboutPage()

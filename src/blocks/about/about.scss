@@ -23,62 +23,12 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	flex: 0 0 50%;
+	// flex: 0 0 50%;
 	// border: 1px solid blue;
 	// justify-content: flex-end;
 }
 
-.about__header {
-	// border: 1px solid yellow;
-	flex: 0 0 22%;
-	display: flex;
-	align-items: flex-end;
 
-	&-text {
-		display: inline-block;
-		color: $default-color;
-		font-family: $secondaryFont;
-		font-size: 100px;
-		font-weight: bold;
-		// line-height: 1.8;
-		letter-spacing: 8px;
-	}
-}
-
-.about__info {
-	flex: 0 0 48%;
-	padding-right: 60px;
-
-  line-height: 1.75;
-	color: $default-color;
-	overflow: hidden;
-	
-	p {
-		font-family: $mainFont;
-		font-size: 16px;
-		font-weight: 300;
-		padding-top: 20px;
-		transition: all .8s ease, opacity 1.5s ease;
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-}
-.about__button {
-	flex: 0 0 22%;
-	overflow: hidden;
-	
-	&-wrapper {
-		padding-top: 20px;
-		height: 100px;
-		width: 66.66%;
-		transition: all .8s ease;
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-}
-.about__button.about__button--overflow-visible {
-	overflow: visible;
-}
 
 .about__list {
 	position: absolute;
@@ -88,6 +38,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	// transition: all .4s ease;
 }
 
 .about__list-item {
@@ -158,10 +109,29 @@
 	}
 }
 
+.about__header {
+	// border: 1px solid yellow;
+	flex: 0 0 22%;
+	display: flex;
+	align-items: flex-end;
+
+	&-text {
+		display: inline-block;
+		color: $default-color;
+		font-family: $secondaryFont;
+		font-size: 100px;
+		font-weight: bold;
+		// line-height: 1.8;
+		letter-spacing: 8px;
+	}
+}
+
 .about.show {
 	.about__list-item {
 		transform: translateX(0);
 		opacity: .5;
+		// transition: opacity .4s ease, transform .8s ease .1s;
+
 		&:hover {
 			opacity: 1;
 			
@@ -179,7 +149,7 @@
 }
 
 .about.show--personal {
-	.about__info {
+	.personal__info {
 		p {
 			transform: translateX(0);
 			opacity: 1;
@@ -190,7 +160,7 @@
 		// flex-basis: 50%;
 	}
 
-	.about__button-wrapper {
+	.personal__button-wrapper {
 		transform: translateX(0);
 		opacity: 1;
 	}
@@ -206,7 +176,7 @@
 
 .about.show--education {
 	.about__container {
-		flex-basis: 100%;
+		// flex-basis: 100%;
 	}
 
 	.education__header {
