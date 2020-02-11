@@ -1,0 +1,34 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.sertificat {
+
+}
+
+.sertificat__img {
+	width: 142px;
+	height: 200px;
+	background-size: cover;
+}
+
+.sertificat__description, .sertificat__footer {
+	font-family: $mainFont;
+	font-weight: bold;
+  font-size: 16px;
+  line-height: 1.75;
+	color: $default-color;
+	margin-bottom: 4px;
+}
+
+.sertificat__description {
+	min-height: 60px;
+}
+
+.sertificat__dates {
+	opacity: 0.5;
+	font-family: $mainFont;
+  font-size: 16px;
+  line-height: 1.75;
+	color: $default-color;
+	margin-top: 24px;
+	margin-bottom: 8px;
+}

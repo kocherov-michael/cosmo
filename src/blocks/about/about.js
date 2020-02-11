@@ -49,19 +49,23 @@ export default class AboutPage {
 	// показать элементы страницы about
 	showAboutElements() {
 		const aboutPageElement = document.querySelector('[data-about-page]')
+		const mainContainerElement = document.querySelector('[data-main-container]')
+		// скрываем центральный текст, показываем надпить "обо мне"
+		mainContainerElement.classList.add('about-me')
+
 		aboutPageElement.classList.add('show')
 	}
 
 	// показать элементы персонального блока
 	showPersonalElements() {
 		const aboutPageElement = document.querySelector('[data-about-page]')
-		aboutPageElement.classList.add('show-personal')
+		aboutPageElement.classList.add('show--personal')
 	}
 
 	// скрыть элементы персонального блока
 	hidePersonalElements() {
 		const aboutPageElement = document.querySelector('[data-about-page]')
-		aboutPageElement.classList.remove('show-personal')
+		aboutPageElement.classList.remove('show--personal')
 	}
 
 }

@@ -1,4 +1,6 @@
-.about(data-about-page)
+.about(data-about-page).show.show--education
+	.about__face
+		.about__face-img(style="background-image: url(./../assets/img/img/face-1252.jpg);")
 	.about__container
 		.about__list
 			.about__list-item(data-about-link-person) 01
@@ -8,11 +10,14 @@
 		.about__header
 			span(data-about-header) Обо мне
 
-		.about__info 
+		.about__info.none
 			p Здравствуйте! 
 			p Меня зовут Михаил Кочеров,  я верстальщик из Санкт-Петербурга. И еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста, и еще пару строк текста…
-		.about__button(data-button-overflow)
+		.about__button(data-button-overflow).none
 			.about__button-wrapper
 				+button('Скачать резюме','', 'down', 'small')(data-resume-button)
-	.about__face
-		.about__face-img(style="background-image: url(./../assets/img/img/face-1252.jpg);")
+
+		//- include ../personal/personal.pug
+		include ../education/education.pug
+	
+	

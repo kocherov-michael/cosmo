@@ -32,7 +32,7 @@
 	// border: 1px solid yellow;
 	flex: 0 0 30%;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 
 	span {
 		display: inline-block;
@@ -40,7 +40,7 @@
 		font-family: $secondaryFont;
 		font-size: 100px;
 		font-weight: bold;
-		line-height: 1.8;
+		// line-height: 1.8;
 		letter-spacing: 8px;
 	}
 }
@@ -146,6 +146,7 @@
 	overflow: hidden;
 	transition: all .8s ease;
 	opacity: 0;
+	padding-left: 30px;
 	
 	&-img {
 		height: 100%;
@@ -177,12 +178,16 @@
 	}
 }
 
-.about.show-personal {
+.about.show--personal {
 	.about__info {
 		p {
 			transform: translateX(0);
 			opacity: 1;
 		}
+	}
+
+	.about__container {
+		// flex-basis: 50%;
 	}
 
 	.about__button-wrapper {
@@ -196,5 +201,11 @@
 		&-img {
 			transform: translateX(0);
 		}
+	}
+}
+
+.about.show--education {
+	.about__container {
+		flex-basis: 100%;
 	}
 }

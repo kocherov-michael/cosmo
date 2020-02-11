@@ -1,0 +1,50 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.education {
+	// display: block;
+	// border: 1px solid red;
+	flex: 0 0 78%;
+	padding-top: 5px;
+}
+
+.education__header {
+	font-family: $secondaryFont;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 3px;
+	color: $default-color;
+	text-transform: uppercase;
+}
+
+.education__sertificats {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 58px;
+}
+
+.education__sertificat-item {
+	flex: 0 0 26%;
+}
+
+.education__footer {
+	margin-top: 32px;
+}
+
+.education__footer-years {
+	opacity: 0.5;
+	font-family: $mainFont;
+  font-size: 16px;
+  line-height: 1.75;
+	color: $default-color;
+}
+
+.education__footer-text {
+	font-family: $mainFont;
+	// font-weight: bold;
+  font-size: 16px;
+  line-height: 1.75;
+	color: $default-color;
+	margin-top: 8px;
+	max-width: 60%;
+}

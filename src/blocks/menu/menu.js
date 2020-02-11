@@ -27,7 +27,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		// скрываем центральный текст
 		centerTextElement.classList.add('center-text--animation')
-
+		// скрываем заголовок целевой страницы
 		headerTextElement.classList.add('hidden')
 
 		const targetCoordinates = getCoords(headerTextElement)
@@ -52,8 +52,10 @@ function moveElement (startDataSelector, finishDataSelector) {
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
+
 			// скываем уехавший центральный текст
-			mainContainerElement.classList.add('about-me')
+			// mainContainerElement.classList.add('about-me')
+
 			// показываем текст и фотографию
 			if (openPageClass === 'data-about-page') {
 				console.log(openPageClass === 'data-about-page')
