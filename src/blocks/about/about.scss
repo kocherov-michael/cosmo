@@ -208,4 +208,28 @@
 	.about__container {
 		flex-basis: 100%;
 	}
+
+	.education__header {
+		transform: translateX(-10%);
+		opacity: 1;
+	}
+
+	.education__sertificats {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	
+	.education__sertificat-item {
+		// transform-style: flat;
+		// perspective: 1000px;
+	}
+	.sertificat {
+		transform: rotateY(0deg);
+		// transform-style: preserve-3d;
+
+	}
+	.education__footer {
+		transform: translateX(-50%);
+		opacity: 1;
+	}
 }

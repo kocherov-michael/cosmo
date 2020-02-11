@@ -15,6 +15,7 @@ export default class AboutPage {
 	constructor (args = {}) {
 		
 		if (args.page === 'personal') {
+			this.aboutPageElement = document.querySelector('[data-about-page]')
 			this.showAboutElements()
 			this.showPersonalElements()
 
@@ -40,7 +41,7 @@ export default class AboutPage {
 		educationLinkElement.addEventListener('click', () => {
 			console.log('2')
 			this.hidePersonalElements()
-			// showEducationElements()
+			this.showEducationElements()
 		})
 
 		this.navigationListenerIsOn = true
@@ -58,15 +59,30 @@ export default class AboutPage {
 
 	// показать элементы персонального блока
 	showPersonalElements() {
-		const aboutPageElement = document.querySelector('[data-about-page]')
-		aboutPageElement.classList.add('show--personal')
+		// const aboutPageElement = document.querySelector('[data-about-page]')
+		this.aboutPageElement.classList.add('show--personal')
+		// console.log(this.aboutPageElement)
 	}
 
 	// скрыть элементы персонального блока
 	hidePersonalElements() {
-		const aboutPageElement = document.querySelector('[data-about-page]')
-		aboutPageElement.classList.remove('show--personal')
+		// const aboutPageElement = document.querySelector('[data-about-page]')
+		this.aboutPageElement.classList.remove('show--personal')
 	}
+
+	// показать элементы блока образования
+	showEducationElements() {
+		// const aboutPageElement = document.querySelector('[data-about-page]')
+		this.aboutPageElement.classList.add('show--education')
+	}
+
+	// скрыть элементы блока образования
+	hideEducationElements() {
+		// const aboutPageElement = document.querySelector('[data-about-page]')
+		this.aboutPageElement.classList.remove('show--education')
+	}
+
+
 
 }
 
