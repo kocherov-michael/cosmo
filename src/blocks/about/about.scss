@@ -180,26 +180,48 @@
 	}
 
 	.education__header {
-		transform: translateX(-10%);
+		transform: translateX(0);
 		opacity: 1;
+		transition: opacity .4s ease .4s, transform .8s ease;
 	}
 
 	.education__sertificats {
 		transform: translateX(0);
 		opacity: 1;
+		// transition: all .8s ease;
 	}
 	
-	.education__sertificat-item {
-		// transform-style: flat;
-		// perspective: 1000px;
+	.education__sertificat-item--1 {
+		.sertificat {
+			// transition: all .8s ease .3s;
+			transition: opacity .4s ease .3s, transform .8s ease .2s;
+			opacity: 1;
+		}
+	}
+	.education__sertificat-item--2 {
+		.sertificat {
+			// transition: all .8s ease .1s;
+			transition: opacity .4s ease .2s, transform .8s ease .1s;
+			opacity: 1;
+		}
+	}
+	.education__sertificat-item--3 {
+		.sertificat {
+			// transition: all .8s ease;
+			transition: opacity .4s ease .1s, transform .8s ease;
+			opacity: 1;
+		}
 	}
 	.sertificat {
 		transform: rotateY(0deg);
+		// opacity: 1;
+		// transition: all .8s ease .6s;
 		// transform-style: preserve-3d;
 
 	}
 	.education__footer {
-		transform: translateX(-50%);
+		transform: translateX(0);
 		opacity: 1;
+		transition: opacity .4s ease .4s, transform .8s ease;
 	}
 }

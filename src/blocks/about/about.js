@@ -17,7 +17,7 @@ export default class AboutPage {
 		if (args.page === 'personal') {
 			this.aboutPageElement = document.querySelector('[data-about-page]')
 			if (args.leavePage === 'menu') {
-				console.log('menu')
+				// console.log('menu')
 				this.addPersonalElements()
 				setTimeout(() => {
 					this.showAboutElements()
@@ -33,10 +33,17 @@ export default class AboutPage {
 		}
 	}
 
+	// добавить элементы персонального блока
 	addPersonalElements() {
-		const personalPageElement = this.aboutPageElement.querySelector('[data-personal-page]')
+		this.personalPageElement = this.aboutPageElement.querySelector('[data-personal-page]')
+		this.currentPage = this.personalPageElement
 
-		personalPageElement.classList.remove('hide')
+		this.personalPageElement.classList.remove('hide')
+	}
+
+	// удалить элементы персонального блока
+	removePersonalElements() {
+		this.personalPageElement.classList.add('hide')
 	}
 
 	// прослушка кнопок навигации внутри страницы
@@ -53,8 +60,20 @@ export default class AboutPage {
 	
 		educationLinkElement.addEventListener('click', () => {
 			console.log('2')
+			const educationPageElement = document.querySelector('[data-education-page]')
 			this.hidePersonalElements()
-			this.showEducationElements()
+
+			setTimeout(() => {
+				this.currentPage.classList.add('hide')
+				educationPageElement.classList.remove('hide')
+				
+				setTimeout(() => {
+					this.showEducationElements()
+				},100)
+			},600)
+
+
+			// this.removePersonalElements()
 		})
 
 		this.navigationListenerIsOn = true
@@ -75,14 +94,7 @@ export default class AboutPage {
 
 	// показать элементы персонального блока
 	showPersonalElements() {
-		// const aboutInfoElement = this.aboutPageElement.querySelector('[data-about-info]')
-		// const aboutButtonElement = this.aboutPageElement.querySelector('[data-about-button]')
-
-		// aboutInfoElement.classList.remove('hide')
-		// aboutButtonElement.classList.remove('hide')
 		this.aboutPageElement.classList.add('show--personal')
-		// console.log(this.aboutPageElement)
-
 	}
 
 	// скрыть элементы персонального блока
