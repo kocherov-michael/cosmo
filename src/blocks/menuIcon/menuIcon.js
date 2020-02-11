@@ -15,6 +15,7 @@ function animateMenuIconCross() {
 }
 
 function animateMenuIcon () {
+	console.log('animateMenuIcon start')
 	const menuIconElement = document.querySelector('[data-menu-icon]')
 	const menuElement = document.querySelector('[data-menu]')
 
@@ -29,6 +30,7 @@ function animateMenuIcon () {
 		// убираем анимацию крестика по ховеру, когда меню закрыто
 		menuIconElement.classList.remove('menu-icon--animation')
 	}
+	console.log('animateMenuIcon finish')
 }
 
 export default animateMenuIcon

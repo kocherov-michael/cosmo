@@ -20,14 +20,24 @@
 .menu__container {
 	flex: 0 0 66%;
 	margin: 0 auto;
-	width: 66%;
+	// width: 66%;
+	height: 54%;
 	display: flex;
 	flex-direction: column;
 }
 
 .menu__item {
+
 	
-	& span {
+
+	&:not(:last-child) {
+		margin-bottom: 77px;
+	}
+	
+	& .menu__text {
+
+		
+
 		display: inline-block;
 		color: $default-color;
 		font-family: $secondaryFont;
@@ -45,7 +55,7 @@
 			position: absolute;
 			width: 52px;
 			height: 53px;
-			top: 64px;
+			top: 26px;
 			left: -72px;
 			opacity: 0;
 			transition: all .4s ease;
@@ -56,7 +66,7 @@
 			position: absolute;
 			width: 52px;
 			height: 53px;
-			top: 64px;
+			top: 26px;
 			right: -65px;
 			transform: rotate(180deg);
 			opacity: 0;
@@ -96,7 +106,7 @@
 	font-family: $secondaryFont;
 	font-size: 100px;
 	font-weight: bold;
-	line-height: 1.8;
+	// line-height: 1.8;
 	letter-spacing: 8px;
 	transition: all .8s ease;
 }

@@ -32,11 +32,12 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		const targetCoordinates = getCoords(headerTextElement)
 		// console.log('target', targetCoordinates)
-		
+		console.log(this)
 		const leaveCoordinates = getCoords(this)
-		// console.log('leave', leaveCoordinates)
+		console.log('leave', leaveCoordinates)
 
 		const movingTextElement = this.cloneNode(true)
+		console.log(movingTextElement)
 		this.classList.add('hidden')
 
 		movingTextElement.classList.add('menu-moving-text')
@@ -48,13 +49,16 @@ function moveElement (startDataSelector, finishDataSelector) {
 		movingTextElement.classList.add('menu-moving-tagret')
 
 		changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
+		animateMenuIcon()
+		console.log('перед')
+		// задержка чтобы успел уехать текст с главной
 		setTimeout(() => {
+			console.log('после')
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
-
 			// скываем уехавший центральный текст
-			// mainContainerElement.classList.add('about-me')
+			mainContainerElement.classList.add('about-me')
 
 			// показываем текст и фотографию
 			if (openPageClass === 'data-about-page') {
@@ -70,6 +74,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 // перемещаем элемент
 function changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
+	// console.log(arguments)
 	const leaveX = leaveCoordinates.top
 	const leaveY = leaveCoordinates.left
 	const targetX = targetCoordinates.top
@@ -126,7 +131,7 @@ function changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
 		if (currentX <= finishX) {
 			
 			clearInterval(timerId)
-			animateMenuIcon()
+			// animateMenuIcon()
 		}
 	}, 10);
 
