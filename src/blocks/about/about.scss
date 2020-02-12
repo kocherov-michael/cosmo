@@ -50,6 +50,7 @@
   letter-spacing: 3px;
 	color: $default-color;
 	position: relative;
+	z-index: 5;
 	cursor: pointer;
 	transform: translateX(-1000%);
 	transition: opacity .4s ease, transform .8s ease .1s;

@@ -1,0 +1,143 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.technology {
+	width: 100%;
+	position: relative;
+}
+
+.technology__line {
+	font-size: 2px;
+	position: relative;
+
+	&:after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 100%;
+		border-style: solid;
+		border-color: transparent;
+	}
+}
+
+.technology__container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 66%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+}
+
+.technology__title {
+	font-family: $mainFont;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.42;
+	color: $default-color;
+	text-transform: uppercase;
+}
+
+.technology--color {
+	&-default {
+		.technology__line {
+			background-color: $default-color;
+			&:after {
+				border-left-color: $default-color;
+			}
+		}
+		.technology__title {
+			color: $dark-color;
+		}
+	}
+	&-danger {
+		.technology__line {
+			background-color: $danger-color;
+			&:after {
+				border-left-color: $danger-color;
+			}
+		}
+	}
+	&-primary {
+		.technology__line {
+			background-color: $primary-color;
+			&:after {
+				border-left-color: $primary-color;
+			}
+		}
+	}
+	&-secondary {
+		.technology__line {
+			background-color: $secondary-color;
+			&:after {
+				border-left-color: $secondary-color;
+			}
+		}
+	}
+	&-neutral-primary {
+		.technology__line {
+			background-color: $neutral-primary-color;
+			&:after {
+				border-left-color: $neutral-primary-color;
+			}
+		}
+		.technology__title {
+			color: $dark-color;
+		}
+	}
+	&-neutral-secondary {
+		.technology__line {
+			background-color: $neutral-secondary-color;
+			&:after {
+				border-left-color: $neutral-secondary-color;
+			}
+		}
+	}
+
+}
+
+.technology--size {
+	&-wide {
+		.technology__line {
+			height: 32em;
+			&:after {
+				border-bottom-width: 16em;
+				border-top-width: 16em;
+				border-left-width: 13em;
+			}
+		}
+		.technology__title {
+			font-size: 24px;
+		}
+	}
+	&-medium {
+		.technology__line {
+			height: 20em;
+			&:after {
+				border-bottom-width: 10em;
+				border-top-width: 10em;
+				border-left-width: 8.5em;
+			}
+		}
+		.technology__title {
+			font-size: 18px;
+		}
+	}
+	&-thin {
+		.technology__line {
+			height: 12em;
+			&:after {
+				border-bottom-width: 6em;
+				border-top-width: 6em;
+				border-left-width: 5em;
+			}
+		}
+		.technology__title {
+			font-size: 14px;
+		}
+	}
+}
