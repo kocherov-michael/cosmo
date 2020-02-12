@@ -83,7 +83,7 @@
 		background-position: right;
 		right: -9px;
 	}
-	
+
 }
 
 .about__face {
@@ -149,11 +149,17 @@
 	}
 }
 
+.about__personal-wrapper {
+	width: 50%;
+	flex: 0 0 74%;
+	// padding-bottom: 17%;
+}
+
 // ===============================================================
 // ==========================SHOW =================================
 // ==================================================================
 
-.about.show {
+.show {
 	.about__list-item {
 		transform: translateX(0);
 		opacity: .5;
@@ -175,17 +181,13 @@
 	}
 }
 
-.about.about--show-personal {
+.about--show-personal {
 	.personal__info {
 		p {
 			transform: translateX(0);
 			opacity: 1;
 		}
 	}
-
-	// .about__container {
-	// 	// flex-basis: 50%;
-	// }
 
 	.personal__button-wrapper {
 		transform: translateX(0);
@@ -203,7 +205,7 @@
 
 //===== SHOW EDUCATION ============================================================
 
-.about.about--show-education {
+.about--show-education {
 
 	.about__subtitle-text--education {
 		transform: translateX(0);
@@ -251,9 +253,15 @@
 
 
 
-.about.about--show-technologies {
-	.technologies {
+.about--show-technologies {
+	.about__list-item {
+		text-shadow: 0 0 2px $neutral-secondary-color;
+	}
+
+	.technologies__item {
 		width: 100%;
+		opacity: 1;
+	
 	}
 
 	.about__subtitle-text--technologies {
@@ -272,7 +280,7 @@
 // =================================================================================
 
 .about--hide-personal {
-	.personal {
+	.about__personal-wrapper {
 		display: none;
 	}
 }
