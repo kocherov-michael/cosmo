@@ -148,7 +148,7 @@
 	}
 }
 
-.about.show--personal {
+.about.about--show-personal {
 	.personal__info {
 		p {
 			transform: translateX(0);
@@ -174,7 +174,7 @@
 	}
 }
 
-.about.show--education {
+.about.about--show-education {
 	.about__container {
 		// flex-basis: 100%;
 	}
@@ -188,7 +188,7 @@
 	.education__sertificats {
 		transform: translateX(0);
 		opacity: 1;
-		// transition: all .8s ease;
+		// transition: all .3s ease;
 	}
 	
 	.education__sertificat-item--1 {
@@ -223,5 +223,16 @@
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity .4s ease .4s, transform .8s ease;
+	}
+}
+
+.about--hide-personal {
+	.personal {
+		display: none;
+	}
+}
+.about--hide-education {
+	.education {
+		display: none;
 	}
 }

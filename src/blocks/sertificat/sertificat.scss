@@ -3,6 +3,7 @@
 .sertificat {
 	transform: rotateY(90deg);
 	opacity: 0;
+	transition: opacity .6s ease, transform .4s ease .8s;
 }
 
 .sertificat__img {

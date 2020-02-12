@@ -15,15 +15,18 @@ export default class AboutPage {
 	constructor (args = {}) {
 		
 		if (args.page === 'personal') {
+			this.targetPage = args.page
 			this.aboutPageElement = document.querySelector('[data-about-page]')
 			if (args.leavePage === 'menu') {
+				console.log('a')
+				this.openAboutPage ()
 				// console.log('menu')
-				this.addPersonalElements()
-				setTimeout(() => {
-					this.showAboutElements()
-					this.showPersonalElements()
+				// this.addPersonalElements()
+				// setTimeout(() => {
+				// 	this.showAboutElements()
+				// 	this.showPersonalElements()
 	
-				}, 1100)
+				// }, 1100)
 			}
 
 			if (!this.navigationListenerIsOn) {
@@ -31,6 +34,51 @@ export default class AboutPage {
 			}
 
 		}
+	}
+
+	// переход на страницу about из меню
+	openAboutPage () {
+		console.log('b')
+		this.targetPage = 'personal'
+		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
+
+		setTimeout(() => {
+			console.log('c')
+			this.showAboutElements()
+			// показываем целевые элементы
+			this.aboutPageElement.classList.add(`about--show-${this.targetPage}`)
+			this.leavePage = this.targetPage
+		},1100)
+	}
+
+	// показать элементы страницы about
+	showAboutElements() {
+		console.log('d')
+		const aboutPageElement = document.querySelector('[data-about-page]')
+		const mainContainerElement = document.querySelector('[data-main-container]')
+		// скрываем центральный текст, показываем надпить "обо мне"
+		mainContainerElement.classList.add('about-me')
+		// показываем элементы страницы about (заголовок, навигацию)
+		aboutPageElement.classList.add('show')
+	}
+
+	// переходы внутри блока about
+	renderAboutPageBlocks() {
+		// скрываем текущие элементы
+		this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
+
+		setTimeout(() => {
+			// удаляем текущие элементы
+			this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
+			// вставляем целевые элементы
+			this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
+			
+			setTimeout(() => {
+				// показываем целевые элементы
+				this.aboutPageElement.classList.add(`about--show-${this.targetPage}`)
+				this.leavePage = this.targetPage
+			},100)
+		},600)
 	}
 
 	// добавить элементы персонального блока
@@ -55,23 +103,33 @@ export default class AboutPage {
 
 		personLinkElement.addEventListener('click', () => {
 			console.log('1')
-			this.showPersonalElements()
+			this.targetPage = 'personal'
+			this.renderAboutPageBlocks()
+			// this.hideEducationElements()
+			// setTimeout(() => {
+
+			// },600)
+			// this.showPersonalElements()
+
 		})
 	
 		educationLinkElement.addEventListener('click', () => {
 			console.log('2')
-			const educationPageElement = document.querySelector('[data-education-page]')
-			this.hidePersonalElements()
+			this.targetPage = 'education'
+			this.renderAboutPageBlocks()
+			// const educationPageElement = document.querySelector('[data-education-page]')
+			// this.hidePersonalElements()
 
-			setTimeout(() => {
-				this.currentPage.classList.add('hide')
-				educationPageElement.classList.remove('hide')
+			// setTimeout(() => {
+			// 	console.log('this.currentPage', this.currentPage)
+			// 	this.currentPage.classList.add('hide')
+			// 	educationPageElement.classList.remove('hide')
 				
-				setTimeout(() => {
-					this.showEducationElements()
-				},100)
-			},600)
-
+			// 	setTimeout(() => {
+			// 		this.showEducationElements()
+			// 		this.currentPage = 'education'
+			// 	},100)
+			// },600)
 
 			// this.removePersonalElements()
 		})
@@ -79,40 +137,29 @@ export default class AboutPage {
 		this.navigationListenerIsOn = true
 	}
 
-	// показать элементы страницы about
-	showAboutElements() {
-		const aboutPageElement = document.querySelector('[data-about-page]')
-		const mainContainerElement = document.querySelector('[data-main-container]')
-		// скрываем центральный текст, показываем надпить "обо мне"
-		mainContainerElement.classList.add('about-me')
-		
-		
-
-		aboutPageElement.classList.add('show')
-
-	}
+	
 
 	// показать элементы персонального блока
 	showPersonalElements() {
-		this.aboutPageElement.classList.add('show--personal')
+		this.aboutPageElement.classList.add('about--show-personal')
 	}
 
 	// скрыть элементы персонального блока
 	hidePersonalElements() {
 		// const aboutPageElement = document.querySelector('[data-about-page]')
-		this.aboutPageElement.classList.remove('show--personal')
+		this.aboutPageElement.classList.remove('about--show-personal')
 	}
 
 	// показать элементы блока образования
 	showEducationElements() {
 		// const aboutPageElement = document.querySelector('[data-about-page]')
-		this.aboutPageElement.classList.add('show--education')
+		this.aboutPageElement.classList.add('about--show-education')
 	}
 
 	// скрыть элементы блока образования
 	hideEducationElements() {
 		// const aboutPageElement = document.querySelector('[data-about-page]')
-		this.aboutPageElement.classList.remove('show--education')
+		this.aboutPageElement.classList.remove('about--show-education')
 	}
 
 

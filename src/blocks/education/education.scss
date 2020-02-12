@@ -29,8 +29,9 @@
 	justify-content: space-between;
 	margin-top: 58px;
 	// transform: translateX(-100%);
-	// transition: all .8s ease;
+	transition: all .8s ease;
 	opacity: 0;
+	
 }
 
 .education__sertificat-item {
@@ -60,4 +61,26 @@
 	color: $default-color;
 	margin-top: 8px;
 	max-width: 60%;
+}
+
+.education__sertificat-item--1 {
+	.sertificat {
+		// transition: all .8s ease .3s;
+		transition: opacity .4s ease .3s, transform .8s ease .2s;
+		// opacity: 1;
+	}
+}
+.education__sertificat-item--2 {
+	.sertificat {
+		// transition: all .8s ease .1s;
+		transition: opacity .4s ease .2s, transform .8s ease .1s;
+		// opacity: 1;
+	}
+}
+.education__sertificat-item--3 {
+	.sertificat {
+		// transition: all .8s ease;
+		transition: opacity .4s ease .1s, transform .8s ease;
+		// opacity: 1;
+	}
 }
