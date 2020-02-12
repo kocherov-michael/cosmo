@@ -111,9 +111,12 @@
 
 .about__header {
 	// border: 1px solid yellow;
-	flex: 0 0 22%;
+	flex: 0 0 26%;
 	display: flex;
-	align-items: flex-end;
+	// align-items: flex-end;
+	justify-content: flex-end;
+
+	flex-direction: column;
 
 	&-text {
 		display: inline-block;
@@ -123,6 +126,25 @@
 		font-weight: bold;
 		// line-height: 1.8;
 		letter-spacing: 8px;
+	}
+}
+
+.about__subtitle {
+	padding-top: 8px;
+	height: 38px;
+	overflow: hidden;
+
+	&-text {
+		font-family: $secondaryFont;
+		font-size: 30px;
+		font-weight: bold;
+		line-height: 1;
+		letter-spacing: 3px;
+		color: $default-color;
+		text-transform: uppercase;
+		transform: translateX(-100%);
+		transition: all .8s ease;
+		opacity: 0;
 	}
 }
 
@@ -179,10 +201,16 @@
 		// flex-basis: 100%;
 	}
 
-	.education__header {
+	.about__subtitle-text {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity .4s ease .4s, transform .8s ease;
+	}
+
+	.education__header {
+		// transform: translateX(0);
+		// opacity: 1;
+		// transition: opacity .4s ease .4s, transform .8s ease;
 	}
 
 	.education__sertificats {
@@ -233,6 +261,9 @@
 }
 .about--hide-education {
 	.education {
+		display: none;
+	}
+	.about__subtitle-text {
 		display: none;
 	}
 }
