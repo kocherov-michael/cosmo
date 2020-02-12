@@ -1,4 +1,4 @@
-.about.about--hide-personal.about--hide-education(data-about-page).show
+.about.about--hide-personal.about--hide-education.about--hide-technologies(data-about-page)
 	.about__face
 		.about__face-img(style="background-image: url(./../assets/img/img/face-1252.jpg);")
 	.about__container
@@ -10,7 +10,8 @@
 		.about__header
 			.about__header-text(data-about-header) Обо мне
 			.about__subtitle
-				.about__subtitle-text /Образование
+				.about__subtitle-text.about__subtitle-text--education /Образование
+				.about__subtitle-text.about__subtitle-text--technologies /Технологии
 
 		include ../personal/personal.pug
 		include ../education/education.pug

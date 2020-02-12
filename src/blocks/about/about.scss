@@ -149,6 +149,10 @@
 	}
 }
 
+// ===============================================================
+// ==========================SHOW =================================
+// ==================================================================
+
 .about.show {
 	.about__list-item {
 		transform: translateX(0);
@@ -179,9 +183,9 @@
 		}
 	}
 
-	.about__container {
-		// flex-basis: 50%;
-	}
+	// .about__container {
+	// 	// flex-basis: 50%;
+	// }
 
 	.personal__button-wrapper {
 		transform: translateX(0);
@@ -197,46 +201,36 @@
 	}
 }
 
-.about.about--show-education {
-	.about__container {
-		// flex-basis: 100%;
-	}
+//===== SHOW EDUCATION ============================================================
 
-	.about__subtitle-text {
+.about.about--show-education {
+
+	.about__subtitle-text--education {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity .4s ease .4s, transform .8s ease;
 	}
 
-	.education__header {
-		// transform: translateX(0);
-		// opacity: 1;
-		// transition: opacity .4s ease .4s, transform .8s ease;
-	}
 
 	.education__sertificats {
 		transform: translateX(0);
 		opacity: 1;
-		// transition: all .3s ease;
 	}
 	
 	.education__sertificat-item--1 {
 		.sertificat {
-			// transition: all .8s ease .3s;
 			transition: opacity .4s ease .3s, transform .8s ease .2s;
 			opacity: 1;
 		}
 	}
 	.education__sertificat-item--2 {
 		.sertificat {
-			// transition: all .8s ease .1s;
 			transition: opacity .4s ease .2s, transform .8s ease .1s;
 			opacity: 1;
 		}
 	}
 	.education__sertificat-item--3 {
 		.sertificat {
-			// transition: all .8s ease;
 			transition: opacity .4s ease .1s, transform .8s ease;
 			opacity: 1;
 		}
@@ -255,16 +249,48 @@
 	}
 }
 
+
+
+.about.about--show-technologies {
+	.technologies {
+		width: 100%;
+	}
+
+	.about__subtitle-text--technologies {
+		transform: translateX(0);
+		opacity: 1;
+		transition: opacity .4s ease .4s, transform .8s ease;
+	}
+
+	.technology__title {
+		opacity: 1;
+	}
+}
+
+// =================================================================================
+// ============== HIDE =============================================================
+// =================================================================================
+
 .about--hide-personal {
 	.personal {
 		display: none;
 	}
 }
+
 .about--hide-education {
 	.education {
 		display: none;
 	}
-	.about__subtitle-text {
+	.about__subtitle-text--education {
+		display: none;
+	}
+}
+
+.about--hide-technologies {
+	.technologies {
+		display: none;
+	}
+	.about__subtitle-text--technologies {
 		display: none;
 	}
 }
