@@ -13,37 +13,38 @@ import './about.scss'
 
 export default class AboutPage {
 	constructor (args = {}) {
-		
+		console.log(args)
 		if (args.page === 'personal') {
 			this.targetPage = args.page
 			this.aboutPageElement = document.querySelector('[data-about-page]')
 			if (args.leavePage === 'menu') {
-				// console.log('a')
+				this.renderNavigationItems()
 				this.openAboutPage ()
-				// console.log('menu')
-				// this.addPersonalElements()
-				// setTimeout(() => {
-				// 	this.showAboutElements()
-				// 	this.showPersonalElements()
-	
-				// }, 1100)
 			}
 
-			if (!this.navigationListenerIsOn) {
-				this.aboutNavigationHandler()
-			}
+			this.aboutNavigationListener()
+			this.leavingPage()
 
 		}
 	}
 
+	// создаём элементы навигации каждый раз при переходе на страницу
+	renderNavigationItems () {
+		const navigationElement = this.aboutPageElement.querySelector('.about__list')
+		navigationElement.innerHTML = 
+		`<div class="about__list-item" data-about-target="personal">01</div>
+		<div class="about__list-item about__list-item--delay-1" data-about-target="education">02</div>
+		<div class="about__list-item about__list-item--delay-2" data-about-target="technologies">03</div>`
+	}
+
 	// переход на страницу about из меню
 	openAboutPage () {
-		// console.log('b')
+		
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
 		setTimeout(() => {
-			// console.log('c')
+			
 			this.showAboutElements()
 			// показываем целевые элементы
 			this.aboutPageElement.classList.add(`about--show-${this.targetPage}`)
@@ -81,125 +82,80 @@ export default class AboutPage {
 		},600)
 	}
 
-	// добавить элементы персонального блока
-	addPersonalElements() {
-		this.personalPageElement = this.aboutPageElement.querySelector('[data-personal-page]')
-		this.currentPage = this.personalPageElement
-
-		this.personalPageElement.classList.remove('hide')
-	}
-
-	// удалить элементы персонального блока
-	removePersonalElements() {
-		this.personalPageElement.classList.add('hide')
-	}
 
 	// прослушка кнопок навигации внутри страницы
-	aboutNavigationHandler() {
-		// console.log('navigation listener')
-		const personLinkElement = document.querySelector('[data-about-link-person]')
-		const educationLinkElement = document.querySelector('[data-about-link-education]')
-		const technologiesLinkElement = document.querySelector('[data-about-link-technologies]')
+	aboutNavigationListener() {
 
-		personLinkElement.addEventListener('click', () => {
-			if (this.targetPage === 'personal') return
-			this.removeTechnologiesItemsDelay ()
-			// console.log('1')
-			this.targetPage = 'personal'
-			this.renderAboutPageBlocks()
-
-		})
-		
-		educationLinkElement.addEventListener('click', () => {
-			if (this.targetPage === 'education') return
-			this.removeTechnologiesItemsDelay ()
-			// console.log('2')
-			this.targetPage = 'education'
-			this.renderAboutPageBlocks()
-		})
-		
-		technologiesLinkElement.addEventListener('click', () => {
-			if (this.targetPage === 'technologies') return
-			// console.log('3')
-			this.targetPage = 'technologies'
-			this.openTechnologyItemsWithDelay()
-			this.renderAboutPageBlocks()
-
-		})
-		this.navigationListenerIsOn = true
+		this.aboutLinkList = this.aboutPageElement.querySelectorAll('[data-about-target]')
+		for (let i = 0; i < this.aboutLinkList.length; i++ ) {
+			this.aboutLinkList[i].addEventListener('click', this.navigationHandler.bind(this))
+		}
 	}
+
+	// обработчик нажатия на элементы навигации
+	navigationHandler () {
+		const targetPage = event.currentTarget.getAttribute('data-about-target')
+		if (this.targetPage === targetPage) return
+			// console.log('this.leavePage', this.leavePage)
+			console.log('1')
+			this.targetPage = targetPage
+			// если уходим из технологий, то убираем все элементы одновременно
+			if (this.targetPage === 'technologies') {
+				this.openTechnologyItemsWithDelay()
+			}
+			if (this.leavePage === 'technologies') {
+				this.removeTechnologiesItemsDelay()
+			}
+			this.renderAboutPageBlocks()
+	}
+
+
 
 	// по очереди с задержкой открываем элементы технологии
 	openTechnologyItemsWithDelay () {
 		const technologiesList = this.aboutPageElement.querySelectorAll('.technologies__item')
 		for (let i = 0; i < technologiesList.length; i++) {
-			console.log(technologiesList[i])
-			technologiesList[i].style.transition = `all .4s ease .${i}s`
+			// console.log(technologiesList[i])
+			technologiesList[i].style.transition = `all .8s ease .${i}s`
 		}
 	}
 
+	// удаляем задержку при убирании элементов тенологий
 	removeTechnologiesItemsDelay () {
 		const technologiesList = this.aboutPageElement.querySelectorAll('.technologies__item')
 		for (let i = 0; i < technologiesList.length; i++) {
 			if (technologiesList[i].style.transition) {
-				console.log('remove')
+				// console.log('remove')
 				technologiesList[i].style.transition = ``
 			}
-			console.log(technologiesList[i])
+		}
+	}
+
+	// выполняем при уходе со страницы
+	leavingPage () {
+		const menuElementList = document.querySelectorAll('.menu__text')
+
+		for( let i = 0; i < menuElementList.length; i++) {
+			
+			menuElementList[i].addEventListener('click', (event) => {
+				console.log(event.currentTarget)
+				const targetPageAttr = event.currentTarget.getAttribute('data-menu-target')
+				this.removeTechnologiesItemsDelay ()
+
+				if ( (targetPageAttr === 'about') && this.leavePage === 'personal') {
+					return
+				}
+
+				this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
+				setTimeout(() => {
+					// удаляем текущие элементы
+					this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
+					
+				},400)
+			})
 		}
 	}
 
 
-	
-
-	// // показать элементы персонального блока
-	// showPersonalElements() {
-	// 	this.aboutPageElement.classList.add('about--show-personal')
-	// }
-
-	// // скрыть элементы персонального блока
-	// hidePersonalElements() {
-	// 	// const aboutPageElement = document.querySelector('[data-about-page]')
-	// 	this.aboutPageElement.classList.remove('about--show-personal')
-	// }
-
-	// // показать элементы блока образования
-	// showEducationElements() {
-	// 	// const aboutPageElement = document.querySelector('[data-about-page]')
-	// 	this.aboutPageElement.classList.add('about--show-education')
-	// }
-
-	// // скрыть элементы блока образования
-	// hideEducationElements() {
-	// 	// const aboutPageElement = document.querySelector('[data-about-page]')
-	// 	this.aboutPageElement.classList.remove('about--show-education')
-	// }
-
-
-
 }
 
-// aboutNavigationHandler()
-
-// function aboutNavigationHandler() {
-
-// 	const personLinkElement = document.querySelector('[data-about-link-person]')
-// 	const educationLinkElement = document.querySelector('[data-about-link-education]')
-// 	const technologiesLinkElement = document.querySelector('[data-about-link-technologies]')
-
-// 	educationLinkElement.addEventListener('click', () => {
-// 		console.log('2')
-// 		hidePersonalElements()
-// 		// showEducationElements()
-// 	})
-// }
-
-// function showPersonalElements() {
-// 	const aboutPageElement = document.querySelector('[data-about-page]')
-// 	aboutPageElement.classList.add('show')
-// }
-
-// function hidePersonalElements() {
-// 	const aboutPageElement = document.querySelector('[data-about-page]')
-// 	aboutPageElement.classList.remove('show')
-// }
