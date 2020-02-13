@@ -7,7 +7,7 @@
 	text-decoration: none;
 	position: relative;
 
-	&:hover {
+	&:hover, &:focus	 {
 		
 		.button__container {
 			transform: translate(12px, -12px);

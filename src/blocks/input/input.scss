@@ -6,7 +6,7 @@
 	min-height: 77px;
 	display: flex;
 	padding-top: 24px;
-	
+	transition: all .4s ease;
 
 	&:hover, &:focus {
 		border-bottom-color: $primary-color;
@@ -41,12 +41,18 @@
 	width: 100%;
 	border: none;
 	outline: none;
+	&input{
+		background-color: transparent !important;
+	}
 }
 
-.input--hover {
-	opacity: 0.5;
-	font-size: 18px;
-	top: 0;
+.label-focus {
+	
+	.input__title, .textarea__title {
+		opacity: 0.5;
+		font-size: 18px;
+		top: 0;
+	}
 }
 
 .textarea {

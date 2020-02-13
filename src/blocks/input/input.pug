@@ -1,10 +1,10 @@
 mixin input(options)
 	label.input
 		.input__title #{options.title}
-		input.input__form(name=options.name)
+		input.input__form(name=options.name)&attributes(attributes)
 
 
 mixin textarea(options)
-	.textarea
+	label.textarea
 		.textarea__title #{options.title}
-		textarea.textarea__form(rows="1" name=options.name)
+		textarea.textarea__form(rows="1" name=options.name)&attributes(attributes)

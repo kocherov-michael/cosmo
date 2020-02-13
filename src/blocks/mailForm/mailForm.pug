@@ -9,10 +9,10 @@
 				include ../git/git.pug
 	.mail-form__fields
 		.mail-form__name
-			+input({title:"Имя", name: "name"} )
+			+input({title:"Имя", name: "name"} )(data-input="name")
 		.mail-form__email
-			+input( {title: "Почта", name: "email"} )
+			+input( {title: "Почта", name: "email"} )(data-input="email")
 		.mail-form__message
-			+textarea( {title: "Сообщение", name: "message"} )
+			+textarea( {title: "Сообщение", name: "message"} )(data-input="message")
 	.mail-form__button
 		+button('Отправить', '', 'right', '')
