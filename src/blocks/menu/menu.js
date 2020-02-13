@@ -1,20 +1,24 @@
 import './menu.scss'
 import animateMenuIcon from '../menuIcon/menuIcon'
 import AboutPage from '../about/about'
+import ContactsPage from '../contacts/contacts'
 // import showAboutPage from '../about/about'
 
 moveElement('data-menu-about', 'data-about-header')
 moveElement('data-menu-portfolio', 'data-about-header')
-moveElement('data-menu-contacts', 'data-about-header')
+moveElement('data-menu-contacts', 'data-contacts-header')
 
 function moveElement (startDataSelector, finishDataSelector) {
 	const menuListElement = document.querySelector(`[${startDataSelector}]`)
 	const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
 	const mainContainerElement = document.querySelector('[data-main-container]')
 	const centerTextElement = document.querySelector('[data-center-text]')
+
 	
 	// слушаем нажатие на элемент списка меню
 	menuListElement.addEventListener('click', function(event){
+
+		// ContactsPage.hideContactsPage()
 		// скываем социальные иконки 
 		mainContainerElement.classList.add('hide-icons')
 		// получаем дата-атрибут страницы, на которую переходим
@@ -56,11 +60,13 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		// aboutInfoElement.classList.remove('hide')
 		// aboutButtonElement.classList.remove('hide')
+		// console.log('contactsPage.openstatus', contactsPage.openStatus)
+
 		// показываем текст и фотографию
 		if (openPageClass === 'data-about-page') {
-			// console.log(openPageClass === 'data-about-page')
-			// mainContainerElement.classList.remove('container--hide-about')
 			const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
+		} else if (openPageClass === 'data-contacts-page') {
+			const contactsPage = new ContactsPage()
 		}
 
 		// задержка чтобы успел уехать текст с главной
@@ -68,8 +74,11 @@ function moveElement (startDataSelector, finishDataSelector) {
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
+
+			const purposePage = menuListElement.getAttribute('data-menu-target')
+			// console.log(purposePage)
 			// скываем уехавший центральный текст
-			mainContainerElement.classList.add('container--about')
+			mainContainerElement.classList.add(`container--${purposePage}`)
 
 			
 			// targetPageElement.classList.add('show')

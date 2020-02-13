@@ -13,7 +13,7 @@ import './about.scss'
 
 export default class AboutPage {
 	constructor (args = {}) {
-		console.log(args)
+		// console.log(args)
 		if (args.page === 'personal') {
 			this.targetPage = args.page
 			this.aboutPageElement = document.querySelector('[data-about-page]')
@@ -139,7 +139,7 @@ export default class AboutPage {
 		for( let i = 0; i < menuElementList.length; i++) {
 			
 			menuElementList[i].addEventListener('click', (event) => {
-				console.log(event.currentTarget)
+				// console.log(event.currentTarget)
 				const targetPageAttr = event.currentTarget.getAttribute('data-menu-target')
 				this.removeTechnologiesItemsDelay ()
 

@@ -52,7 +52,7 @@ body {
 }
 
 .container--overflow {
-	.about {
+	.about, .contacts__container {
 		overflow: hidden;
 	}
 }
