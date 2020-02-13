@@ -17,8 +17,9 @@ export default class AboutPage {
 		if (args.page === 'personal') {
 			this.targetPage = args.page
 			this.aboutPageElement = document.querySelector('[data-about-page]')
+			
 			if (args.leavePage === 'menu') {
-				this.renderNavigationItems()
+				// this.renderNavigationItems()
 				this.openAboutPage ()
 			}
 
@@ -39,7 +40,7 @@ export default class AboutPage {
 
 	// переход на страницу about из меню
 	openAboutPage () {
-		
+		this.renderNavigationItems()
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
@@ -58,7 +59,7 @@ export default class AboutPage {
 		const aboutPageElement = document.querySelector('[data-about-page]')
 		const mainContainerElement = document.querySelector('[data-main-container]')
 		// скрываем центральный текст, показываем надпить "обо мне"
-		mainContainerElement.classList.add('about-me')
+		mainContainerElement.classList.add('container--about')
 		// показываем элементы страницы about (заголовок, навигацию)
 		aboutPageElement.classList.add('show')
 	}
@@ -146,11 +147,14 @@ export default class AboutPage {
 					return
 				}
 
+				const mainContainerElement = document.querySelector('[data-main-container]')
+
 				this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
+				mainContainerElement.classList.add('container--overflow')
 				setTimeout(() => {
 					// удаляем текущие элементы
 					this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
-					
+					mainContainerElement.classList.remove('container--overflow')
 				},400)
 			})
 		}

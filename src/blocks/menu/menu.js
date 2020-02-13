@@ -59,7 +59,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 		// показываем текст и фотографию
 		if (openPageClass === 'data-about-page') {
 			// console.log(openPageClass === 'data-about-page')
-			new AboutPage({page: 'personal', leavePage: 'menu'})
+			const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
 		}
 
 		// задержка чтобы успел уехать текст с главной
@@ -68,7 +68,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
 			// скываем уехавший центральный текст
-			mainContainerElement.classList.add('about-me')
+			mainContainerElement.classList.add('container--about')
 
 			
 			// targetPageElement.classList.add('show')

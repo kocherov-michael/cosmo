@@ -1,16 +1,5 @@
 @import "../../assets/scss/utils/vars.scss";
 
-.about-me {
-	.center-text {
-		display: none;
-	}
-	
-	.about {
-		display: flex;
-		position: static;
-	}
-	
-}
 .about {
 	display: flex;
 	height: 100vh;
@@ -39,6 +28,8 @@
 	flex-direction: column;
 	justify-content: center;
 	// transition: all .4s ease;
+	// border: 1px solid red;
+	// width: 34px;
 }
 
 .about__list-item {

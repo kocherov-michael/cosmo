@@ -23,6 +23,24 @@ body {
 	margin: 0 auto;
 }
 
+.container--about {
+	.center-text {
+		display: none;
+	}
+	
+	.about {
+		display: flex;
+		position: static;
+	}
+	
+}
+
+.container--overflow {
+	.about {
+		overflow: hidden;
+	}
+}
+
 .number-column {
 	position: fixed;
 	top: 0;
