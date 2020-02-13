@@ -1,34 +1,15 @@
 import './about.scss'
 
-// showAboutPage()
-
-// function showAboutPage() {
-// 	const aboutPageElement = document.querySelector('[data-about-page]')
-// 	const mainContainerElement = document.querySelector('[data-main-container]')
-// 	aboutPageElement.classList.toggle('about--show')
-// 	mainContainerElement.classList.toggle('about-me')
-// }
-
-// export default showAboutPage
-
 export default class AboutPage {
 	constructor (args = {}) {
 		this.aboutPageElement = document.querySelector('[data-about-page]')
-		// console.log(args)
-		// if (args.page === 'personal') {
-			
-			// this.leavingPage()
-
-		// }
+		this.mainContainerElement = document.querySelector('[data-main-container]')
 	}
 
 	showAboutPage () {
 		this.targetPage = 'personal'
 		
-		// if (args.leavePage === 'menu') {
-			// this.renderNavigationItems()
-			this.openAboutPage ()
-		// }
+		this.openAboutPage ()
 
 		this.aboutNavigationListener()
 	}
@@ -48,6 +29,10 @@ export default class AboutPage {
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
+		// const mainContainerElement = document.querySelector('[data-main-container]')
+		// записываем, что мы на странице about
+		this.mainContainerElement.setAttribute('data-main-container', 'about')
+
 		// задаём интервал, за время которого текст с главной уезжает
 		setTimeout(() => {
 			this.showAboutElements()
@@ -59,13 +44,10 @@ export default class AboutPage {
 
 	// показать элементы страницы about
 	showAboutElements() {
-		// console.log('d')
-		const aboutPageElement = document.querySelector('[data-about-page]')
-		const mainContainerElement = document.querySelector('[data-main-container]')
 		// скрываем центральный текст, показываем надпить "обо мне"
-		mainContainerElement.classList.add('container--about')
+		this.mainContainerElement.classList.add('container--about')
 		// показываем элементы страницы about (заголовок, навигацию)
-		aboutPageElement.classList.add('about--show')
+		this.aboutPageElement.classList.add('about--show')
 	}
 
 	// переходы внутри блока about
@@ -98,11 +80,9 @@ export default class AboutPage {
 	}
 
 	// обработчик нажатия на элементы навигации
-	navigationHandler () {
+	navigationHandler (event) {
 		const targetPage = event.currentTarget.getAttribute('data-about-target')
 		if (this.targetPage === targetPage) return
-			// console.log('this.leavePage', this.leavePage)
-			console.log('1')
 			this.targetPage = targetPage
 			// если уходим из технологий, то убираем все элементы одновременно
 			if (this.targetPage === 'technologies') {
@@ -120,7 +100,7 @@ export default class AboutPage {
 	openTechnologyItemsWithDelay () {
 		const technologiesList = this.aboutPageElement.querySelectorAll('.technologies__item')
 		for (let i = 0; i < technologiesList.length; i++) {
-			// console.log(technologiesList[i])
+			// каждая технология открывается с задержкой 0.1 сек от предыдущей
 			technologiesList[i].style.transition = `all .8s ease .${i}s`
 		}
 	}
@@ -137,31 +117,17 @@ export default class AboutPage {
 	}
 
 	// выполняем при уходе со страницы
-	leavingPage () {
-		const menuElementList = document.querySelectorAll('.menu__text')
-
-		for( let i = 0; i < menuElementList.length; i++) {
-			
-			menuElementList[i].addEventListener('click', (event) => {
-				// console.log(event.currentTarget)
-				const targetPageAttr = event.currentTarget.getAttribute('data-menu-target')
-				this.removeTechnologiesItemsDelay ()
-
-				if ( (targetPageAttr === 'about') && this.leavePage === 'personal') {
-					return
-				}
-
-				const mainContainerElement = document.querySelector('[data-main-container]')
-
-				this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
-				mainContainerElement.classList.add('container--overflow')
-				setTimeout(() => {
-					// удаляем текущие элементы
-					this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
-					mainContainerElement.classList.remove('container--overflow')
-				},400)
-			})
-		}
+	leaveAboutPage () {
+		// добавляем анимацию исчезновения
+		this.aboutPageElement.classList.add('about--hide-animation')
+		setTimeout(() => {
+			// скрываем все элементы, которые отображались на странице about
+			this.mainContainerElement.classList.remove('container--about')
+			this.aboutPageElement.classList.remove('about--hide-animation')
+			this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
+			this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
+			this.aboutPageElement.classList.remove('about--show')
+		},1100)
 	}
 
 

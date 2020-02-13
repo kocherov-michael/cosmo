@@ -19,7 +19,6 @@ function moveElement (startDataSelector, finishDataSelector) {
 	menuListElement.addEventListener('click', function(event){
 		// смотрим откуда уходим
 		const leavePage = mainContainerElement.getAttribute('data-main-container')
-		// console.log(leavePage)
 		// смотрим куда переходим
 		const purposePage = menuListElement.getAttribute('data-menu-target')
 		// console.log(purposePage)
@@ -44,11 +43,12 @@ function moveElement (startDataSelector, finishDataSelector) {
 			// скрываем заголовок целевой страницы
 			headerTextElement.classList.add('hidden')
 		}
-		else if (leavePage === 'portfolio') {
-
+		else if (leavePage === 'about') {
+			console.log('leave')
+			aboutPage.leaveAboutPage()
 		}
 		else if (leavePage === 'contacts') {
-			contactsPage.hideContactsPage()
+			contactsPage.leaveContactsPage()
 		}
 
 		moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)

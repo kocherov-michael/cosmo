@@ -299,3 +299,40 @@
 		display: none;
 	}
 }
+
+@keyframes aboutHide {
+  0% {
+	}
+	30% {
+		opacity: .2;
+		transform: translate(0%, 0%) scale(.7);
+	}
+	100%{
+		opacity: .1;
+		transform: translate(-500%, 0%) scale(.9);
+	}
+}
+
+.about.about--hide-animation {
+	.about__header-text {
+		// opacity: 0;
+	}
+	
+	.about__list-item {
+		// opacity: 0;
+	}
+
+	// .about__face-img {
+
+	// }
+
+	.about__container {
+		animation: aboutHide 2s 1 ease;
+	}
+	.about__face {
+		animation: aboutHide 2s 1 ease;
+	}
+	.technologies {
+		animation: aboutHide 2s 1 ease;
+	}
+}

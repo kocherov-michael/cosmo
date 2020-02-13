@@ -34,7 +34,6 @@
 		font-family: $secondaryFont;
 		font-size: 100px;
 		font-weight: bold;
-		// line-height: 1.8;
 		letter-spacing: 8px;
 	}
 }
@@ -42,7 +41,6 @@
 .contacts__form {
 	opacity: 0;
 	transform: translateX(-100%);
-	// transition: opacity .4s ease, transform .6s ease;
 }
 
 .contacts--show {
@@ -53,7 +51,7 @@
 	}
 }
 
-@keyframes blockHide {
+@keyframes contactsHide {
   0% {
 	}
 	30% {
@@ -66,10 +64,7 @@
 	}
 }
 .contacts--hide-animation {
-	.contacts__header-text {
-		opacity: 0;
-	}
-	.contacts__form {
-		animation: blockHide 2s 1 ease;
+	.contacts__container {
+		animation: contactsHide 2s 1 ease;
 	}
 }
