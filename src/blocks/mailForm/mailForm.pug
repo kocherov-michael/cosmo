@@ -1,0 +1,15 @@
+.mail-form
+	.mail-form__contacts
+		.mail-form__contacts-email ko4erov@mail.ru
+		.mail-form__contacts-phone +7 (911) 812-11-82
+		.mail-form__contacts-social-icons
+			.mail-form__contacts-social-icons-vk
+				include ../vk/vk.pug
+			.mail-form__contacts-social-icons-git
+				include ../git/git.pug
+	.mail-form__fields
+		.mail-form__name
+		.mail-form__email
+		.mail-form__message
+	.mail-form__button
+		+button('Отправить', '', 'right', '')

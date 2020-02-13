@@ -47,7 +47,7 @@ body {
 	}
 	.contacts {
 		display: flex;
-		position: static;
+		z-index: 0;
 	}
 }
 
@@ -93,6 +93,31 @@ body {
 	width: 50px;
 	
 }
+
+.main-page-icons {
+	&__logo {
+		position: fixed;
+		top: 40px;
+		left: 40px;
+		width: 40px;
+		height: 40px;
+	}
+	&__vk {
+		position: fixed;
+		bottom: 40px;
+		left: 40px;
+		width: 40px;
+		height: 40px;
+	}
+	&__git {
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
 .hide-icons {
 	.vk {
 		display: none;

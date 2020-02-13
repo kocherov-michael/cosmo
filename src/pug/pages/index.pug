@@ -8,11 +8,14 @@ block content
 	include ../includes/_vertical-lines.pug
 	include ../includes/_number-column.pug
 	include ../../blocks/menu/menu.pug
-	.container(data-main-container)
+	.container(data-main-container).container--contacts
 		.main-page-icons
-			include ../../blocks/logo/logo.pug
-			include ../../blocks/vk/vk.pug
-			include ../../blocks/git/git.pug
+			.main-page-icons__logo
+				include ../../blocks/logo/logo.pug
+			.main-page-icons__vk
+				include ../../blocks/vk/vk.pug
+			.main-page-icons__git
+				include ../../blocks/git/git.pug
 		include ../../blocks/centerText/centerText.pug
 		include ../../blocks/menuIcon/menuIcon.pug
 		include ../../blocks/about/about.pug

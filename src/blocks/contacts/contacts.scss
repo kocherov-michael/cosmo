@@ -3,7 +3,37 @@
 .contacts {
 	display: flex;
 	height: 100vh;
-	position: relative;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
 	z-index: -100;
+}
+
+.contacts__container {
 	border: 1px solid red;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0 auto;
+	width: 66%;
+}
+
+.contacts__header {
+	flex: 0 0 22%;
+	display: flex;
+	justify-content: flex-end;
+
+	flex-direction: column;
+
+	&-text {
+		display: inline-block;
+		color: $default-color;
+		font-family: $secondaryFont;
+		font-size: 100px;
+		font-weight: bold;
+		// line-height: 1.8;
+		letter-spacing: 8px;
+	}
 }

@@ -1,0 +1,38 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.mail-form {
+	padding-top: 90px;
+}
+
+.mail-form__contacts {
+	display: flex;
+	justify-content: space-between;
+
+	&-email, &-phone {
+		font-family: $mainFont;
+		font-size: 24px;
+		font-weight: bold;
+		color: $default-color;
+
+	}
+	
+}
+
+.mail-form__contacts-social-icons {
+	display: flex;
+
+	&-vk {
+		width: 40px;
+		height: 40px;
+		margin-right: 38px;
+	}
+
+	&-git {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.mail-form__button {
+	height: 100px;
+}
