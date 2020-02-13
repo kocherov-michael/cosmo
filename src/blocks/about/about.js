@@ -13,20 +13,24 @@ import './about.scss'
 
 export default class AboutPage {
 	constructor (args = {}) {
+		this.aboutPageElement = document.querySelector('[data-about-page]')
 		// console.log(args)
-		if (args.page === 'personal') {
-			this.targetPage = args.page
-			this.aboutPageElement = document.querySelector('[data-about-page]')
+		// if (args.page === 'personal') {
 			
-			if (args.leavePage === 'menu') {
-				// this.renderNavigationItems()
-				this.openAboutPage ()
-			}
+			// this.leavingPage()
 
-			this.aboutNavigationListener()
-			this.leavingPage()
+		// }
+	}
 
-		}
+	showAboutPage () {
+		this.targetPage = 'personal'
+		
+		// if (args.leavePage === 'menu') {
+			// this.renderNavigationItems()
+			this.openAboutPage ()
+		// }
+
+		this.aboutNavigationListener()
 	}
 
 	// создаём элементы навигации каждый раз при переходе на страницу
@@ -44,8 +48,8 @@ export default class AboutPage {
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
+		// задаём интервал, за время которого текст с главной уезжает
 		setTimeout(() => {
-			
 			this.showAboutElements()
 			// показываем целевые элементы
 			this.aboutPageElement.classList.add(`about--show-${this.targetPage}`)

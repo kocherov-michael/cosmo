@@ -17,33 +17,63 @@ function moveElement (startDataSelector, finishDataSelector) {
 	
 	// слушаем нажатие на элемент списка меню
 	menuListElement.addEventListener('click', function(event){
+		// смотрим откуда уходим
+		const leavePage = mainContainerElement.getAttribute('data-main-container')
+		// console.log(leavePage)
+		// смотрим куда переходим
+		const purposePage = menuListElement.getAttribute('data-menu-target')
+		// console.log(purposePage)
 
-		// ContactsPage.hideContactsPage()
-		// скываем социальные иконки 
-		mainContainerElement.classList.add('hide-icons')
-		// получаем дата-атрибут страницы, на которую переходим
-		const openPageClass = menuListElement.getAttribute(startDataSelector)
-		// console.log(openPageClass)
+		if (!window.contactsPage) {
+			window.contactsPage = new ContactsPage()
+		}
+		if (!window.aboutPage) {
+			window.aboutPage = new AboutPage()
+		}
+		// если никуда не уходим - просто закрываем меню
+		if (leavePage === purposePage) {
+			animateMenuIcon()
+			return
+		}
+		// если уходим с главной страницы
+		if (leavePage === 'main') {
+			// скpываем социальные иконки 
+			mainContainerElement.classList.add('hide-icons')
+			// скрываем центральный текст
+			centerTextElement.classList.add('center-text--animation')
+			// скрываем заголовок целевой страницы
+			headerTextElement.classList.add('hidden')
+		}
+		else if (leavePage === 'portfolio') {
 
-		const targetPageElement = document.querySelector(`[${openPageClass}]`)
+		}
+		else if (leavePage === 'contacts') {
 
-		// mainContainerElement.classList.toggle('about-me')
+		}
 
-		// скрываем центральный текст
-		centerTextElement.classList.add('center-text--animation')
-		// скрываем заголовок целевой страницы
-		headerTextElement.classList.add('hidden')
+		moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
 
+
+		// показываем целевую страницу
+		if (purposePage === 'about') {
+			// const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
+			aboutPage.showAboutPage()
+		} else if (purposePage === 'contacts') {
+			contactsPage.showContactsPage()
+		}
+
+	})
+}
+function moveMenuText (menuListElement, headerTextElement, mainContainerElement, purposePage) {
+		// получаем координаты целевого элемента
 		const targetCoordinates = getCoords(headerTextElement)
-		// console.log('target', targetCoordinates)
-		// console.log(this)
-		const leaveCoordinates = getCoords(this)
-		// console.log('leave', leaveCoordinates)
-
-		const movingTextElement = this.cloneNode(true)
-		// console.log(movingTextElement)
-		this.classList.add('hidden')
-
+		// координаты текущего элемента
+		const leaveCoordinates = getCoords(menuListElement)
+		// создаём дубликат элемента для его передвижения
+		const movingTextElement = menuListElement.cloneNode(true)
+		// скрываем текущий элемент
+		menuListElement.classList.add('hidden')
+		// даём клону position fixed и координаты
 		movingTextElement.classList.add('menu-moving-text')
 		movingTextElement.style.top = `${leaveCoordinates.top}px`
 		movingTextElement.style.left = `${leaveCoordinates.left}px`
@@ -51,41 +81,21 @@ function moveElement (startDataSelector, finishDataSelector) {
 		document.body.append(movingTextElement)
 
 		movingTextElement.classList.add('menu-moving-tagret')
-
+		// передвигаем клон
 		changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
+		// закрываем меню
 		animateMenuIcon()
-
-		// const aboutInfoElement = document.querySelector('[data-about-info]')
-		// const aboutButtonElement = document.querySelector('[data-about-button]')
-
-		// aboutInfoElement.classList.remove('hide')
-		// aboutButtonElement.classList.remove('hide')
-		// console.log('contactsPage.openstatus', contactsPage.openStatus)
-
-		// показываем текст и фотографию
-		if (openPageClass === 'data-about-page') {
-			const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
-		} else if (openPageClass === 'data-contacts-page') {
-			const contactsPage = new ContactsPage()
-		}
 
 		// задержка чтобы успел уехать текст с главной
 		setTimeout(() => {
+			// удаляем клон элемента, который приехал на нужное место
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
 
-			const purposePage = menuListElement.getAttribute('data-menu-target')
-			// console.log(purposePage)
-			// скываем уехавший центральный текст
+			// скрываем уехавший центральный текст
 			mainContainerElement.classList.add(`container--${purposePage}`)
-
-			
-			// targetPageElement.classList.add('show')
-
-			// showAboutPage()
 		}, 1100)
-	})
 }
 
 // перемещаем элемент
