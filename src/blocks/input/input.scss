@@ -1,0 +1,59 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.input, .textarea {
+	border-bottom: 3px solid $default-color;
+	position: relative;
+	min-height: 77px;
+	display: flex;
+	padding-top: 24px;
+	
+
+	&:hover, &:focus {
+		border-bottom-color: $primary-color;
+
+		.input__title, .textarea__title {
+			opacity: 0.5;
+			font-size: 18px;
+			top: 0;
+		}
+	}
+
+}
+
+.input__title, .textarea__title  {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	font-family: $mainFont;
+  font-size: 24px;
+  font-weight: bold;
+	color: $default-color;
+	z-index: -1;
+	transition: all .4s ease;
+}
+
+.input__form, .textarea__form {
+	font-family: $mainFont;
+	font-weight: bold;
+	background-color: transparent;
+	color: $default-color;
+	font-size: 24px;
+	width: 100%;
+	border: none;
+	outline: none;
+}
+
+.input--hover {
+	opacity: 0.5;
+	font-size: 18px;
+	top: 0;
+}
+
+.textarea {
+	padding-top: 35px;
+}
+
+.textarea__form {
+	overflow:auto;
+	resize: none;
+}
