@@ -61,7 +61,7 @@ export default class AboutPage {
 		// скрываем центральный текст, показываем надпить "обо мне"
 		mainContainerElement.classList.add('container--about')
 		// показываем элементы страницы about (заголовок, навигацию)
-		aboutPageElement.classList.add('show')
+		aboutPageElement.classList.add('about--show')
 	}
 
 	// переходы внутри блока about

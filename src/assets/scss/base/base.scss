@@ -30,9 +30,25 @@ body {
 	
 	.about {
 		display: flex;
-		position: static;
+		z-index: 0;
+		// position: static;
 	}
 	
+}
+.container--hide-about {
+	.about {
+		// display: none;
+	}
+}
+
+.container--contacts {
+	.center-text {
+		display: none;
+	}
+	.contacts {
+		display: flex;
+		position: static;
+	}
 }
 
 .container--overflow {

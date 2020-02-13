@@ -1,1 +1,9 @@
 @import "../../assets/scss/utils/vars.scss";
+
+.contacts {
+	display: flex;
+	height: 100vh;
+	position: relative;
+	z-index: -100;
+	border: 1px solid red;
+}

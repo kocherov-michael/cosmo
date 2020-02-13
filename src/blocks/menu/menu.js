@@ -59,6 +59,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 		// показываем текст и фотографию
 		if (openPageClass === 'data-about-page') {
 			// console.log(openPageClass === 'data-about-page')
+			// mainContainerElement.classList.remove('container--hide-about')
 			const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
 		}
 
