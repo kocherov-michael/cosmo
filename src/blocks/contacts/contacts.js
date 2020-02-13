@@ -37,7 +37,7 @@ export default class ContactsPage {
 		return this.launch
 	}
 
-	static hideContactsPage () {
+	hideContactsPage () {
 		const contactsPageElement = document.querySelector('[data-contacts-page]')
 		const mainContainerElement = document.querySelector('[data-main-container]')
 		contactsPageElement.classList.add('contacts--hide-animation')

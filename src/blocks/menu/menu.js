@@ -48,7 +48,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 
 		}
 		else if (leavePage === 'contacts') {
-
+			contactsPage.hideContactsPage()
 		}
 
 		moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)

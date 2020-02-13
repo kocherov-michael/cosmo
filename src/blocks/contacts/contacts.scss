@@ -58,14 +58,17 @@
 	}
 	30% {
 		opacity: .2;
-		transform: translate(-10%, -10%) scale(.7);
+		transform: translate(0%, 0%) scale(.7);
 	}
 	100%{
 		opacity: .1;
-		transform: translate(-500%, -10%) scale(.9);
+		transform: translate(-500%, 0%) scale(.9);
 	}
 }
 .contacts--hide-animation {
+	.contacts__header-text {
+		opacity: 0;
+	}
 	.contacts__form {
 		animation: blockHide 2s 1 ease;
 	}
