@@ -17,11 +17,11 @@
 	height: 100%;
 	margin: 0 auto;
 	width: 66%;
-	border: 1px solid red;
+	// border: 1px solid red;
 }
 
 .portfolio__header {
-	border: 1px solid yellow;
+	// border: 1px solid yellow;
 	flex: 0 0 22%;
 	display: flex;
 	justify-content: flex-end;
@@ -40,7 +40,7 @@
 }
 
 .portfolio__sites {
-	border: 1px solid blue;
+	// border: 1px solid blue;
 	margin-top: 64px;
 }
 
@@ -61,6 +61,7 @@
 	text-transform: uppercase;
 	display: flex;
 	padding: 9px 24px;
+	transition: all .4s ease;
 	cursor: pointer;
 
 	&:hover {
@@ -71,5 +72,22 @@
 	&--choosen {
 		background-color: $default-color;
 		color: $dark-color;
+	}
+}
+
+.portfolio__sites-wrapper {
+	margin-top: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.portfolio__sites-item {
+	// flex: 0 0 48.5%;
+	width: 40%;
+	flex-grow: 1;
+	margin-bottom: 27px;
+	&:nth-child(odd) {
+		margin-right: 27px;
 	}
 }
