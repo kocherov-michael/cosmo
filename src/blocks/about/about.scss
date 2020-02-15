@@ -214,23 +214,25 @@
 	.education__sertificats {
 		transform: translateX(0);
 		opacity: 1;
+
+		transition: transform .8s ease;
 	}
-	
+
 	.education__sertificat-item--1 {
 		.sertificat {
-			transition: opacity .4s ease .3s, transform .8s ease .2s;
+			transition: opacity .8s ease 1s, transform .8s ease 1s;
 			opacity: 1;
 		}
 	}
 	.education__sertificat-item--2 {
 		.sertificat {
-			transition: opacity .4s ease .2s, transform .8s ease .1s;
+			transition: opacity .8s ease .9s, transform .8s ease .9s;
 			opacity: 1;
 		}
 	}
 	.education__sertificat-item--3 {
 		.sertificat {
-			transition: opacity .4s ease .1s, transform .8s ease;
+			transition: opacity .8s ease .8s, transform .8s ease .8s;
 			opacity: 1;
 		}
 	}
@@ -244,7 +246,7 @@
 	.education__footer {
 		transform: translateX(0);
 		opacity: 1;
-		transition: opacity .4s ease .4s, transform .8s ease;
+		transition: opacity .8s ease, transform .8s ease;
 	}
 }
 
