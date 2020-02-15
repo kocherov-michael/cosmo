@@ -1,1 +1,75 @@
 @import "../../assets/scss/utils/vars.scss";
+
+.portfolio {
+	display: flex;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: -100;
+}
+
+.portfolio__container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0 auto;
+	width: 66%;
+	border: 1px solid red;
+}
+
+.portfolio__header {
+	border: 1px solid yellow;
+	flex: 0 0 22%;
+	display: flex;
+	justify-content: flex-end;
+
+	flex-direction: column;
+
+	&-text {
+		display: inline-block;
+		color: $default-color;
+		font-family: $secondaryFont;
+		font-size: 100px;
+		font-weight: bold;
+		// line-height: 1.8;
+		letter-spacing: 8px;
+	}
+}
+
+.portfolio__sites {
+	border: 1px solid blue;
+	margin-top: 64px;
+}
+
+.portfolio__sites-header {
+
+}
+
+.portfolio__toggle {
+	display: flex;
+	justify-content: space-between;
+}
+
+.portfolio__toggle-item {
+	font-family: $mainFont;
+  font-size: 16px;
+  font-weight: bold;
+	color: $default-color;
+	text-transform: uppercase;
+	display: flex;
+	padding: 9px 24px;
+	cursor: pointer;
+
+	&:hover {
+		color: $primary-color;
+		// background-color: $default-color;
+	}
+
+	&--choosen {
+		background-color: $default-color;
+		color: $dark-color;
+	}
+}

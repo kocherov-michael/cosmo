@@ -57,6 +57,19 @@ body {
 	}
 }
 
+.container--portfolio {
+	.center-text {
+		display: none;
+	}
+	
+	.portfolio {
+		// display: flex;
+		z-index: 0;
+		// position: static;
+	}
+	
+}
+
 .number-column {
 	position: fixed;
 	top: 0;
