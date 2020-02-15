@@ -101,7 +101,7 @@ export default class AboutPage {
 		const technologiesList = this.aboutPageElement.querySelectorAll('.technologies__item')
 		for (let i = 0; i < technologiesList.length; i++) {
 			// каждая технология открывается с задержкой 0.1 сек от предыдущей
-			technologiesList[i].style.transition = `all .8s ease .${i}s`
+			technologiesList[i].style.transition = `all .8s ease ${(i+2)/10}s`
 		}
 	}
 

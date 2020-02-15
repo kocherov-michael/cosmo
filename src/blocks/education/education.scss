@@ -11,18 +11,19 @@
 	overflow: hidden;
 }
 
-.education__header {
-	font-family: $secondaryFont;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: 3px;
-	color: $default-color;
-	text-transform: uppercase;
-	transform: translateX(-100%);
-	transition: all .8s ease;
-	// opacity: 0;
-}
+// .education__header {
+// 	font-family: $secondaryFont;
+//   font-size: 30px;
+//   font-weight: bold;
+//   line-height: 1;
+//   letter-spacing: 3px;
+// 	color: $default-color;
+// 	text-transform: uppercase;
+// 	// transform: translateX(-100%);
+// 	transform: translateX(-50%);
+// 	transition: all .8s ease;
+// 	// opacity: 0;
+// }
 
 .education__sertificats {
 	display: flex;
