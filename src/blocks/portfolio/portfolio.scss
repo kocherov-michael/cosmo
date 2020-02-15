@@ -2,6 +2,7 @@
 
 .portfolio {
 	display: flex;
+	// display: none;
 	height: 100vh;
 	position: absolute;
 	left: 0;
@@ -18,17 +19,20 @@
 	margin: 0 auto;
 	width: 66%;
 	// border: 1px solid red;
+	transition: all .4s ease;
 }
 
 .portfolio__header {
 	// border: 1px solid yellow;
 	flex: 0 0 22%;
+	// flex: 0 0 176px;
 	display: flex;
 	justify-content: flex-end;
 
 	flex-direction: column;
 
 	&-text {
+		// border: 1px solid red;
 		display: inline-block;
 		color: $default-color;
 		font-family: $secondaryFont;
@@ -41,7 +45,22 @@
 
 .portfolio__sites {
 	// border: 1px solid blue;
+	// display: none;
+	overflow: hidden;
 	margin-top: 64px;
+}
+
+.portfolio__sites {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.portfolio--show {
+	.portfolio__sites {
+		opacity: 1;
+		transform: translateX(0%);
+		transition: opacity .6s ease .2s, transform .8s ease;
+	}
 }
 
 .portfolio__sites-header {
@@ -91,3 +110,22 @@
 		margin-right: 27px;
 	}
 }
+
+@keyframes portfolioHide {
+  0% {
+	}
+	30% {
+		opacity: .2;
+		transform: translate(0%, 0%) scale(.7);
+	}
+	100%{
+		opacity: .1;
+		transform: translate(-500%, 0%) scale(.9);
+	}
+}
+.portfolio--hide-animation {
+	.portfolio__container {
+		animation: portfolioHide 2s 1 ease;
+	}
+}
+

@@ -2,10 +2,11 @@ import './menu.scss'
 import animateMenuIcon from '../menuIcon/menuIcon'
 import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
+import PortfolioPage from '../portfolio/portfolio'
 // import showAboutPage from '../about/about'
 
 moveElement('data-menu-about', 'data-about-header')
-moveElement('data-menu-portfolio', 'data-about-header')
+moveElement('data-menu-portfolio', 'data-portfolio-header')
 moveElement('data-menu-contacts', 'data-contacts-header')
 
 function moveElement (startDataSelector, finishDataSelector) {
@@ -29,6 +30,9 @@ function moveElement (startDataSelector, finishDataSelector) {
 		if (!window.aboutPage) {
 			window.aboutPage = new AboutPage()
 		}
+		if (!window.portfolioPage) {
+			window.portfolioPage = new PortfolioPage()
+		}
 		// если никуда не уходим - просто закрываем меню
 		if (leavePage === purposePage) {
 			animateMenuIcon()
@@ -50,16 +54,22 @@ function moveElement (startDataSelector, finishDataSelector) {
 		else if (leavePage === 'contacts') {
 			contactsPage.leaveContactsPage()
 		}
+		else if (leavePage === 'portfolio') {
+			portfolioPage.leavePortfolioPage()
+		}
 
 		moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
 
 
 		// показываем целевую страницу
 		if (purposePage === 'about') {
-			// const aboutPage = new AboutPage({page: 'personal', leavePage: 'menu'})
 			aboutPage.showAboutPage()
-		} else if (purposePage === 'contacts') {
+		} 
+		else if (purposePage === 'contacts') {
 			contactsPage.showContactsPage()
+		} 
+		else if (purposePage === 'portfolio') {
+			portfolioPage.showPortfolioPage()
 		}
 
 	})
@@ -67,6 +77,10 @@ function moveElement (startDataSelector, finishDataSelector) {
 function moveMenuText (menuListElement, headerTextElement, mainContainerElement, purposePage) {
 		// получаем координаты целевого элемента
 		const targetCoordinates = getCoords(headerTextElement)
+		console.log(targetCoordinates)
+		console.log('purposePage', purposePage)
+		console.log('headerTextElement', headerTextElement)
+		// console.log(targetCoordinates)
 		// координаты текущего элемента
 		const leaveCoordinates = getCoords(menuListElement)
 		// создаём дубликат элемента для его передвижения
