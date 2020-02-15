@@ -1,0 +1,98 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.site {
+	border: 3px solid $primary-color;
+	// border: 3px solid red;
+	position: relative;
+}
+
+.site__picture {
+	padding: 24px 24px 0;
+}
+
+.site__img {
+	height: 240px;
+	background-size: cover;
+	background-position: center;
+}
+
+.site__title {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	font-family: $mainFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  color: $default-color;
+}
+
+.site__link {
+	// box-sizing: content-box;
+	display: block;
+	position: absolute;
+	top: -3px;
+	left: -3px;
+	right: -3px;
+	bottom: -3px;
+	background-color: $primary-color;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-decoration: none;
+	opacity: 0;
+	transition: all .4s ease;
+	// margin: -3px;
+	// height: 100%;
+	&:hover {
+		opacity: 1;
+	}
+	
+}
+.site__link--hover {
+	transform: translate(12px, -12px);
+	// &:hover {
+	// 	opacity: 1;
+	// }
+}
+
+.site__description {
+	font-family: $mainFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  color: $default-color;
+}
+
+.site__button {
+	padding: 18px;
+	display: flex;
+	justify-content: center;
+	background-color: $default-color;
+	display: flex;
+	align-items: center;
+
+	
+}
+
+.site__button-text {
+	font-family: $mainFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  color: $primary-color;
+}
+
+.site__button-arrow {
+	margin-left: 15px;
+	// width: 40px;
+	height: 24px;
+	&-svg {
+		// width: 40px;
+		width: 24px;
+		
+	}
+	&-path {
+		fill: $primary-color;
+	}
+}
