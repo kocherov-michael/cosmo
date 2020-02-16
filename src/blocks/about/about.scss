@@ -234,6 +234,8 @@
 		opacity: 1;
 		transition: none;
 
+		transform: none;
+
 		// transition: transform .8s ease;
 	}
 
@@ -241,6 +243,9 @@
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .4s;
+
+		transform: none;
+
 		.sertificat {
 			// transition:  opacity 1.7s ease .4s, transform .8s ease .9s;
 			// opacity: 1;
@@ -250,6 +255,9 @@
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .3s;
+
+		transform: none;
+
 		.sertificat {
 			// transition:  opacity 1.6s ease .3s, transform .8s ease .8s;
 			// opacity: 1;
@@ -259,13 +267,16 @@
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .2s;
+
+		transform: none;
+
 		.sertificat {
 			// transition:  opacity 1.5s ease .2s, transform .8s ease .7s;
 			// opacity: 1;
 		}
 	}
 	.sertificat {
-		transform: rotateY(0deg);
+		// transform: rotateY(0deg);
 
 		// opacity: 1;
 		// transition: all .8s ease .6s;

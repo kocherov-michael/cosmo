@@ -30,10 +30,6 @@ export default class ContactsPage {
 		return this.open
 	}
 
-	// get launchStatus() {
-	// 	return this.launch
-	// }
-
 	leaveContactsPage () {
 		this.contactsPageElement.classList.add('contacts--hide-animation')
 		setTimeout(() => {

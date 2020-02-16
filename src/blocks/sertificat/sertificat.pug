@@ -1,6 +1,9 @@
 mixin sertificat(options)
 	.sertificat
-		.sertificat__img(style="background-image: url("+options.url+");")
+		.sertificat__img-wrapper(data-sertificat)
+			//- .sertificat__img(style="background-image: url("+options.url+");")
+			//- img.sertificat__img(src=require("../../assets/img/img/html.jpg"))
+			img.sertificat__img(src=options.url)
 		.sertificat__dates #{options.dates}
 		.sertificat__description #{options.description} 
 		.sertificat__footer #{options.place}

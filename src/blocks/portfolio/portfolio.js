@@ -30,10 +30,6 @@ export default class PortfolioPage {
 		return this.open
 	}
 
-	// get launchStatus() {
-	// 	return this.launch
-	// }
-
 	leavePortfolioPage () {
 		this.portfolioPageElement.classList.add('portfolio--hide-animation')
 		setTimeout(() => {

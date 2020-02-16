@@ -43,17 +43,20 @@ export default class Menu {
 				// скрываем заголовок целевой страницы
 				headerTextElement.classList.add('hidden')
 			}
+			// уходим со страницы about
 			else if (leavePage === 'about') {
-				// console.log('leave')
 				this.aboutPage.leaveAboutPage()
 			}
+			// уходим со страницы контакты
 			else if (leavePage === 'contacts') {
 				this.contactsPage.leaveContactsPage()
 			}
+			// уходим со страницы портфолио
 			else if (leavePage === 'portfolio') {
 				this.portfolioPage.leavePortfolioPage()
 			}
 	
+			// передвигаем текст из меню до метоположения на целевой странице
 			this.moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
 	
 	
@@ -156,7 +159,6 @@ export default class Menu {
 			
 			// если элемент приближается к финишу - уменьшаем шаг для более точного позиционирования
 			if (5 > (currentX - finishX)) {
-				// console.log(deltaX)
 				stepX = 2000
 			}
 
@@ -167,7 +169,6 @@ export default class Menu {
 			if (currentX <= finishX) {
 				
 				clearInterval(timerId)
-				// animateMenuIcon()
 			}
 		}, 10);
 
