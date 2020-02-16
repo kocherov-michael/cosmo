@@ -1,89 +1,82 @@
 import './menu.scss'
-import animateMenuIcon from '../menuIcon/menuIcon'
+import MenuIcon from '../menuIcon/menuIcon'
 import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
 // import showAboutPage from '../about/about'
 
-moveElement('data-menu-about', 'data-about-header')
-moveElement('data-menu-portfolio', 'data-portfolio-header')
-moveElement('data-menu-contacts', 'data-contacts-header')
+export default class Menu {
+	constructor (args = {}) {
+		this.contactsPage = new ContactsPage()
+		this.aboutPage = new AboutPage()
+		this.portfolioPage = new PortfolioPage()
+		this.menuIcon = new MenuIcon()
+	}
 
-function moveElement (startDataSelector, finishDataSelector) {
-	const menuListElement = document.querySelector(`[${startDataSelector}]`)
-	const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
-	const mainContainerElement = document.querySelector('[data-main-container]')
-	const centerTextElement = document.querySelector('[data-center-text]')
-
+	// обработчик нажатия на элемент меню
+	menuElementListener (startDataSelector, finishDataSelector) {
+		const menuListElement = document.querySelector(`[${startDataSelector}]`)
+		const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
+		const mainContainerElement = document.querySelector('[data-main-container]')
+		const centerTextElement = document.querySelector('[data-center-text]')
 	
-	// слушаем нажатие на элемент списка меню
-	menuListElement.addEventListener('click', function(event){
-		// смотрим откуда уходим
-		const leavePage = mainContainerElement.getAttribute('data-main-container')
-		console.log('leavePage', leavePage)
-		// смотрим куда переходим
-		const purposePage = menuListElement.getAttribute('data-menu-target')
-		// console.log(purposePage)
+		
+		// слушаем нажатие на элемент списка меню
+		menuListElement.addEventListener('click', (event) => {
+			// смотрим откуда уходим
+			const leavePage = mainContainerElement.getAttribute('data-main-container')
+			// console.log('leavePage', leavePage)
+			// смотрим куда переходим
+			const purposePage = menuListElement.getAttribute('data-menu-target')
+			// если никуда не уходим - просто закрываем меню
+			if (leavePage === purposePage) {
+				// this.animateMenuIcon()
+				this.menuIcon.animateMenuIcon()
+				return
+			}
+			// если уходим с главной страницы
+			if (leavePage === 'main') {
+				// скpываем социальные иконки 
+				mainContainerElement.classList.add('hide-icons')
+				// скрываем центральный текст
+				centerTextElement.classList.add('center-text--animation')
+				// скрываем заголовок целевой страницы
+				headerTextElement.classList.add('hidden')
+			}
+			else if (leavePage === 'about') {
+				// console.log('leave')
+				this.aboutPage.leaveAboutPage()
+			}
+			else if (leavePage === 'contacts') {
+				this.contactsPage.leaveContactsPage()
+			}
+			else if (leavePage === 'portfolio') {
+				this.portfolioPage.leavePortfolioPage()
+			}
+	
+			this.moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
+	
+	
+			// показываем целевую страницу
+			if (purposePage === 'about') {
+				this.aboutPage.showAboutPage()
+			} 
+			else if (purposePage === 'contacts') {
+				this.contactsPage.showContactsPage()
+			} 
+			else if (purposePage === 'portfolio') {
+				this.portfolioPage.showPortfolioPage()
+			}
+	
+		})
+	}
 
-		if (!window.contactsPage) {
-			window.contactsPage = new ContactsPage()
-		}
-		if (!window.aboutPage) {
-			window.aboutPage = new AboutPage()
-		}
-		if (!window.portfolioPage) {
-			window.portfolioPage = new PortfolioPage()
-		}
-		// если никуда не уходим - просто закрываем меню
-		if (leavePage === purposePage) {
-			animateMenuIcon()
-			return
-		}
-		// если уходим с главной страницы
-		if (leavePage === 'main') {
-			// скpываем социальные иконки 
-			mainContainerElement.classList.add('hide-icons')
-			// скрываем центральный текст
-			centerTextElement.classList.add('center-text--animation')
-			// скрываем заголовок целевой страницы
-			headerTextElement.classList.add('hidden')
-		}
-		else if (leavePage === 'about') {
-			// console.log('leave')
-			aboutPage.leaveAboutPage()
-		}
-		else if (leavePage === 'contacts') {
-			contactsPage.leaveContactsPage()
-		}
-		else if (leavePage === 'portfolio') {
-			portfolioPage.leavePortfolioPage()
-		}
-
-		moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
-
-
-		// показываем целевую страницу
-		if (purposePage === 'about') {
-			aboutPage.showAboutPage()
-		} 
-		else if (purposePage === 'contacts') {
-			contactsPage.showContactsPage()
-		} 
-		else if (purposePage === 'portfolio') {
-			portfolioPage.showPortfolioPage()
-		}
-
-	})
-}
-function moveMenuText (menuListElement, headerTextElement, mainContainerElement, purposePage) {
+	// передвигаем текст из меню до метоположения на целевой странице
+	moveMenuText (menuListElement, headerTextElement, mainContainerElement, purposePage) {
 		// получаем координаты целевого элемента
-		const targetCoordinates = getCoords(headerTextElement)
-		// console.log(targetCoordinates)
-		// console.log('purposePage', purposePage)
-		// console.log('headerTextElement', headerTextElement)
-		// console.log(targetCoordinates)
+		const targetCoordinates = Menu.getCoords(headerTextElement)
 		// координаты текущего элемента
-		const leaveCoordinates = getCoords(menuListElement)
+		const leaveCoordinates = Menu.getCoords(menuListElement)
 		// создаём дубликат элемента для его передвижения
 		const movingTextElement = menuListElement.cloneNode(true)
 		// скрываем текущий элемент
@@ -97,9 +90,10 @@ function moveMenuText (menuListElement, headerTextElement, mainContainerElement,
 
 		movingTextElement.classList.add('menu-moving-tagret')
 		// передвигаем клон
-		changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
+		Menu.changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
 		// закрываем меню
-		animateMenuIcon()
+		// this.animateMenuIcon()
+		this.menuIcon.animateMenuIcon()
 
 		// задержка чтобы успел уехать текст с главной
 		setTimeout(() => {
@@ -112,80 +106,80 @@ function moveMenuText (menuListElement, headerTextElement, mainContainerElement,
 			mainContainerElement.classList.add('container--hide-centerText')
 			mainContainerElement.classList.add(`container--${purposePage}`)
 		}, 1100)
-}
-
-// перемещаем элемент
-function changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
-	// console.log(arguments)
-	const leaveX = leaveCoordinates.top
-	const leaveY = leaveCoordinates.left
-	const targetX = targetCoordinates.top
-	const targetY = targetCoordinates.left
-
-	let startX
-	let startY
-	let finishX
-	let finishY
-
-	if (targetX < leaveX) {
-		startX = leaveX
-		finishX = targetX
-	} else {
-		startX = targetX
-		finishX = leaveX
 	}
 
-	if (targetY < leaveY) {
-		startY = leaveY
-		finishY = targetY
-	} else {
-		startY = targetY
-		finishY = leaveY
-	}
+	// перемещаем элемент
+	static changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
+		// console.log(arguments)
+		const leaveX = leaveCoordinates.top
+		const leaveY = leaveCoordinates.left
+		const targetX = targetCoordinates.top
+		const targetY = targetCoordinates.left
 
-	// шаг перерисовки элемента
-	let stepX = 10
-	let stepY = 10
-	
-	let currentX = startX
-	let currentY = startY
-	let timerId = setInterval(() => {
-		
-		let deltaX = (startX - finishX) / stepX
-		let deltaY = (startY - finishY) / stepY
+		let startX
+		let startY
+		let finishX
+		let finishY
 
-		currentX -= deltaX
-		elem.style.top = `${currentX}px`
-
-		currentY -= deltaY
-		elem.style.left = `${currentY}px`
-		
-		// если элемент приближается к финишу - уменьшаем шаг для более точного позиционирования
-		if (5 > (currentX - finishX)) {
-			// console.log(deltaX)
-			stepX = 2000
+		if (targetX < leaveX) {
+			startX = leaveX
+			finishX = targetX
+		} else {
+			startX = targetX
+			finishX = leaveX
 		}
 
-		if (5 > (currentY - finishY)) {
-			stepY = 200
+		if (targetY < leaveY) {
+			startY = leaveY
+			finishY = targetY
+		} else {
+			startY = targetY
+			finishY = leaveY
 		}
 
-		if (currentX <= finishX) {
+		// шаг перерисовки элемента
+		let stepX = 10
+		let stepY = 10
+		
+		let currentX = startX
+		let currentY = startY
+		let timerId = setInterval(() => {
 			
-			clearInterval(timerId)
-			// animateMenuIcon()
-		}
-	}, 10);
+			let deltaX = (startX - finishX) / stepX
+			let deltaY = (startY - finishY) / stepY
 
-}
+			currentX -= deltaX
+			elem.style.top = `${currentX}px`
 
-// находим координаты верхней левой точки элемента
-function getCoords(elem) {
-  var box = elem.getBoundingClientRect();
+			currentY -= deltaY
+			elem.style.left = `${currentY}px`
+			
+			// если элемент приближается к финишу - уменьшаем шаг для более точного позиционирования
+			if (5 > (currentX - finishX)) {
+				// console.log(deltaX)
+				stepX = 2000
+			}
 
-  return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset
-  };
+			if (5 > (currentY - finishY)) {
+				stepY = 200
+			}
 
+			if (currentX <= finishX) {
+				
+				clearInterval(timerId)
+				// animateMenuIcon()
+			}
+		}, 10);
+
+	}
+
+	// находим координаты верхней левой точки элемента
+	static getCoords(elem) {
+		var box = elem.getBoundingClientRect();
+
+		return {
+			top: box.top + pageYOffset,
+			left: box.left + pageXOffset
+		};
+	}
 }

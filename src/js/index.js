@@ -16,3 +16,10 @@ import './../blocks/mailForm/mailForm.js'
 import './../blocks/input/input.js'
 import './../blocks/portfolio/portfolio.js'
 import './../blocks/site/site.js'
+
+import Menu from './../blocks/menu/menu.js'
+
+const menu = new Menu()
+menu.menuElementListener('data-menu-about', 'data-about-header')
+menu.menuElementListener('data-menu-portfolio', 'data-portfolio-header')
+menu.menuElementListener('data-menu-contacts', 'data-contacts-header')
