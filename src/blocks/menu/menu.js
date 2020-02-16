@@ -3,6 +3,7 @@ import MenuIcon from '../menuIcon/menuIcon'
 import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
+import Sertificat from '../sertificat/sertificat'
 // import showAboutPage from '../about/about'
 
 export default class Menu {
@@ -11,6 +12,7 @@ export default class Menu {
 		this.aboutPage = new AboutPage()
 		this.portfolioPage = new PortfolioPage()
 		this.menuIcon = new MenuIcon()
+		this.sertificat = new Sertificat()
 	}
 
 	// обработчик нажатия на элемент меню
@@ -96,7 +98,8 @@ export default class Menu {
 		Menu.changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
 		// закрываем меню
 		// this.animateMenuIcon()
-		this.menuIcon.animateMenuIcon()
+		MenuIcon.animateMenuIcon()
+		MenuIcon.toggleMenu()
 
 		// задержка чтобы успел уехать текст с главной
 		setTimeout(() => {
