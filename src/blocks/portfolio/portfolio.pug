@@ -1,15 +1,15 @@
-.portfolio(data-portfolio-page)
+.portfolio(data-portfolio-page).portfolio--show
 	.portfolio__container
 		.portfolio__header
 			.portfolio__header-text(data-portfolio-header) Портфолио
 		.portfolio__sites
 			.portfolio__toggle
-				.portfolio__toggle-item.portfolio__toggle-item--choosen Все
-				.portfolio__toggle-item HTML+CSS
-				.portfolio__toggle-item Bootstrap
-				.portfolio__toggle-item Less/Sass
-				.portfolio__toggle-item Webpack
-			.portfolio__sites-wrapper
+				.portfolio__toggle-item.portfolio__toggle-item--choosen(data-portfolio-filter="all") Все
+				.portfolio__toggle-item(data-portfolio-filter="html") HTML+CSS
+				.portfolio__toggle-item(data-portfolio-filter="bootstrap") Bootstrap
+				.portfolio__toggle-item(data-portfolio-filter="less") Less/Sass
+				.portfolio__toggle-item(data-portfolio-filter="webpack") Webpack
+			.portfolio__sites-wrapper(data-filter-wrapper)
 				.portfolio__sites-item
 					+site({
 						text: "Учебный макет Surfing Club",
