@@ -52,14 +52,14 @@
 	}
 
 	&_orange {
-		color: #FF663D;
+		color: $danger-color;
 	}
 
 	&_blue {
-		color: #01AEE3;
+		color: $primary-color;
 	}
 
 	&_yellow {
-		color: #FFC920;
+		color: $secondary-color;
 	}
 }

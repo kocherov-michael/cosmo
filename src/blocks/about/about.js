@@ -44,8 +44,10 @@ export default class AboutPage {
 
 	// показать элементы страницы about
 	showAboutElements() {
-		// скрываем центральный текст, показываем надпить "обо мне"
-		this.mainContainerElement.classList.add('container--about')
+		// скрываем центральный текст 
+		// this.mainContainerElement.classList.add('container--hide-centerText')
+		// показываем надпить "обо мне"
+		// this.mainContainerElement.classList.add('container--about')
 		// показываем элементы страницы about (заголовок, навигацию)
 		this.aboutPageElement.classList.add('about--show')
 	}

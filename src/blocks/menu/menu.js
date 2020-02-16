@@ -20,6 +20,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 	menuListElement.addEventListener('click', function(event){
 		// смотрим откуда уходим
 		const leavePage = mainContainerElement.getAttribute('data-main-container')
+		console.log('leavePage', leavePage)
 		// смотрим куда переходим
 		const purposePage = menuListElement.getAttribute('data-menu-target')
 		// console.log(purposePage)
@@ -48,7 +49,7 @@ function moveElement (startDataSelector, finishDataSelector) {
 			headerTextElement.classList.add('hidden')
 		}
 		else if (leavePage === 'about') {
-			console.log('leave')
+			// console.log('leave')
 			aboutPage.leaveAboutPage()
 		}
 		else if (leavePage === 'contacts') {
@@ -77,9 +78,9 @@ function moveElement (startDataSelector, finishDataSelector) {
 function moveMenuText (menuListElement, headerTextElement, mainContainerElement, purposePage) {
 		// получаем координаты целевого элемента
 		const targetCoordinates = getCoords(headerTextElement)
-		console.log(targetCoordinates)
-		console.log('purposePage', purposePage)
-		console.log('headerTextElement', headerTextElement)
+		// console.log(targetCoordinates)
+		// console.log('purposePage', purposePage)
+		// console.log('headerTextElement', headerTextElement)
 		// console.log(targetCoordinates)
 		// координаты текущего элемента
 		const leaveCoordinates = getCoords(menuListElement)
@@ -108,6 +109,7 @@ function moveMenuText (menuListElement, headerTextElement, mainContainerElement,
 			menuListElement.classList.remove('hidden')
 
 			// скрываем уехавший центральный текст
+			mainContainerElement.classList.add('container--hide-centerText')
 			mainContainerElement.classList.add(`container--${purposePage}`)
 		}, 1100)
 }

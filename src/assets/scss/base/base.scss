@@ -24,10 +24,16 @@ body {
 	margin: 0 auto;
 }
 
-.container--about {
+.container--hide-centerText {
 	.center-text {
 		display: none;
 	}
+}
+
+.container--about {
+	// .center-text {
+	// 	display: none;
+	// }
 	
 	.about {
 		// display: flex;
@@ -43,9 +49,9 @@ body {
 }
 
 .container--contacts {
-	.center-text {
-		display: none;
-	}
+	// .center-text {
+	// 	display: none;
+	// }
 	.contacts {
 		// display: flex;
 		z-index: 0;
@@ -60,9 +66,9 @@ body {
 }
 
 .container--portfolio {
-	.center-text {
-		display: none;
-	}
+	// .center-text {
+	// 	display: none;
+	// }
 	
 	.portfolio {
 		// display: flex;
