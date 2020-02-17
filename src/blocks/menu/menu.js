@@ -4,6 +4,7 @@ import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
 import Sertificat from '../sertificat/sertificat'
+import Logo from '../logo/logo'
 
 export default class Menu {
 	constructor (args = {}) {
@@ -12,6 +13,11 @@ export default class Menu {
 		this.portfolioPage = new PortfolioPage()
 		this.menuIcon = new MenuIcon()
 		this.sertificat = new Sertificat()
+		this.logo = new Logo({
+			aboutPage: this.aboutPage,
+			portfolioPage: this.portfolioPage,
+			contactsPage: this.contactsPage
+		})
 	}
 
 	// обработчик нажатия на элемент меню
@@ -19,7 +25,7 @@ export default class Menu {
 		const menuListElement = document.querySelector(`[${startDataSelector}]`)
 		const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
 		const mainContainerElement = document.querySelector('[data-main-container]')
-		const centerTextElement = document.querySelector('[data-center-text]')
+		this.centerTextElement = document.querySelector('[data-center-text]')
 	
 		
 		// слушаем нажатие на элемент списка меню
@@ -40,7 +46,7 @@ export default class Menu {
 				// скpываем социальные иконки 
 				mainContainerElement.classList.add('hide-icons')
 				// скрываем центральный текст
-				centerTextElement.classList.add('center-text--animation')
+				this.centerTextElement.classList.add('center-text--animation')
 				// скрываем заголовок целевой страницы
 				headerTextElement.classList.add('hidden')
 			}
@@ -90,13 +96,16 @@ export default class Menu {
 		movingTextElement.style.top = `${leaveCoordinates.top}px`
 		movingTextElement.style.left = `${leaveCoordinates.left}px`
 
+		// movingTextElement.classList.add('menu-moving-tagret')
 		document.body.append(movingTextElement)
 
-		movingTextElement.classList.add('menu-moving-tagret')
 		// передвигаем клон
-		Menu.changeCoordinats (movingTextElement, leaveCoordinates, targetCoordinates)
+		setTimeout(() => {
+			movingTextElement.style.top = `${targetCoordinates.top}px`
+			movingTextElement.style.left = `${targetCoordinates.left}px`
+		},10)
+
 		// закрываем меню
-		// this.animateMenuIcon()
 		MenuIcon.animateMenuIcon()
 		MenuIcon.toggleMenu()
 
@@ -106,74 +115,14 @@ export default class Menu {
 			movingTextElement.parentNode.removeChild(movingTextElement)
 			headerTextElement.classList.remove('hidden')
 			menuListElement.classList.remove('hidden')
+			
+			// удаляем у цетнрального текста класс для скрывания этого элемента
+			this.centerTextElement.classList.remove('center-text--animation')
 
 			// скрываем уехавший центральный текст
 			mainContainerElement.classList.add('container--hide-centerText')
 			mainContainerElement.classList.add(`container--${purposePage}`)
 		}, 1100)
-	}
-
-	// перемещаем элемент
-	static changeCoordinats (elem, leaveCoordinates, targetCoordinates) {
-		// console.log(arguments)
-		const leaveX = leaveCoordinates.top
-		const leaveY = leaveCoordinates.left
-		const targetX = targetCoordinates.top
-		const targetY = targetCoordinates.left
-
-		let startX
-		let startY
-		let finishX
-		let finishY
-
-		if (targetX < leaveX) {
-			startX = leaveX
-			finishX = targetX
-		} else {
-			startX = targetX
-			finishX = leaveX
-		}
-
-		if (targetY < leaveY) {
-			startY = leaveY
-			finishY = targetY
-		} else {
-			startY = targetY
-			finishY = leaveY
-		}
-
-		// шаг перерисовки элемента
-		let stepX = 10
-		let stepY = 10
-		
-		let currentX = startX
-		let currentY = startY
-		let timerId = setInterval(() => {
-			
-			let deltaX = (startX - finishX) / stepX
-			let deltaY = (startY - finishY) / stepY
-
-			currentX -= deltaX
-			elem.style.top = `${currentX}px`
-
-			currentY -= deltaY
-			elem.style.left = `${currentY}px`
-			
-			// если элемент приближается к финишу - уменьшаем шаг для более точного позиционирования
-			if (5 > (currentX - finishX)) {
-				stepX = 2000
-			}
-
-			if (5 > (currentY - finishY)) {
-				stepY = 200
-			}
-
-			if (currentX <= finishX) {
-				
-				clearInterval(timerId)
-			}
-		}, 10);
-
 	}
 
 	// находим координаты верхней левой точки элемента
