@@ -8,9 +8,7 @@ export default class PortfolioPage {
 	}
 
 	showPortfolioPage () {
-		// console.log('open')
-		this.open = true
-		// const mainContainerElement = document.querySelector('[data-main-container]')
+		// this.open = true
 		// записываем, что мы на странице контактов
 		this.mainContainerElement.setAttribute('data-main-container', 'portfolio')
 		// задаём для контейнера контактов overflow:hidden
@@ -27,9 +25,9 @@ export default class PortfolioPage {
 		},1100)
 	}
 
-	get openStatus() {
-		return this.open
-	}
+	// get openStatus() {
+	// 	return this.open
+	// }
 
 	leavePortfolioPage () {
 		this.portfolioPageElement.classList.add('portfolio--hide-animation')

@@ -4,7 +4,6 @@ import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
 import Sertificat from '../sertificat/sertificat'
-// import showAboutPage from '../about/about'
 
 export default class Menu {
 	constructor (args = {}) {
@@ -64,7 +63,7 @@ export default class Menu {
 	
 			// показываем целевую страницу
 			if (purposePage === 'about') {
-				this.aboutPage.showAboutPage()
+				this.aboutPage.openAboutPage()
 			} 
 			else if (purposePage === 'contacts') {
 				this.contactsPage.showContactsPage()
