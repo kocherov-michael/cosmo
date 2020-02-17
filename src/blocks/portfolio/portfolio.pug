@@ -5,49 +5,49 @@
 		.portfolio__sites
 			.portfolio__toggle
 				.portfolio__toggle-item.portfolio__toggle-item--choosen(data-portfolio-filter="all") Все
-				.portfolio__toggle-item(data-portfolio-filter="html") HTML+CSS
+				.portfolio__toggle-item(data-portfolio-filter="javascript") JavaScript
 				.portfolio__toggle-item(data-portfolio-filter="bootstrap") Bootstrap
 				.portfolio__toggle-item(data-portfolio-filter="less") Less/Sass
 				.portfolio__toggle-item(data-portfolio-filter="webpack") Webpack
 			.portfolio__sites-wrapper(data-filter-wrapper)
-				.portfolio__sites-item
+				.portfolio__sites-item.less(data-filter-item).all
 					+site({
 						text: "Учебный макет Surfing Club",
 						img: "./../assets/img/img/project_surfing.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
 					})
-				.portfolio__sites-item
+				.portfolio__sites-item.less.webpack.javascript(data-filter-item).all
 					+site({
 						text: "Учебный макет Toxin",
 						img: "./../assets/img/img/project_toxin.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
 					})
-				.portfolio__sites-item
+				.portfolio__sites-item(data-filter-item).all
 					+site({
 						text: "Учебный макет Booking",
 						img: "./../assets/img/img/project_booking.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
 					})
-				.portfolio__sites-item
+				.portfolio__sites-item.bootstrap.less(data-filter-item).all
 					+site({
 						text: "Учебный макет Apollo",
 						img: "./../assets/img/img/project_apollo.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
 					})
-				.portfolio__sites-item
+				.portfolio__sites-item.less.webpack.javascript(data-filter-item).all
 					+site({
-						text: "Учебный макет Surfing Club",
+						text: "Калькулятор ювелира",
 						img: "./../assets/img/img/project_surfing.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
 					})
-				.portfolio__sites-item
+				.portfolio__sites-item.less.webpack.javascript(data-filter-item).all
 					+site({
-						text: "Учебный макет Surfing Club",
+						text: "Личный сайт портфолио",
 						img: "./../assets/img/img/project_surfing.jpg",
 						link: "#",
 						description: "Вёрстка многостраничного сайта отеля с использованием Sass, Pug, Webpack"
