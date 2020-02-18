@@ -9,6 +9,8 @@ export default class Sertificat {
 		this.loopImg()
 		// прослушка иконки крестика
 		this.listenMenuIcon()
+		// статус кликабельности элемента
+		this.openStatus = false
 	}
 
 	// увеличиваем картинку
@@ -18,6 +20,9 @@ export default class Sertificat {
 		for ( let i = 0; i < sertificatsList.length; i++ ) {
 			
 			sertificatsList[i].addEventListener('click', (event) => {
+				// проверяем, не открыта ли уже новая обёртка с элементом
+				if (this.openStatus) return
+				this.openStatus = true
 				// ширина окна
 				this.windowX = window.innerWidth
 				// высота окна
@@ -33,14 +38,12 @@ export default class Sertificat {
 				this.diffrentX = window.innerWidth / 2 - event.clientX 
 				this.diffrentY = window.innerHeight / 2 - event.clientY
 
-
+				// анимация иконки меню при нажатии
 				this.changeMenuIcon()
-	
+
 				// создаём клон картинки
-				this.newPictureElement = sertificatsList[i].cloneNode(true)
-				this.newPictureElement.classList.add('sertificat__img-wrapper--active')
-				// console.log(event.clientX)
-				// console.log(event.clientY)
+				this.newPictureElement = this.createClone(sertificatsList[i])
+	
 				// создаём обёртку для показа картинки
 				this.newWrapperElement = document.createElement('div')
 				this.newWrapperElement.classList.add('single-sertificat-wrapper')
@@ -53,23 +56,52 @@ export default class Sertificat {
 				// добавляем картинку в новую обёртку
 				this.newWrapperElement.append(this.newPictureElement)
 
-				this.imgElement = this.newWrapperElement.querySelector('.sertificat__img')
+				// this.imgElement = this.newWrapperElement.querySelector('.sertificat__img')
 				// плавно открываем обёртку
 				setTimeout(() => {
 					this.newWrapperElement.classList.add('single-sertificat-wrapper--show')
 					this.newPictureElement.classList.add('sertificat__img-wrapper--show')
 					// задаём радиус расширения окружности
-					this.newWrapperElement.style.width = `${maxSize * 2}px`
-					this.newWrapperElement.style.height = `${maxSize * 2}px`
+					this.newWrapperElement.style.width = `${maxSize * 2.5}px`
+					this.newWrapperElement.style.height = `${maxSize * 2.5}px`
 					// ширина обёртки - по краям окна
 					this.newPictureElement.style.width = `${this.windowX}px`
 					this.newPictureElement.style.height = `${this.windowY}px`
-					// переносим картинку в центр
-					this.imgElement.style = `transform: translate(${this.diffrentX}px, ${this.diffrentY}px);`
 				},0)
 	
 			})
 		}
+	}
+
+	// создание клона сертификата
+	createClone (element) {
+		// находим картинку в элементе 
+		const imgElement = element.querySelector('img')
+		// получаем url картинки
+		const url = imgElement.getAttribute('src')
+		// создаём обёртку, в которую положим картинку
+		const newElement = document.createElement('div')
+		newElement.classList.add('sertificat__img-wrapper--active')
+
+		// когда вернулась загруженная картинка - вставляем её в обёртку
+		Sertificat.loadImage(url).then(image => {
+			image.classList.add('sertificat__img')
+			newElement.append(image)
+			// даём изображению координаты центра экрана
+			image.style = `transform: translate(${this.diffrentX}px, ${this.diffrentY}px);`
+		})
+
+		return newElement
+	}
+
+	// метод загрузки изображения
+	static loadImage (url) {
+		return new Promise((resolve, reject) => {
+			const image = new Image()
+			image.src = url
+			// кодда изображение загрузилось - возвращаем картинку
+			image.onload = () => resolve(image)
+		})
 	}
 
 	// изменяем иконку меню на крестик
@@ -109,8 +141,10 @@ export default class Sertificat {
 		this.newPictureElement.style.height = ``
 		setTimeout(() => {
 			// удаляем добавленные элементы
-				this.newPictureElement.parentNode.removeChild(this.newPictureElement)
-				this.newWrapperElement.parentNode.removeChild(this.newWrapperElement)
+			this.newPictureElement.parentNode.removeChild(this.newPictureElement)
+			this.newWrapperElement.parentNode.removeChild(this.newWrapperElement)
+			// меняем статус, что элемент теперь кликабелен
+			this.openStatus = false
 		},800)
 	}
 
