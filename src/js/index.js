@@ -16,6 +16,7 @@ import './../blocks/mailForm/mailForm.js'
 import './../blocks/input/input.js'
 import './../blocks/portfolio/portfolio.js'
 import './../blocks/site/site.js'
+import './../blocks/canvas/canvas.js'
 
 import Menu from './../blocks/menu/menu.js'
 
