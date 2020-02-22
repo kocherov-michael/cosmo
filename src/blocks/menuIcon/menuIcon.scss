@@ -1,10 +1,10 @@
 @import "../../assets/scss/utils/vars.scss";
 
 .menu-icon {
-	position: fixed;
+	position: absolute;
 	z-index: 20;
-	top: 40px;
-	right: 40px;
+	top: 24px;
+	right: 24px;
 	height: 40px;
 	width: 40px;
 	display: flex;
@@ -51,6 +51,15 @@
 			transition: all .4s ease;
 		}
 		
+	}
+
+	@media (min-width: 576px) {
+		top: 40px;
+		right: 40px;
+	}
+
+	@media (min-width: 768px) {
+		position: fixed;
 	}
 }
 .menu-icon__cross-container {
@@ -107,6 +116,7 @@
 }
 
 .menu-icon--cross {
+	position: fixed;
 	.menu-icon__line {
 		transform: translateX(-200%);
 		transition: all .4s ease .1s;
