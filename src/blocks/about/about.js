@@ -3,7 +3,7 @@ import './about.scss'
 export default class AboutPage {
 	constructor (args = {}) {
 		this.aboutPageElement = document.querySelector('[data-about-page]')
-		this.mainContainerElement = document.querySelector('[data-main-container]')
+		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.aboutNavigationListener()
 	}
 
@@ -14,7 +14,7 @@ export default class AboutPage {
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
 		// записываем, что мы на странице about
-		this.mainContainerElement.setAttribute('data-main-container', 'about')
+		this.mainContainerElement.setAttribute('data-main-wrapper', 'about')
 
 		// задаём интервал, за время которого текст с главной уезжает
 		setTimeout(() => {
@@ -104,7 +104,7 @@ export default class AboutPage {
 
 		setTimeout(() => {
 			// скрываем все элементы, которые отображались на странице about
-			this.mainContainerElement.classList.remove('container--about')
+			this.mainContainerElement.classList.remove('wrapper--about')
 			this.aboutPageElement.classList.remove('about--hide-animation')
 			this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
 			this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)

@@ -6,7 +6,7 @@ export default class Logo {
 		this.portfolioPage = args.portfolioPage
 		this.contactsPage = args.contactsPage
 		this.logoElement = document.querySelector('[data-logo]')
-		this.mainContainerElement = document.querySelector('[data-main-container]')
+		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.logoListener()
 	}
 
@@ -14,9 +14,9 @@ export default class Logo {
 	logoListener () {
 		this.logoElement.addEventListener('click', () => {
 			// получаем страницу, с которой уходим
-			const leavePage = this.mainContainerElement.getAttribute('data-main-container')
+			const leavePage = this.mainContainerElement.getAttribute('data-main-wrapper')
 
-			this.mainContainerElement.setAttribute('data-main-container', 'main')
+			this.mainContainerElement.setAttribute('data-main-wrapper', 'main')
 
 			// уходим со страницы about
 			if (leavePage === 'about') {
@@ -39,7 +39,7 @@ export default class Logo {
 			// ждём пока уедет предыдущий блок
 			setTimeout(() => {
 				// отображаем иконки и центральный текст
-				this.mainContainerElement.classList.remove('hide-icons', 'container--hide-centerText')
+				this.mainContainerElement.classList.remove('hide-icons', 'wrapper--hide-centerText')
 				setTimeout(() => {
 					// центральный текст появляется с анимацией
 					centerTextElement.classList.remove('center-text--before-show')

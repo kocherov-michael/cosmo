@@ -24,21 +24,22 @@ export default class Menu {
 	menuElementListener (startDataSelector, finishDataSelector) {
 		const menuListElement = document.querySelector(`[${startDataSelector}]`)
 		const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
-		const mainContainerElement = document.querySelector('[data-main-container]')
+		const mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.centerTextElement = document.querySelector('[data-center-text]')
 	
 		
 		// слушаем нажатие на элемент списка меню
 		menuListElement.addEventListener('click', (event) => {
 			// смотрим откуда уходим
-			const leavePage = mainContainerElement.getAttribute('data-main-container')
+			const leavePage = mainContainerElement.getAttribute('data-main-wrapper')
 			// console.log('leavePage', leavePage)
 			// смотрим куда переходим
 			const purposePage = menuListElement.getAttribute('data-menu-target')
 			// если никуда не уходим - просто закрываем меню
 			if (leavePage === purposePage) {
 				// this.animateMenuIcon()
-				this.menuIcon.animateMenuIcon()
+				// this.menuIcon.animateMenuIcon()
+				MenuIcon.animateMenuIcon()
 				return
 			}
 			// если уходим с главной страницы
@@ -120,8 +121,8 @@ export default class Menu {
 			this.centerTextElement.classList.remove('center-text--animation')
 
 			// скрываем уехавший центральный текст
-			mainContainerElement.classList.add('container--hide-centerText')
-			mainContainerElement.classList.add(`container--${purposePage}`)
+			mainContainerElement.classList.add('wrapper--hide-centerText')
+			mainContainerElement.classList.add(`wrapper--${purposePage}`)
 		}, 1100)
 	}
 

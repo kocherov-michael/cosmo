@@ -4,7 +4,7 @@ import Filter from '../dropdown/dropdown'
 export default class PortfolioPage {
 	constructor (args = {}) {
 		this.portfolioPageElement = document.querySelector('[data-portfolio-page]')
-		this.mainContainerElement = document.querySelector('[data-main-container]')
+		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.filter = new Filter()
 		// this.filterItems()
 	}
@@ -12,16 +12,16 @@ export default class PortfolioPage {
 	showPortfolioPage () {
 		// this.open = true
 		// записываем, что мы на странице контактов
-		this.mainContainerElement.setAttribute('data-main-container', 'portfolio')
+		this.mainContainerElement.setAttribute('data-main-wrapper', 'portfolio')
 		// задаём для контейнера контактов overflow:hidden
-		this.mainContainerElement.classList.add('container--overflow')
+		this.mainContainerElement.classList.add('wrapper--overflow')
 		// console.log('contacts--show')
 		setTimeout(() => {
 			// показываем элементы страницы контактов
 			this.portfolioPageElement.classList.add('portfolio--show')
 			setTimeout(() => {
 				// снимаем overflow:hidden после появления элементов страницы
-				this.mainContainerElement.classList.remove('container--overflow')
+				this.mainContainerElement.classList.remove('wrapper--overflow')
 
 			}, 800)
 		},1100)
@@ -34,7 +34,7 @@ export default class PortfolioPage {
 	leavePortfolioPage () {
 		this.portfolioPageElement.classList.add('portfolio--hide-animation')
 		setTimeout(() => {
-			this.mainContainerElement.classList.remove('container--portfolio')
+			this.mainContainerElement.classList.remove('wrapper--portfolio')
 			this.portfolioPageElement.classList.remove('portfolio--hide-animation')
 			this.portfolioPageElement.classList.remove('portfolio--show')
 		},1100)
