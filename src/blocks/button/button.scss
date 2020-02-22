@@ -16,6 +16,7 @@
 		}
 		.button__arrow-path {
 			fill: $primary-color;
+			
 		}
 		
 	}
@@ -70,6 +71,10 @@
 .button__arrow-svg {
 	width: 40px;
 	width: 40px;
+}
+
+.button__arrow-path {
+	transition: all .4s ease;
 }
 
 .button--small {

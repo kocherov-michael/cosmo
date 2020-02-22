@@ -12,11 +12,15 @@
 
 .personal__info {
 	// flex: 0 0 48%;
-	padding-right: 60px;
-
+	
   line-height: 1.75;
 	color: $default-color;
 	overflow: hidden;
+	
+	@media (min-width: 576px) {
+		padding-right: 60px;
+		
+	}
 	
 	p {
 		font-family: $mainFont;
@@ -29,17 +33,36 @@
 	}
 }
 .personal__button {
-	flex: 0 0 22%;
+	
 	overflow: hidden;
 	margin-top: 25px;
+	margin-left: -24px;
+	margin-right: -24px;
 	
 	&-wrapper {
-		padding-top: 20px;
 		height: 100px;
-		width: 70%;
 		transition: all .8s ease;
 		transform: translateX(-100%);
 		opacity: 0;
+
+		.button__container {
+			padding: 20px;
+		}
+		
+		@media (min-width: 576px) {
+			width: 70%;
+			padding-top: 20px;
+
+			.button__container {
+				padding: 10px;
+			}
+		}
+	}
+
+	@media (min-width: 576px) {
+		flex: 0 0 22%;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 .personal__button.personal__button--overflow-visible {

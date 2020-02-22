@@ -10,6 +10,95 @@
 	right: 0;
 	// transform: translateX(-50%);
 	z-index: -100;
+	@media (max-width: 575px) {
+		overflow: hidden;
+
+		.personal__info {
+			p {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+	
+		.personal__button-wrapper {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		
+		.about__face {
+			opacity: 1;
+	
+			&-img {
+				transform: translateX(0);
+			}
+		}
+
+		
+		.about__subtitle-text--education {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity .8s ease, transform .4s ease;
+		}
+	
+		.education__sertificats {
+			transform: translateX(0);
+			opacity: 1;
+			transition: none;
+			transform: none;
+		}
+	
+		.education__sertificat-item--1 {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity 1.6s ease .3s, transform .8s ease .4s;
+			transform: none;
+		}
+		.education__sertificat-item--2 {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity 1.6s ease .3s, transform .8s ease .3s;
+			transform: none;
+		}
+		.education__sertificat-item--3 {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity 1.6s ease .3s, transform .8s ease .2s;
+			transform: none;
+		}
+		.education__footer {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity .8s ease 1s, transform .8s ease .8s;
+		}
+
+		.about__list-item {
+			text-shadow: 0 0 2px $neutral-secondary-color;
+		}
+
+		.technologies__list {
+			position: static;
+		}
+	
+		.technologies__item {
+			width: 100%;
+			opacity: 1;
+		
+		}
+	
+		.about__subtitle-text--technologies {
+			transform: translateX(0);
+			opacity: 1;
+			transition: opacity 1s ease, transform .8s ease -0.4s;
+		}
+	
+		.technology__title {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: 576px) {
+
+	}
 }
 
 .about__container {
@@ -86,17 +175,23 @@
 
 .about__face {
 	position: absolute;
-	top: 0;
-	bottom: 0;
+	top: 26%;
 	right: 0;
-	left: 50%;
-	height: 100%;
+	left: 0;
+	height: 410px;
 	flex-basis: 50%;
 	flex-grow: 1;
 	overflow: hidden;
 	transition: all .8s ease;
 	opacity: 0;
-	padding-left: 30px;
+	
+	@media (min-width: 576px) {
+		padding-left: 30px;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		height: 100%;
+	}
 	
 	&-img {
 		height: 100%;
@@ -159,9 +254,14 @@
 }
 
 .about__personal-wrapper {
-	width: 50%;
-	flex: 0 0 74%;
+	padding-top: 400px;
 	// padding-bottom: 17%;
+	@media (min-width: 576px) {
+		padding-top: 0;
+		flex: 0 0 74%;
+		width: 50%;
+
+	}
 }
 
 .education__sertificat-item--1 {
@@ -185,6 +285,11 @@
 // ==================================================================
 
 .about--show {
+
+	@media (max-width: 575px) {
+
+		overflow: initial;
+	}
 	.about__list-item {
 		transform: translateX(0);
 		opacity: .5;
@@ -235,64 +340,33 @@
 	.about__subtitle-text--education {
 		transform: translateX(0);
 		opacity: 1;
-		// transition: opacity .8s ease, transform .8s ease -0.4s;
 		transition: opacity .8s ease, transform .4s ease;
 	}
-
 
 	.education__sertificats {
 		transform: translateX(0);
 		opacity: 1;
 		transition: none;
-
 		transform: none;
-
-		// transition: transform .8s ease;
 	}
 
 	.education__sertificat-item--1 {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .4s;
-
 		transform: none;
-
-		.sertificat {
-			// transition:  opacity 1.7s ease .4s, transform .8s ease .9s;
-			// opacity: 1;
-		}
 	}
 	.education__sertificat-item--2 {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .3s;
-
 		transform: none;
-
-		.sertificat {
-			// transition:  opacity 1.6s ease .3s, transform .8s ease .8s;
-			// opacity: 1;
-		}
 	}
 	.education__sertificat-item--3 {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1.6s ease .3s, transform .8s ease .2s;
-
 		transform: none;
-
-		.sertificat {
-			// transition:  opacity 1.5s ease .2s, transform .8s ease .7s;
-			// opacity: 1;
-		}
-	}
-	.sertificat {
-		// transform: rotateY(0deg);
-
-		// opacity: 1;
-		// transition: all .8s ease .6s;
-		// transform-style: preserve-3d;
-
 	}
 	.education__footer {
 		transform: translateX(0);
@@ -317,8 +391,6 @@
 	.about__subtitle-text--technologies {
 		transform: translateX(0);
 		opacity: 1;
-		// transition: opacity .4s ease .4s, transform .8s ease;
-		// transition: opacity .8s ease, transform .8s ease -0.4s;
 		transition: opacity 1s ease, transform .8s ease -0.4s;
 	}
 
@@ -332,27 +404,40 @@
 // =================================================================================
 
 .about--hide-personal {
-	.about__personal-wrapper {
-		display: none;
+
+	@media (min-width: 576px) {
+		
+		.about__personal-wrapper {
+			display: none;
+		}
 	}
 }
 
 .about--hide-education {
-	.education {
-		display: none;
-	}
-	.about__subtitle-text--education {
-		display: none;
+
+	@media (min-width: 576px) {
+		
+		.education {
+			display: none;
+		}
+		.about__subtitle-text--education {
+			display: none;
+		}
 	}
 }
 
 .about--hide-technologies {
-	.technologies {
-		display: none;
+
+	@media (min-width: 576px) {
+		
+		.technologies {
+			display: none;
+		}
+		.about__subtitle-text--technologies {
+			display: none;
+		}
 	}
-	.about__subtitle-text--technologies {
-		display: none;
-	}
+
 }
 
 @keyframes aboutHide {

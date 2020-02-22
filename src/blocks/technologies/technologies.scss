@@ -1,15 +1,26 @@
 @import "../../assets/scss/utils/vars.scss";
 
 .technologies {
-	// display: none;
-	width: 100%;
-	// opacity: 0;
-	// height: 100px;
-	// background-color: green;
-	position: absolute;
-	// top: 270px;
-	top: 31.5%;
+	// width: 100%;
+	// position: absolute;
+	// top: 31.5%;
 	left: 0;
+
+	// right: -26%;
+	// left: -26%;
+
+
+
+	@media (min-width: 576px) {
+
+	}
+}
+
+.technologies__list {
+	position: absolute;
+	top: 31.5%;
+	right: -25%;
+	left: -26%;
 }
 
 .technologies__item {

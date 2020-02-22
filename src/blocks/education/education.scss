@@ -27,6 +27,9 @@
 
 .education__sertificats {
 	display: flex;
+
+	flex-direction: column;
+
 	justify-content: space-between;
 	margin-top: 58px;
 	transform: translateX(-100%);
