@@ -54,11 +54,12 @@ body {
 	flex-grow: 1;
 	height: 100%;
 	margin: 0 24px;
-	width: 66%;
+	// width: 66%;
+	flex-basis: 66%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	transition: all .4s ease;
+	// transition: all .4s ease;
 
 	@media (min-width: 576px) {
 		margin: 0 40px;

@@ -39,6 +39,7 @@ export default class Menu {
 			if (leavePage === purposePage) {
 				// this.animateMenuIcon()
 				// this.menuIcon.animateMenuIcon()
+				MenuIcon.toggleMenu()
 				MenuIcon.animateMenuIcon()
 				return
 			}
@@ -90,6 +91,7 @@ export default class Menu {
 		const leaveCoordinates = Menu.getCoords(menuListElement)
 		// создаём дубликат элемента для его передвижения
 		const movingTextElement = menuListElement.cloneNode(true)
+		console.log(movingTextElement)
 		// скрываем текущий элемент
 		menuListElement.classList.add('hidden')
 		// даём клону position fixed и координаты
