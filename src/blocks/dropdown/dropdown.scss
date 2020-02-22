@@ -1,0 +1,110 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.dropdown {
+	height: 40px;
+	margin-bottom: 20px;
+	position: relative;
+
+	@media (min-width: 992px) {
+		.dropdown__chevron {
+			display: none;
+		}
+	}
+	
+}
+.dropdown__chevron {
+	position: absolute;	
+	z-index: 6;
+	top: 50%;
+	right: 8px;
+	width: 40px;
+	height: 40px;
+	transform: translateY(-50%);
+	transition: all .4s ease;
+	pointer-events: none;
+	
+	&:after {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 12px;
+		height: 12px;
+		border-right: 3px solid $primary-color;
+		border-bottom: 3px solid $primary-color;
+		transform: translate(-50%, -70%) rotate(45deg);
+		pointer-events: none;
+	}
+}
+
+.dropdown--active {
+	.dropdown__chevron {
+		transform: translateY(-50%) rotate(-180deg);
+	}
+}
+
+.dropdown__wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	z-index: 5;
+	transition: all .4s ease;
+
+	@media (min-width: 992px) {
+		position: static;
+	}
+}
+
+.dropdown__list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	background-color: $default-color;
+	transition: all .4s ease;
+
+	@media (min-width: 992px) {
+		position: static;
+		flex-direction: row;
+		background-color: transparent;
+	}
+}
+
+.dropdown__list-item {
+	font-family: $mainFont;
+  font-size: 16px;
+  font-weight: bold;
+	
+	color: $dark-color;
+	text-transform: uppercase;
+	display: flex;
+	padding: 9px 24px;
+	transition: all .4s ease;
+	cursor: pointer;
+
+	&:hover {
+		color: $primary-color;
+		background-color: $default-color;
+	}
+
+	&--active {
+		background-color: $default-color;
+		color: $dark-color;
+	}
+	
+	@media (min-width: 992px) {
+		color: $default-color;
+		
+		&--active {
+			background-color: $default-color;
+			color: $dark-color;
+
+		}
+	}
+}

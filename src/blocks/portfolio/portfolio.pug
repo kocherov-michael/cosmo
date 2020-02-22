@@ -1,14 +1,10 @@
-.portfolio(data-portfolio-page)
+.portfolio(data-portfolio-page).portfolio--show
 	.portfolio__container
 		.portfolio__header
 			.portfolio__header-text(data-portfolio-header) Портфолио
 		.portfolio__sites
-			.portfolio__toggle
-				.portfolio__toggle-item.portfolio__toggle-item--choosen(data-portfolio-filter="all") Все
-				.portfolio__toggle-item(data-portfolio-filter="javascript") JavaScript
-				.portfolio__toggle-item(data-portfolio-filter="bootstrap") Bootstrap
-				.portfolio__toggle-item(data-portfolio-filter="less") Less/Sass
-				.portfolio__toggle-item(data-portfolio-filter="webpack") Webpack
+			//- +dropdown()
+			include ../../blocks/dropdown/dropdown.pug
 			.portfolio__sites-wrapper(data-filter-wrapper)
 				.portfolio__sites-item.less(data-filter-item).all
 					+site({

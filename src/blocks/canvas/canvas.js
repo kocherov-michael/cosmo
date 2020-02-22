@@ -7,6 +7,11 @@ const SPEED = 0.2
 // ширина канваса по ширине окна
 canvas.width = document.body.clientWidth || window.innerWidth
 canvas.height = document.body.clientHeight || window.innerHeight
+
+window.onresize = () => {
+	canvas.width = document.body.clientWidth || window.innerWidth
+	canvas.height = document.body.clientHeight || window.innerHeight
+}
 // количество частиц зависит от размера окна
 const POINTS_NUMBER = Math.round((canvas.width * canvas.height) / 40000)
 
