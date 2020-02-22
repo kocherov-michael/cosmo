@@ -1,11 +1,16 @@
 @import "../../assets/scss/utils/vars.scss";
 
 .mail-form {
-	padding-top: 81px;
+	padding-top: 47px;
+
+	@media (min-width: 768px) {
+		padding-top: 81px;
+	}
 }
 
 .mail-form__contacts {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 
 	&-email, &-phone {
@@ -13,7 +18,16 @@
 		font-size: 24px;
 		font-weight: bold;
 		color: $default-color;
+		margin-bottom: 40px;
 
+		@media (min-width: 768px) {
+			margin-bottom: 0;
+		}
+
+	}
+
+	@media (min-width: 768px) {
+		flex-direction: row;
 	}
 	
 }
@@ -31,18 +45,29 @@
 		width: 40px;
 		height: 40px;
 	}
+
+	
 }
 
 .mail-form__fields {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-top: 44px;
+	padding-top: 32px;
+	
+	@media (min-width: 768px) {
+		padding-top: 44px;
+	}
 }
 
 .mail-form__name, .mail-form__email {
-	flex: 0 0 45%;
-	margin-bottom: 40px;
+	flex: 0 0 100%;
+	margin-bottom: 16px;
+	
+	@media (min-width: 768px) {
+		flex-basis: 45%;
+		margin-bottom: 40px;
+	}
 }
 
 .mail-form__message {
@@ -52,5 +77,13 @@
 
 .mail-form__button {
 	height: 100px;
-	margin-top: 30px;
+	margin-top: 15px;
+	margin-left: -24px;
+	margin-right: -24px;
+	
+	@media (min-width: 576px) {
+		margin-top: 30px;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
