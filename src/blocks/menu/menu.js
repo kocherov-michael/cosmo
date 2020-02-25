@@ -5,6 +5,7 @@ import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
 import Sertificat from '../sertificat/sertificat'
 import Logo from '../logo/logo'
+import SertificatsSlider from '../sertificatsSlider/sertificatsSlider'
 
 export default class Menu {
 	constructor (args = {}) {
@@ -13,6 +14,7 @@ export default class Menu {
 		this.portfolioPage = new PortfolioPage()
 		this.menuIcon = new MenuIcon()
 		this.sertificat = new Sertificat()
+		this.sertificatsSlider = new SertificatsSlider({selector: '.sertificats-slider'})
 		this.logo = new Logo({
 			aboutPage: this.aboutPage,
 			portfolioPage: this.portfolioPage,

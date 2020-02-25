@@ -1,0 +1,60 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.sertificats-slider {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+	// height: 420px;
+	height: 100%;
+	border: 1px solid red;
+	width: 100%;
+	// padding-bottom: 30px;
+}
+
+.sertificats-slider__wrapper {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 400%;
+	// height: 80%;
+	justify-content: space-around;
+	// transform: translateX(-75%);
+	align-items: flex-end;
+	border: 1px solid yellow;
+	transition: all .4s ease;
+}
+
+.sertificats-slider__item {
+	flex-grow: 1;
+	flex-basis: 25%;
+	// height: 100%;
+	background-color: #666;
+	align-self: stretch;
+}
+
+.sertificats-slider__pagination {
+	// position: absolute;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	// background-color: orange;
+	height: 40px;
+	width: 140px;
+}
+
+.sertificats-slider__pagination-item {
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	transform: rotate(45deg);
+	cursor: pointer;
+
+	&--active {
+		background-color: $primary-color;
+	}
+}

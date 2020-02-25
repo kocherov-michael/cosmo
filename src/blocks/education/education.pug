@@ -4,28 +4,9 @@
 				.about__subtitle-text.about__subtitle-text--education /Образование
 		//- .education__header /Образование
 		.education__sertificats
-			.education__sertificat-item.education__sertificat-item--1
-				+sertificat({
-					url: "../../assets/img/img/html.jpg",
-					dates: "Август - Октбярь 2018",
-					description: "Курсы по верстке сайтов HTML5, CSS3",
-					place: "WebCademy.ru"
-				})
-			.education__sertificat-item.education__sertificat-item--2
-				+sertificat({
-					url: "../../assets/img/img/dev.jpg",
-					dates: "Ноябрь 2018 - Февраль 2019",
-					description: "Курсы по веб-разработке. Front-end и Back-end",
-					place: "WebCademy.ru"
-				})
-			.education__sertificat-item.education__sertificat-item--3
-				+sertificat({
-					url: "../../assets/img/img/js.jpg",
-					dates: "Апрель - Май 2019",
-					description: "Курсы по JavaScript",
-					place: "WebCademy.ru"
-				})
+			include ../sertificatsSlider/sertificatsSlider.pug
+			
 				
-		.education__footer
-			.education__footer-years 2000 - 2006
-			.education__footer-text Санкт-Петербургский институт машиностроения ЛМЗ-ВТУЗ, специальность инженер-технолог
+		//- .education__footer
+		//- 	.education__footer-years 2000 - 2006
+		//- 	.education__footer-text Санкт-Петербургский институт машиностроения ЛМЗ-ВТУЗ, специальность инженер-технолог

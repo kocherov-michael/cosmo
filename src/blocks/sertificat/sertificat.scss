@@ -1,8 +1,19 @@
 @import "../../assets/scss/utils/vars.scss";
 
 .sertificat {
+	// width: 210px;
+	// width: 60%;
+	border: 1px solid blue;
+	text-align: center;
+	height: 100%;
+	padding: 0 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .sertificat__img-wrapper {
+	margin: 0 auto;
+
 	width: 142px;
 	height: 200px;
 	transition: all .8s ease;
