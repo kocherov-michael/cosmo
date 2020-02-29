@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+require('babel-polyfill');
 
 // Main const
 const PATHS = {
@@ -23,7 +24,11 @@ module.exports = {
   externals: {
     paths: PATHS
   },
-  entry: PATHS.src,
+	// entry: PATHS.src,
+	entry: {
+		// путь до входного файла от файла конфигурации webpack
+		app: ['babel-polyfill', PATHS.src]
+	},
   output: {
     // filename: `${PATHS.assets}js/[name].[hash].js`,
     filename: `${PATHS.assets}js/[name].[hash].js`,
