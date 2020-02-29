@@ -38,6 +38,12 @@
 	transition: all .8s ease;
 
 	opacity: 0;
+
+	@media (min-width: 768px) {
+		// width: 100%;
+		// flex-wrap: wrap;
+		height: auto;
+	}
 	
 }
 

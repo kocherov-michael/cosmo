@@ -3,13 +3,19 @@
 .sertificat {
 	// width: 210px;
 	// width: 60%;
-	border: 1px solid blue;
+	// border: 1px solid blue;
 	text-align: center;
 	height: 100%;
 	padding: 0 28px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	@media (min-width: 768px) {
+		text-align: left;
+		justify-content: flex-start;
+		padding-left: 0;
+	}
 }
 .sertificat__img-wrapper {
 	margin: 0 auto;
@@ -43,6 +49,10 @@
 		transition: width .6s ease, height .6s ease, opacity .6s ease .3s;
 		
 	}
+
+	@media (min-width: 768px) {
+		margin: 0;
+	}
 }
 
 .sertificat__img {
@@ -63,6 +73,7 @@
 
 .sertificat__description {
 	min-height: 60px;
+	
 }
 
 .sertificat__dates {
