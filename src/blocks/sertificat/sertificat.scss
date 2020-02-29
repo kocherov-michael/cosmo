@@ -28,26 +28,32 @@
 		position: fixed;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 0;
-		height: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+		// width: 0;
+		// height: 0;
 		padding: 30px;
 		display: flex;
 		justify-content: center;
 		opacity: 0;
-		transition: width 1s ease, height 1s ease, opacity .4s ease;
+		transition: width 1s ease, height 1s ease, opacity .4s ease, transform .4s ease;
+		transition: all .4s ease;
 
 		.sertificat__img {
-			padding: 20px;
+			padding: 10px;
 			background-color: $default-color;
 			cursor: auto;
+
+			@media (min-width: 768px) {
+				padding: 20px 7px;
+			}
 		}
 	}
 
 	&--show {
 		opacity: 1;
-		transition: width .6s ease, height .6s ease, opacity .6s ease .3s;
-		
+		transition: width .6s ease, height .6s ease, opacity .6s ease .3s, transform .4s ease;
+		transition: all .3s ease .3s;
+		transform: translate(-50%, -50%) scale(1);
 	}
 
 	@media (min-width: 768px) {
@@ -58,6 +64,7 @@
 .sertificat__img {
 	cursor: pointer;
 	height: 100%;
+	// object-fit: contain;
 	
 }
 
@@ -94,11 +101,13 @@
 	height: 0px;
 	transform: translate(-50%, -50%);
 	transition: width .4s cubic-bezier(.19,.35,.53,.86), height .4s cubic-bezier(.19,.35,.53,.86);
+	transition: width .4s linear, height .4s linear;
 	overflow: hidden;
 	z-index: 8;
 	
 	&--show {
 		transition: width .6s ease-out, height .6s ease-out;
+		transition: width .3s linear, height .3s linear;
 	}
 
 	&--open {
@@ -110,5 +119,10 @@
 		height: 100%;
 		border-radius: 0;
 		transform: none;
+	}
+
+	.sertificat__img {
+		object-fit: contain;
+		// height: auto;
 	}
 }

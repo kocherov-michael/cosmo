@@ -48,7 +48,7 @@ export default class Sertificat {
 				this.newWrapperElement = document.createElement('div')
 				this.newWrapperElement.classList.add('single-sertificat-wrapper')
 				// задаём точку, из которой раскрывается обёртка
-				
+
 				this.newWrapperElement.style.left = `${this.clientX}px`
 				this.newWrapperElement.style.top = `${this.clientY}px`
 				// добаляем новую обёртку на страницу
@@ -66,7 +66,11 @@ export default class Sertificat {
 					this.newWrapperElement.style.height = `${maxSize * 2.5}px`
 					// ширина обёртки - по краям окна
 					this.newPictureElement.style.width = `${this.windowX}px`
-					this.newPictureElement.style.height = `${this.windowY}px`
+					if (this.windowX >= 768) {
+						console.log('>768')
+						this.newPictureElement.style.height = `${this.windowY}px`
+					}
+					// this.newPictureElement.style.height = `auto`
 				},0)
 	
 			})
@@ -82,15 +86,22 @@ export default class Sertificat {
 		// создаём обёртку, в которую положим картинку
 		const newElement = document.createElement('div')
 		newElement.classList.add('sertificat__img-wrapper--active')
-
+		
 		// когда вернулась загруженная картинка - вставляем её в обёртку
 		Sertificat.loadImage(url).then(image => {
 			image.classList.add('sertificat__img')
 			newElement.append(image)
+			
 			// даём изображению координаты центра экрана
-			image.style = `transform: translate(${this.diffrentX}px, ${this.diffrentY}px);`
-		})
+			if (this.windowX >= 768) {
+				image.style = `transform: translate(${this.diffrentX}px, ${this.diffrentY}px);`
+			}
+			else {
+				image.style = `transform: translate(${this.diffrentX}px, ${this.diffrentY}px); width: ${this.windowX - 50}px; `
+			}
 
+		})
+		
 		return newElement
 	}
 
@@ -137,8 +148,8 @@ export default class Sertificat {
 		this.newWrapperElement.style.width = ``
 		this.newWrapperElement.style.height = ``
 
-		this.newPictureElement.style.width = ``
-		this.newPictureElement.style.height = ``
+		// this.newPictureElement.style.width = ``
+		// this.newPictureElement.style.height = ``
 		setTimeout(() => {
 			// удаляем добавленные элементы
 			this.newPictureElement.parentNode.removeChild(this.newPictureElement)
