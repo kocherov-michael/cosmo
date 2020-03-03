@@ -9,7 +9,7 @@ export default class AboutPage {
 
 	// переход на страницу about из меню
 	openAboutPage () {
-		console.log('open about page')
+		// console.log('open about page')
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 

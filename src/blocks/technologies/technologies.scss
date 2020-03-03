@@ -61,8 +61,6 @@
 	left: -26%;
 	margin-left: -24px;
 
-	
-	
 	@media (min-width: 576px) and (max-width: 767px) {
 		margin-left: -40px;
 		margin-right: -40px;
@@ -72,6 +70,13 @@
 		position: absolute;
 		margin-left: 0;
 		margin-right: 0;
+		right: -90px;
+		left: -90px;
+	}
+
+	@media (min-width: 992px) {
+		right: -25%;
+		left: -26%;
 	}
 }
 

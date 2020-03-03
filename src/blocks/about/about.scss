@@ -122,16 +122,20 @@
 
 
 .about__list {
-	position: absolute;
-	top: 0;
-	left: -80px;
-	bottom: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	// transition: all .4s ease;
-	// border: 1px solid red;
-	// width: 34px;
+	display: none;
+	
+	@media (min-width: 768px) {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: -60px;
+		bottom: 0;
+		flex-direction: column;
+		justify-content: center;
+	}
+	@media (min-width: 991px) {
+		left: -80px;
+	}
 }
 
 .about__list-item {
