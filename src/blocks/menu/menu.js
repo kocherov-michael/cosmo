@@ -93,7 +93,7 @@ export default class Menu {
 		const leaveCoordinates = Menu.getCoords(menuListElement)
 		// создаём дубликат элемента для его передвижения
 		const movingTextElement = menuListElement.cloneNode(true)
-		console.log(movingTextElement)
+		// console.log(movingTextElement)
 		// скрываем текущий элемент
 		menuListElement.classList.add('hidden')
 		// даём клону position fixed и координаты
