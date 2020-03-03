@@ -67,7 +67,7 @@ export default class Sertificat {
 					// ширина обёртки - по краям окна
 					this.newPictureElement.style.width = `${this.windowX}px`
 					if (this.windowX >= 768) {
-						console.log('>768')
+						// console.log('>768')
 						this.newPictureElement.style.height = `${this.windowY}px`
 					}
 					// this.newPictureElement.style.height = `auto`

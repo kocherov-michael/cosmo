@@ -2,7 +2,6 @@
 
 .about {
 	display: flex;
-	height: 100vh;
 	// position: relative;
 	position: absolute;
 	left: 0;
@@ -10,7 +9,13 @@
 	right: 0;
 	// transform: translateX(-50%);
 	z-index: -100;
-	@media (max-width: 575px) {
+	
+	height: 100vh;
+	@media (min-width: 768px) {
+		
+	}
+
+	@media (max-width: 767px) {
 		overflow: hidden;
 
 		.personal__info {
@@ -75,9 +80,9 @@
 			text-shadow: 0 0 2px $neutral-secondary-color;
 		}
 
-		.technologies__list {
-			position: static;
-		}
+		// .technologies__list {
+		// 	position: static;
+		// }
 	
 		.technologies__item {
 			width: 100%;
@@ -85,32 +90,33 @@
 		
 		}
 	
-		.about__subtitle-text--technologies {
-			transform: translateX(0);
-			opacity: 1;
-			transition: opacity 1s ease, transform .8s ease -0.4s;
-		}
+		// .about__subtitle-text--technologies {
+		// 	transform: translateX(0);
+		// 	opacity: 1;
+		// 	transition: opacity 1s ease, transform .8s ease -0.4s;
+		// }
+		// .technologies__subtitle-text {
+		// 	transform: translateX(0);
+		// 	opacity: 1;
+		// 	transition: opacity 1s ease, transform .8s ease -0.4s;
+		// }
 	
 		.technology__title {
 			opacity: 1;
 		}
 	}
 
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 
 	}
 }
 
 .about__container {
-	// position: relative;
-	// display: flex;
-	// flex-direction: column;
-	// height: 100%;
-	// margin: 0 auto;
-	// width: 66%;
-	// flex: 0 0 50%;
-	// border: 1px solid blue;
-	// justify-content: flex-end;
+	padding-top: 114px;
+
+	@media (min-width: 768px) {
+		padding-top: 0;
+	}
 }
 
 
@@ -175,7 +181,7 @@
 
 .about__face {
 	position: absolute;
-	top: 26%;
+	top: 210px;
 	right: 0;
 	left: 0;
 	height: 410px;
@@ -185,7 +191,7 @@
 	transition: all .8s ease;
 	opacity: 0;
 	
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 		padding-left: 30px;
 		top: 0;
 		bottom: 0;
@@ -205,11 +211,7 @@
 
 .about__header {
 	// border: 1px solid yellow;
-	flex: 0 0 26%;
-	display: flex;
-	justify-content: flex-end;
-
-	flex-direction: column;
+	
 
 	&-text {
 		display: inline-block;
@@ -231,12 +233,20 @@
 
 		}
 	}
+
+	@media (min-width: 768px) {
+		flex: 0 0 22%;
+		display: flex;
+		justify-content: flex-end;
+
+		flex-direction: column;
+	}
 }
 
 .about__subtitle {
 	padding-top: 8px;
-	height: 38px;
-	overflow: hidden;
+	// height: 38px;
+	// overflow: hidden;
 
 	&-text {
 		font-family: $secondaryFont;
@@ -246,17 +256,33 @@
 		letter-spacing: 3px;
 		color: $default-color;
 		text-transform: uppercase;
-		// transform: translateX(-100%);
-		transform: translateX(-50%);
-		transition: all .8s ease;
-		opacity: 0;
+		transform: translateX(0);
+		opacity: 1;
+		transition: opacity 1s ease, transform .8s ease -0.4s;
+
+		@media (min-width: 576px) {
+			// font-size: 40px;
+		}
+
+		@media (min-width: 768px) {
+			transform: translateX(-50%);
+			opacity: 0;
+			transition: all .8s ease;
+
+		}
+	}
+
+	@media (min-width: 768px) {
+		padding-top: 8px;
+		// height: 38px;
+		overflow: hidden;
 	}
 }
 
 .about__personal-wrapper {
 	padding-top: 400px;
 	// padding-bottom: 17%;
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 		padding-top: 0;
 		flex: 0 0 74%;
 		width: 50%;
@@ -286,7 +312,7 @@
 
 .about--show {
 
-	@media (max-width: 575px) {
+	@media (max-width: 767px) {
 
 		overflow: initial;
 	}
@@ -375,7 +401,7 @@
 	}
 }
 
-
+//===== SHOW TECHNOLOGIES ============================================================
 
 .about--show-technologies {
 	.about__list-item {
@@ -388,7 +414,12 @@
 	
 	}
 
-	.about__subtitle-text--technologies {
+	// .about__subtitle-text--technologies {
+	// 	transform: translateX(0);
+	// 	opacity: 1;
+	// 	transition: opacity 1s ease, transform .8s ease -0.4s;
+	// }
+	.technologies__subtitle-text {
 		transform: translateX(0);
 		opacity: 1;
 		transition: opacity 1s ease, transform .8s ease -0.4s;
@@ -405,7 +436,7 @@
 
 .about--hide-personal {
 
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 		
 		.about__personal-wrapper {
 			display: none;
@@ -415,7 +446,7 @@
 
 .about--hide-education {
 
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 		
 		.education {
 			display: none;
@@ -428,12 +459,15 @@
 
 .about--hide-technologies {
 
-	@media (min-width: 576px) {
+	@media (min-width: 768px) {
 		
 		.technologies {
 			display: none;
 		}
-		.about__subtitle-text--technologies {
+		// .about__subtitle-text--technologies {
+		// 	display: none;
+		// }
+		.technologies__subtitle-text {
 			display: none;
 		}
 	}

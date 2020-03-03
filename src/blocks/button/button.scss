@@ -10,9 +10,13 @@
 	&:hover, &:focus	 {
 		
 		.button__container {
-			transform: translate(12px, -12px);
 			background-color: $default-color;
 			color: $primary-color;
+			
+			@media (min-width: 768px) {
+				transform: translate(12px, -12px);
+
+			}
 		}
 		.button__arrow-path {
 			fill: $primary-color;
@@ -78,6 +82,8 @@
 }
 
 .button--small {
+	min-width: 260px;
+	
 	.button__container {
 		padding: 10px;
 	}
