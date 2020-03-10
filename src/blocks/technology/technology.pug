@@ -1,6 +1,7 @@
 mixin technology(options)
 
 	.technology(class = "technology--color-" + options.color + " technology--size-" + options.size)
+		.technology__shadow
 		.technology__line(style="width:" + options.width + ";")
 		.technology__container
 			.technology__title #{options.text}

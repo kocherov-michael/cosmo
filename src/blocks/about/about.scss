@@ -98,7 +98,7 @@
 		justify-content: center;
 	}
 	@media (min-width: 991px) {
-		left: -80px;
+		left: -13%;
 	}
 }
 
@@ -412,9 +412,6 @@
 //===== SHOW TECHNOLOGIES ============================================================
 
 .about--show-technologies {
-	.about__list-item {
-		text-shadow: 0 0 2px $neutral-secondary-color;
-	}
 
 	.technologies__item {
 		width: 100%;
