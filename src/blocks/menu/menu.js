@@ -4,6 +4,7 @@ import AboutPage from '../about/about'
 import ContactsPage from '../contacts/contacts'
 import PortfolioPage from '../portfolio/portfolio'
 import Sertificat from '../sertificat/sertificat'
+import MailForm from '../mailForm/mailForm'
 import Logo from '../logo/logo'
 import SertificatsSlider from '../sertificatsSlider/sertificatsSlider'
 
@@ -14,6 +15,7 @@ export default class Menu {
 		this.portfolioPage = new PortfolioPage()
 		this.menuIcon = new MenuIcon()
 		this.sertificat = new Sertificat()
+		this.mailForm = new MailForm()
 		this.sertificatsSlider = new SertificatsSlider({selector: '.sertificats-slider'})
 		this.logo = new Logo({
 			aboutPage: this.aboutPage,

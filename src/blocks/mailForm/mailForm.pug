@@ -1,4 +1,4 @@
-.mail-form
+form.mail-form(action="php/mail.php" method="POST")
 	.mail-form__contacts
 		.mail-form__contacts-email ko4erov@mail.ru
 		.mail-form__contacts-phone +7 (911) 812-11-82
@@ -15,4 +15,4 @@
 		.mail-form__message
 			+textarea( {title: "Сообщение", name: "message"} )(data-input="message")
 	.mail-form__button
-		+button('Отправить', '', 'right', '')
+		+button('Отправить', '', 'right', '')(data-submit)

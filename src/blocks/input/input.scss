@@ -18,6 +18,10 @@
 		}
 	}
 
+	&.input-empty {
+		border-bottom-color: $danger-color;
+	}
+
 }
 
 .input__title, .textarea__title  {
