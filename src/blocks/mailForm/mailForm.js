@@ -68,16 +68,10 @@ export default class MailForm {
 			let answerText = await response.text()
 			console.log('answerText', answerText)
 
-			let answerJson = await response.json()
-
-			console.log('answerJson', answerJson)
+			if (answerText === 'success') {
+				alert('письмо отправлено')
+			}
 			
-			if (answer === 'wrong email') {
-				this.mistakeNotice('Почта не зарегистрирована')
-			}
-			else if (answer === 'error') {
-				this.mistakeNotice('Ошибка отправки')
-			}
 			
 		})()
 	}
