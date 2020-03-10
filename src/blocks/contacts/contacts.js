@@ -55,9 +55,9 @@ export default class ContactsPage {
 			if (result) {
 				// если заполнены, то отправляем сообщение на почту
 				// console.log(result)	
-				// this.sendMail(result)	
-				this.leaveContactsPage()	
-				this.showSuccessPage()
+				this.sendMail(result)	
+				// this.leaveContactsPage()	
+				// this.showSuccessPage()
 			}
 		})
 	}

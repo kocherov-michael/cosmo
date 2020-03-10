@@ -22,6 +22,9 @@ export default class Logo {
 		// получаем страницу, с которой уходим
 		const leavePage = this.mainContainerElement.getAttribute('data-main-wrapper')
 
+		// если уходим с главной на главную, то отмена
+		if (leavePage === 'main') return
+
 		this.mainContainerElement.setAttribute('data-main-wrapper', 'main')
 
 		// уходим со страницы about
