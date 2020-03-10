@@ -30,6 +30,15 @@ body {
 			
 		}
 	}
+
+	.menu-icon:before, .menu-icon:after {
+		background-color: $dark-color;
+	}
+
+	.menu-icon__line {
+		border-top-color: $dark-color;
+		border-bottom-color: $dark-color;
+	}
 	
 }
 

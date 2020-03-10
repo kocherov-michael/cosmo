@@ -73,7 +73,12 @@
 		justify-content: space-between;
 	}
 	
-	@media (min-width: 1200px) {
+	@media (min-width: 1200px) and (max-width: 1600px) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@media (min-width: 1900px) {
 		display: flex;
 		justify-content: space-between;
 	}
@@ -85,7 +90,11 @@
 		margin-bottom: 0;
 		flex: 0 0 46%;
 	}
-	@media (min-width: 1200px) {
+	@media (min-width: 1200px) and (max-width: 1600px) {
+		margin-bottom: 0;
+		flex: 0 0 46%;
+	}
+	@media (min-width: 1900px) {
 		margin-bottom: 0;
 		flex: 0 0 46%;
 	}
@@ -94,7 +103,10 @@
 	@media (min-width: 576px) and (max-width: 768px) {
 		flex: 0 0 46%;
 	}
-	@media (min-width: 1200px) {
+	@media (min-width: 1200px) and (max-width: 1600px) {
+		flex: 0 0 46%;
+	}
+	@media (min-width: 1900px) {
 		flex: 0 0 46%;
 	}
 }
