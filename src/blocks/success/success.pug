@@ -1,5 +1,8 @@
-.success(data-contacts-page).success--show
+.success(data-success-page)
+	//- .success--show
 	.success__container.container
-		.success__text Ваше сообщение успешно отправлено
+		.success__text 
+			span Ваше сообщение успешно отправлено
 		.success__button
-			+button('OK')(data-success)
+			.success__button-success
+				+button('OK')(data-success-button)

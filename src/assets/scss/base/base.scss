@@ -46,6 +46,13 @@ body {
 	}
 }
 
+.wrapper--success {
+	.success {
+		z-index: 0;
+		overflow: initial;
+	}
+}
+
 .wrapper--portfolio {
 	
 	.portfolio {

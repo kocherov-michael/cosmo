@@ -3,11 +3,15 @@ import './contacts.scss'
 export default class ContactsPage {
 	constructor (args = {}) {
 		this.contactsPageElement = document.querySelector('[data-contacts-page]')
+		this.successPageElement = document.querySelector('[data-success-page]')
 		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
-		this.listenForm()
+		this.formHandler()
+		this.successButtonHandler()
 	}
 
-	showContactsPage () {
+	showContactsPage (args = {}) {
+		console.log(args.logo)
+		this.logo = args.logo
 		// console.log('open')
 		this.open = true
 		// const mainContainerElement = document.querySelector('[data-main-wrapper]')
@@ -40,7 +44,7 @@ export default class ContactsPage {
 		},1100)
 	}
 
-	listenForm () {
+	formHandler () {
 		const submitButtonElement = document.querySelector('[data-submit]')
 		// console.log(submitButtonElement)
 		submitButtonElement.addEventListener('click', (event) => {
@@ -53,6 +57,7 @@ export default class ContactsPage {
 				console.log(result)	
 				// this.sendMail(result)	
 				this.leaveContactsPage()	
+				this.showSuccessPage()
 			}
 		})
 	}
@@ -106,9 +111,43 @@ export default class ContactsPage {
 			if (answerText === 'success') {
 				console.log('письмо отправлено')
 				this.leaveContactsPage()
+				this.showSuccessPage()
 			}
 			
 			
 		})()
+	}
+
+	showSuccessPage () {
+		this.mainContainerElement.setAttribute('data-main-wrapper', 'success')
+		this.mainContainerElement.classList.add('wrapper--success')
+		setTimeout(() => {
+			// показываем элементы страницы контактов
+			this.successPageElement.classList.add('success--show')
+			// setTimeout(() => {
+			// 	// снимаем overflow:hidden после появления элементов страницы
+			// 	this.mainContainerElement.classList.remove('wrapper--overflow')
+
+			// }, 800)
+		},1100)
+	}
+
+	leaveSuccessPage () {
+		this.successPageElement.classList.add('success--hide-animation')
+		setTimeout(() => {
+			this.mainContainerElement.classList.remove('wrapper--success')
+			this.successPageElement.classList.remove('success--hide-animation')
+			this.successPageElement.classList.remove('success--show')
+			console.log(this.successPageElement)
+		},1100)
+	}
+
+	successButtonHandler () {
+		const successButtonElement = document.querySelector('[data-success-button]')
+		successButtonElement.addEventListener('click', () => {
+			// console.log(this.logo)
+			this.leaveSuccessPage()
+			this.logo.showMainPage()
+		})
 	}
 }

@@ -68,6 +68,10 @@ export default class Menu {
 			else if (leavePage === 'portfolio') {
 				this.portfolioPage.leavePortfolioPage()
 			}
+			// уходим со страницы success
+			else if (leavePage === 'success') {
+				this.contactsPage.leaveSuccessPage()
+			}
 	
 			// передвигаем текст из меню до метоположения на целевой странице
 			this.moveMenuText(menuListElement, headerTextElement, mainContainerElement, purposePage)
@@ -78,7 +82,7 @@ export default class Menu {
 				this.aboutPage.openAboutPage()
 			} 
 			else if (purposePage === 'contacts') {
-				this.contactsPage.showContactsPage()
+				this.contactsPage.showContactsPage({logo: this.logo})
 			} 
 			else if (purposePage === 'portfolio') {
 				this.portfolioPage.showPortfolioPage()
