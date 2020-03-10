@@ -5,6 +5,15 @@
 	// border: 3px solid red;
 	position: relative;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	&:hover {
+		.site__info {
+			opacity: 1;
+		}
+	}
 }
 
 .site__picture {
@@ -27,54 +36,70 @@
   color: $default-color;
 }
 
-.site__link {
-	// box-sizing: content-box;
-	display: block;
-	position: absolute;
-	top: -3px;
-	left: -3px;
-	right: -3px;
-	bottom: -3px;
-	background-color: $primary-color;
-	padding: 40px;
+.site__info {
+	margin: 0 24px 24px;
+	transition: all .4s ease;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	text-decoration: none;
-	opacity: 0;
-	transition: all .4s ease;
-	// margin: -3px;
-	// height: 100%;
-	&:hover {
-		opacity: 1;
-	}
 	
-}
-.site__link--hover {
-	transform: translate(12px, -12px);
-	// &:hover {
-	// 	opacity: 1;
-	// }
+	@media (min-width: 992px) {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $primary-color;
+		margin: 0;
+		padding: 40px;
+		
+	}
 }
 
 .site__description {
 	font-family: $mainFont;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1.75;
-  color: $default-color;
+	color: $default-color;
+	margin-bottom: 32px;
 }
 
-.site__button {
-	padding: 18px;
-	display: flex;
-	justify-content: center;
-	background-color: $default-color;
-	display: flex;
-	align-items: center;
-	cursor: pointer;
+.site__buttons {
+
+	@media (min-width: 576px) and (max-width: 768px) {
+		display: flex;
+		justify-content: space-between;
+	}
 	
+	@media (min-width: 1200px) {
+		display: flex;
+		justify-content: space-between;
+	}
 }
+.site__code {
+	margin-bottom: 16px;
+
+	@media (min-width: 576px) and (max-width: 768px) {
+		margin-bottom: 0;
+		flex: 0 0 46%;
+	}
+	@media (min-width: 1200px) {
+		margin-bottom: 0;
+		flex: 0 0 46%;
+	}
+}
+.site__look {
+	@media (min-width: 576px) and (max-width: 768px) {
+		flex: 0 0 46%;
+	}
+	@media (min-width: 1200px) {
+		flex: 0 0 46%;
+	}
+}
+
+
 
 .site__button-text {
 	font-family: $mainFont;

@@ -11,17 +11,6 @@
 	overflow: hidden;
 }
 
-.contacts__container {
-	// border: 1px solid red;
-	// position: relative;
-	// display: flex;
-	// flex-direction: column;
-	// height: 100%;
-	// margin: 0 auto;
-	// width: 66%;
-	// transition: all .4s ease;
-}
-
 .contacts__header {
 	flex: 0 0 22%;
 	display: flex;
@@ -52,17 +41,7 @@
 	}
 }
 
-.contacts__form {
-	// opacity: 0;
-	// transform: translateX(-100%);
-}
-
 .contacts--show {
-	// .contacts__form {
-	// 	opacity: 1;
-	// 	transform: translateX(0%);
-	// 	transition: opacity .6s ease .2s, transform .8s ease;
-	// }
 
 	.mail-form__contacts-email {
 		opacity: 1;
@@ -94,6 +73,10 @@
 		opacity: 1;
 		transform: translateX(0%);
 		transition: opacity .6s ease .5s, transform .8s ease .3s;
+
+		@media (min-width: 768px) {
+			transition: opacity .6s ease .3s, transform .8s ease .1s;
+		}
 	}
 	.mail-form__email {
 		opacity: 1;
@@ -101,30 +84,27 @@
 		transition: opacity .6s ease .6s, transform .8s ease .4s;
 
 		@media (min-width: 768px) {
-			transition: opacity .6s ease .5s, transform .8s ease .3s;
+			transition: opacity .6s ease .3s, transform .8s ease .1s;
 		}
 	}
 	.mail-form__message {
 		opacity: 1;
 		transform: translateX(0%);
 		transition: opacity .6s ease .7s, transform .8s ease .5s;
+
+		@media (min-width: 768px) {
+			transition: opacity .6s ease .4s, transform .8s ease .2s;
+		}
 	}
 	.mail-form__button {
 		opacity: 1;
 		transform: translateX(0%);
 		transition: opacity .6s ease .8s, transform .8s ease .6s;
-	}
 
-	// .success__text, .success__button {
-	// 	opacity: 1;
-	// 	transform: translateX(0%);
-	// }
-	// .success__text {
-	// 	transition: opacity .6s ease .2s, transform .8s ease;
-	// }
-	// .success__button {
-	// 	transition: opacity .6s ease .4s, transform .8s ease .2s;
-	// }
+		@media (min-width: 768px) {
+			transition: opacity .6s ease .4s, transform .8s ease .2s;
+		}
+	}
 }
 
 @keyframes contactsHide {

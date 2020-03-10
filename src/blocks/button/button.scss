@@ -110,3 +110,15 @@
 		transition: all .4s ease;
 	}
 }
+.button--special {
+	&.button--small {
+		min-width: 0;
+	}
+	.button__border {
+		border: 3px solid $default-color;
+	}
+	.button__container {
+		background-color: $default-color;
+		color: $primary-color;
+	}
+}
