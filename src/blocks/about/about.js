@@ -2,6 +2,7 @@ import './about.scss'
 
 export default class AboutPage {
 	constructor (args = {}) {
+		this.menuIcon = args.menuIcon
 		this.aboutPageElement = document.querySelector('[data-about-page]')
 		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.aboutNavigationListener()
@@ -13,11 +14,14 @@ export default class AboutPage {
 		this.targetPage = 'personal'
 		this.aboutPageElement.classList.remove(`about--hide-${this.targetPage}`)
 
+		
 		// записываем, что мы на странице about
 		this.mainContainerElement.setAttribute('data-main-wrapper', 'about')
-
+		
 		// задаём интервал, за время которого текст с главной уезжает
 		setTimeout(() => {
+			// меняем цвет иконки меню на тёмный
+			this.menuIcon.contrastOn()
 			// показать элементы страницы about (заголовок, навигацию)
 			this.aboutPageElement.classList.add('about--show')
 			// показываем целевые элементы
@@ -31,7 +35,16 @@ export default class AboutPage {
 		// скрываем текущие элементы
 		this.aboutPageElement.classList.remove(`about--show-${this.leavePage}`)
 
+		
 		setTimeout(() => {
+			if (this.targetPage === 'personal') {
+				// меняем цвет иконки меню на тёмный
+				this.menuIcon.contrastOn()
+			}
+			else {
+				// меняем цвет иконки меню на светлый
+				this.menuIcon.contrastOff()
+			}
 			// удаляем текущие элементы
 			this.aboutPageElement.classList.add(`about--hide-${this.leavePage}`)
 			// вставляем целевые элементы

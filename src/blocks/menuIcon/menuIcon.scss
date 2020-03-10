@@ -62,6 +62,18 @@
 		position: fixed;
 	}
 }
+
+.menu-icon--contrast {
+	&:before, &:after {
+		background-color: $dark-color;
+	}
+
+	.menu-icon__line {
+		border-top-color: $dark-color;
+		border-bottom-color: $dark-color;
+	}
+}
+
 .menu-icon__cross-container {
 	position: absolute;
 	top: -1px;

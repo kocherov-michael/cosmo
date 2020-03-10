@@ -10,10 +10,10 @@ import SertificatsSlider from '../sertificatsSlider/sertificatsSlider'
 
 export default class Menu {
 	constructor (args = {}) {
-		this.contactsPage = new ContactsPage()
-		this.aboutPage = new AboutPage()
-		this.portfolioPage = new PortfolioPage()
 		this.menuIcon = new MenuIcon()
+		this.contactsPage = new ContactsPage()
+		this.aboutPage = new AboutPage({ menuIcon: this.menuIcon })
+		this.portfolioPage = new PortfolioPage()
 		this.sertificat = new Sertificat()
 		// this.mailForm = new MailForm()
 		this.sertificatsSlider = new SertificatsSlider({selector: '.sertificats-slider'})
@@ -59,6 +59,8 @@ export default class Menu {
 			// уходим со страницы about
 			else if (leavePage === 'about') {
 				this.aboutPage.leaveAboutPage()
+				// меняем цвет иконки меню на светлый
+				this.menuIcon.contrastOff()
 			}
 			// уходим со страницы контакты
 			else if (leavePage === 'contacts') {

@@ -58,4 +58,12 @@ export default class MenuIcon {
 			menuIconElement.classList.remove('menu-icon--animation')
 		}
 	}
+
+	contrastOn () {
+		this.menuIconElement.classList.add('menu-icon--contrast')
+	}
+
+	contrastOff () {
+		this.menuIconElement.classList.remove('menu-icon--contrast')
+	}
 }
