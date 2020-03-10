@@ -10,7 +10,7 @@ export default class ContactsPage {
 	}
 
 	showContactsPage (args = {}) {
-		console.log(args.logo)
+		// получаем класс лого чтобы была возможность перейти на главную
 		this.logo = args.logo
 		// console.log('open')
 		this.open = true
@@ -18,14 +18,14 @@ export default class ContactsPage {
 		// записываем, что мы на странице контактов
 		this.mainContainerElement.setAttribute('data-main-wrapper', 'contacts')
 		// задаём для контейнера контактов overflow:hidden
-		this.mainContainerElement.classList.add('wrapper--overflow')
+		// this.mainContainerElement.classList.add('wrapper--overflow')
 		// console.log('contacts--show')
 		setTimeout(() => {
 			// показываем элементы страницы контактов
 			this.contactsPageElement.classList.add('contacts--show')
 			setTimeout(() => {
 				// снимаем overflow:hidden после появления элементов страницы
-				this.mainContainerElement.classList.remove('wrapper--overflow')
+				// this.mainContainerElement.classList.remove('wrapper--overflow')
 
 			}, 800)
 		},1100)
@@ -46,7 +46,7 @@ export default class ContactsPage {
 
 	formHandler () {
 		const submitButtonElement = document.querySelector('[data-submit]')
-		// console.log(submitButtonElement)
+		
 		submitButtonElement.addEventListener('click', (event) => {
 			event.preventDefault()
 			// проверяем поля на заполненность
@@ -54,7 +54,7 @@ export default class ContactsPage {
 			
 			if (result) {
 				// если заполнены, то отправляем сообщение на почту
-				console.log(result)	
+				// console.log(result)	
 				// this.sendMail(result)	
 				this.leaveContactsPage()	
 				this.showSuccessPage()
@@ -95,7 +95,6 @@ export default class ContactsPage {
 	}
 
 	sendMail (values) {
-		console.log('send')
 		// name, email, message
 		;(async () => {
 			let response = await fetch('assets/php/mail.php', {
@@ -106,10 +105,10 @@ export default class ContactsPage {
 				}
 			})
 			let answerText = await response.text()
-			console.log('answerText', answerText)
+			// console.log('answerText', answerText)
 
 			if (answerText === 'success') {
-				console.log('письмо отправлено')
+				// console.log('письмо отправлено')
 				this.leaveContactsPage()
 				this.showSuccessPage()
 			}
@@ -122,13 +121,8 @@ export default class ContactsPage {
 		this.mainContainerElement.setAttribute('data-main-wrapper', 'success')
 		this.mainContainerElement.classList.add('wrapper--success')
 		setTimeout(() => {
-			// показываем элементы страницы контактов
+			// показываем элементы страницы success
 			this.successPageElement.classList.add('success--show')
-			// setTimeout(() => {
-			// 	// снимаем overflow:hidden после появления элементов страницы
-			// 	this.mainContainerElement.classList.remove('wrapper--overflow')
-
-			// }, 800)
 		},1100)
 	}
 
@@ -138,14 +132,14 @@ export default class ContactsPage {
 			this.mainContainerElement.classList.remove('wrapper--success')
 			this.successPageElement.classList.remove('success--hide-animation')
 			this.successPageElement.classList.remove('success--show')
-			console.log(this.successPageElement)
+			
 		},1100)
 	}
 
 	successButtonHandler () {
 		const successButtonElement = document.querySelector('[data-success-button]')
 		successButtonElement.addEventListener('click', () => {
-			// console.log(this.logo)
+			
 			this.leaveSuccessPage()
 			this.logo.showMainPage()
 		})

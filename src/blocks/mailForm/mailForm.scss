@@ -20,6 +20,9 @@
 		color: $default-color;
 		margin-bottom: 40px;
 
+		opacity: 0;
+		transform: translateX(-100%);
+
 		@media (min-width: 768px) {
 			margin-bottom: 0;
 		}
@@ -34,6 +37,9 @@
 
 .mail-form__contacts-social-icons {
 	display: flex;
+
+	opacity: 0;
+	transform: translateX(-100%);
 
 	&-vk {
 		width: 40px;
@@ -63,6 +69,9 @@
 .mail-form__name, .mail-form__email {
 	flex: 0 0 100%;
 	margin-bottom: 16px;
+
+	opacity: 0;
+	transform: translateX(-100%);
 	
 	@media (min-width: 768px) {
 		flex-basis: 45%;
@@ -73,6 +82,9 @@
 .mail-form__message {
 	flex: 0 0 100%;
 	margin-bottom: 40px;
+
+	opacity: 0;
+	transform: translateX(-100%);
 }
 
 .mail-form__button {
@@ -80,6 +92,9 @@
 	margin-top: 15px;
 	margin-left: -24px;
 	margin-right: -24px;
+
+	opacity: 0;
+	transform: translateX(-100%);
 	
 	@media (min-width: 576px) {
 		margin-top: 30px;
