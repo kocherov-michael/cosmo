@@ -19,6 +19,7 @@ import './../blocks/site/site.js'
 import './../blocks/canvas/canvas.js'
 import './../blocks/dropdown/dropdown.js'
 import './../blocks/sertificatsSlider/sertificatsSlider.js'
+import './../blocks/success/success.js'
 
 import Menu from './../blocks/menu/menu.js'
 

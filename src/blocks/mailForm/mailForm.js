@@ -3,7 +3,7 @@ import './mailForm.scss'
 export default class MailForm {
 	constructor (args = {}) {
 		// console.log('mail')
-		this.listenForm()
+		// this.listenForm()
 	}
 
 	listenForm () {
@@ -69,7 +69,7 @@ export default class MailForm {
 			console.log('answerText', answerText)
 
 			if (answerText === 'success') {
-				alert('письмо отправлено')
+				console.log('письмо отправлено')
 			}
 			
 			

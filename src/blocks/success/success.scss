@@ -1,0 +1,77 @@
+@import "../../assets/scss/utils/vars.scss";
+
+.success {
+	display: flex;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	// z-index: -100;
+	overflow: hidden;
+}
+
+.success__container {
+	align-items: center;
+	justify-content: center;
+}
+
+.success__text {
+	width: 266px;
+  height: 80px;
+	font-family: $mainFont;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  line-height: 1.67;
+  text-align: center;
+	color: $default-color;
+	transform: translateY(-50%);
+	
+	@media (min-width: 768px) {
+		width: 443px;
+		height: 120px;
+		font-size: 40px;
+		line-height: 1.5;
+		transform: translateY(0);
+		margin-bottom: 200px;
+		margin-top: 200px;
+	}
+}
+
+.success__button {
+	position: absolute;
+	left: -24px;
+	right: -24px;
+	bottom: 0;
+
+	@media (min-width: 576px) {
+		left: -40px;
+		right: -40px;
+	}
+	
+	@media (min-width: 768px) {
+		position: static;
+		width: 300px;
+	}
+}
+
+
+
+@keyframes contactsHide {
+  0% {
+	}
+	30% {
+		opacity: .2;
+		transform: translate(0%, 0%) scale(.7);
+	}
+	100%{
+		opacity: .1;
+		transform: translate(-500%, 0%) scale(.9);
+	}
+}
+.success--hide-animation {
+	.success__container {
+		animation: contactsHide 2s 1 ease;
+	}
+}
