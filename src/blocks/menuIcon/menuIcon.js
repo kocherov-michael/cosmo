@@ -60,9 +60,11 @@ export default class MenuIcon {
 	}
 
 	contrastOn () {
+		// если картинка не заезжает на иконку, то не меняем цвет
+		if (document.body.clientWidth < 992) return
 		this.menuIconElement.classList.add('menu-icon--contrast')
 	}
-
+	
 	contrastOff () {
 		this.menuIconElement.classList.remove('menu-icon--contrast')
 	}
