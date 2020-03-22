@@ -1,82 +1,79 @@
 @import "../../assets/scss/utils/vars.scss";
 
 .personal {
-	padding-top: 56px;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	@media (min-width: 768px) {
-		padding-bottom: 17%;
-		
-	}
+  padding-top: 56px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    padding-bottom: 17%;
+  }
 }
 
 .personal__info {
-	// flex: 0 0 48%;
-	// opacity: 0;
-	// transform: translateX(-100%);
-	
+  // flex: 0 0 48%;
+  // opacity: 0;
+  // transform: translateX(-100%);
+
   line-height: 1.75;
-	color: $default-color;
-	overflow: hidden;
-	
-	@media (min-width: 768px) {
-		padding-right: 60px;
-		
-	}
-	
-	p {
-		font-family: $mainFont;
-		font-size: 16px;
-		font-weight: 300;
-		padding-bottom: 12px;
-		transition: transform .6s ease, opacity .4s ease;
-		transform: translateX(-100%);
-		opacity: 0;
-	}
+  color: $default-color;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding-right: 60px;
+  }
+
+  p {
+    font-family: $mainFont;
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 12px;
+    transition: transform 0.6s ease, opacity 0.4s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
 .personal__button {
-	display: none !important;
-	overflow: hidden;
-	margin-top: 25px;
-	margin-left: -24px;
-	margin-right: -24px;
-	
-	&-wrapper {
-		// height: 100px;
-		// transition: all .8s ease;
-		transition: transform .6s ease, opacity .4s ease;
-		transform: translateX(-100%);
-		opacity: 0;
+  display: none !important;
+  overflow: hidden;
+  margin-top: 25px;
+  margin-left: -24px;
+  margin-right: -24px;
 
-		.button__container {
-			padding: 20px;
+  &-wrapper {
+    // height: 100px;
+    // transition: all .8s ease;
+    transition: transform 0.6s ease, opacity 0.4s ease;
+    transform: translateX(-100%);
+    opacity: 0;
 
-			@media (min-width: 768px) {
-				padding: 10px;
-			}
-		}
-		
-		@media (min-width: 768px) {
-			width: 70%;
-			padding-top: 20px;
+    .button__container {
+      padding: 20px;
 
-		}
-	}
+      @media (min-width: 768px) {
+        padding: 10px;
+      }
+    }
 
-	@media (min-width: 576px) and (max-width: 767px) {
-		margin-left: -40px;
-		margin-right: -40px;
-	}
+    @media (min-width: 768px) {
+      width: 70%;
+      padding-top: 20px;
+    }
+  }
 
-	@media (min-width: 768px) {
-		flex: 0 0 22%;
-		margin-left: 0;
-		margin-right: 0;
-	}
+  @media (min-width: 576px) and (max-width: 767px) {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0 0 22%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 .personal__button.personal__button--overflow-visible {
-	overflow: visible;
+  overflow: visible;
 }

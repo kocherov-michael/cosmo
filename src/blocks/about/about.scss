@@ -413,6 +413,12 @@
 
 .about--show-technologies {
 
+	.technologies__list {
+		&:after {
+			opacity: 1;
+			transition: opacity 1s ease 1s;
+		}
+	}
 	.technologies__item {
 		width: 100%;
 		opacity: 1;

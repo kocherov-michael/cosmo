@@ -30,7 +30,6 @@ export default class Menu {
 		const headerTextElement = document.querySelector(`[${finishDataSelector}]`)
 		const mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.centerTextElement = document.querySelector('[data-center-text]')
-	
 		
 		// слушаем нажатие на элемент списка меню
 		menuListElement.addEventListener('click', (event) => {
