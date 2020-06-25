@@ -20,8 +20,9 @@ export default class Filter{
 	filterListeners () {
 	
 		const filterDefaultElement = document.querySelector('[data-portfolio-filter="all"]')
-		// высота 1 элемента списка
-		this.elementHeight = filterDefaultElement.offsetHeight
+		// высота 1 элемента списка, если она будет меньше 40, то заменяем её на 40, иначе ставим её 
+		// (иногда появляется такой баг)
+		this.elementHeight = filterDefaultElement.offsetHeight < 40 ? 40 : filterDefaultElement.offsetHeight
 		
 		// максимальныя высота обёртки
 		this.dropdownMaxHeight = this.elementHeight * this.filterButtonsList.length
