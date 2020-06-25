@@ -1,7 +1,12 @@
 .personal(data-personal-page)
 	.personal__info(data-about-info)
 		p.scroll-show Здравствуйте! 
-		p.scroll-show Меня зовут Михаил Кочеров, я верстальщик из Санкт-Петербурга. Занимаюсь разработкой как многостраничных сайтов, так и LandingPage.</br>В своих проектах использую такие технологии как: HTML5, CSS3, JavaScript, Bootstrap4.</br>При вёрстке использую препроцессор Scss, шаблонизатор Pug и сестему сборки Webpack.</br>Знаю поверхностно PHP и mySQL.
+		p.scroll-show 
+			| Меня зовут Михаил Кочеров, я верстальщик из Санкт-Петербурга. Занимаюсь разработкой как многостраничных сайтов, так и LandingPage. А также постановкой их на Wordpress.</br>
+			| В своих проектах использую такие технологии как: HTML5, CSS3, JavaScript, Bootstrap4.</br>
+			| При вёрстке использую препроцессор Scss, шаблонизатор Pug и сестему сборки Webpack.</br>
+			| Базовые знания PHP и mySQL.</br>
+			| Есть опыт работы с Google Sheets - заполнение таблиц с помощью скрипта данными, полученными по API.
 	.personal__button(data-button-overflow data-about-button)
 		.personal__button-wrapper.scroll-show
 			+button('Скачать резюме','', 'down', 'small')(data-resume-button)

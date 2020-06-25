@@ -17,10 +17,12 @@ export default class Menu {
 		this.sertificat = new Sertificat()
 		// this.mailForm = new MailForm()
 		this.sertificatsSlider = new SertificatsSlider({selector: '.sertificats-slider'})
+		// инициализируем логотип и передаём ему нужные экземпляры классов
 		this.logo = new Logo({
 			aboutPage: this.aboutPage,
 			portfolioPage: this.portfolioPage,
-			contactsPage: this.contactsPage
+			contactsPage: this.contactsPage,
+			menuIcon: this.menuIcon
 		})
 	}
 

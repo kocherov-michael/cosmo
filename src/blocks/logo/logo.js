@@ -5,6 +5,7 @@ export default class Logo {
 		this.aboutPage = args.aboutPage
 		this.portfolioPage = args.portfolioPage
 		this.contactsPage = args.contactsPage
+		this.menuIcon = args.menuIcon
 		this.logoElement = document.querySelector('[data-logo]')
 		this.mainContainerElement = document.querySelector('[data-main-wrapper]')
 		this.logoListener()
@@ -30,6 +31,8 @@ export default class Logo {
 		// уходим со страницы about
 		if (leavePage === 'about') {
 			this.aboutPage.leaveAboutPage()
+			// меняем цвет иконки меню на светлый
+			this.menuIcon.contrastOff()
 		}
 		// уходим со страницы контакты
 		else if (leavePage === 'contacts') {
